@@ -1,0 +1,53 @@
+/* ############### NAV FOOTER ################ */
+.container__navfooter {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-dark);
+    width: 100%;
+    height: auto;
+    padding: 2rem;
+}
+
+.navfooter__content {
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.container__navfooter h3 {
+    padding-top: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--light);
+}
+
+.navfooter__location em {
+    font-style: normal;
+    font-size: 1.25rem;
+}
+
+.navfooter__location li,
+a {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--secondary-light);
+}
+
+/* ###############  FOOTER ################ */
+
+.container__footer {
+    background-color: var(--primary-dark);
+    color: var(--light);
+    text-align: center;
+    padding: 1rem;
+}
+
+.container__footer h4 {
+    font-weight: 200;
+}
+
+.container__footer em {
+    color: var(--warning);
+    font-style: normal;
+}

@@ -1,0 +1,23 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--primary);
+    padding-left: 2rem;
+    padding-right: 2rem;
+    min-height: 4rem;
+}
+
+.logo-header {
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.nav__links ul li {
+    display: none;
+}
+
+.div__header{
+    position: relative;
+}
