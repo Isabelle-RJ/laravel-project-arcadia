@@ -18,13 +18,7 @@
                  class="home__icon"
                  src="/asset/icons/icon-ecologie.svg">
             <p class="home__description">
-                Bienvenue à Arcadia, un zoo unique en son genre situé tout près
-                de la légendaire forêt de Brocéliande en
-                Bretagne, en France. <br> Fondé en 1960, Arcadia vous invite à
-                un voyage fascinant au cœur de la faune
-                japonaise. Découvrez une diversité exceptionnelle d'animaux
-                originaires du Japon dans un cadre
-                enchanteur et préservé.
+                {{ $zoo->description }}
             </p>
             <img alt="Logo d'Arcadia"
                  class="home__logo"

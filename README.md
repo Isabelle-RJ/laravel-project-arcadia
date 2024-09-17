@@ -23,6 +23,7 @@ as well as schedules and the possibility of leaving a review.
 ## Stack 
 
 ## Local installation :
+
 Clone the repository
 ```shell
 git clone https://github.com/Isabelle-RJ/arcadia-project.git
@@ -36,18 +37,29 @@ Start Laravel server in your IDE terminal :
 ```shell
 php artisan serve
 ```
-In the second terminal :
+For run vite :
 ```shell
+npm install
 npm run dev
 ```
 
-In the third terminal (sass):
+Install telescope :
+```shell
+composer require laravel/telescope 
+```
+```shell
+php artisan telescope:install
+```
+
+[Documentation Laravel](https://laravel.com/docs/11.x)
+
+For sass :
 ```shell
 npm install -D sass-embedded
 ```
 
 
-### Author :
 
+### Author :
 
 [Isabelle Radermecker Jurain](https://github.com/Isabelle-RJ/arcadia-project)
