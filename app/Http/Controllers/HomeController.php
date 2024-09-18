@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Zoo;
 use Exception;
 use Illuminate\Contracts\View\View;
-use function PHPUnit\Framework\throwException;
 
 class HomeController extends Controller
 {

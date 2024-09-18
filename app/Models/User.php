@@ -2,10 +2,21 @@
 
 namespace App\Models;
 
-
+use DateTimeImmutable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+
+/**
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ * @property DateTimeImmutable $email_verified_at
+ * @property string $password
+ * @property string $role
+ * @property DateTimeImmutable $created_at
+ * @property DateTimeImmutable $update_at
+ */
 
 class User extends Authenticatable
 {

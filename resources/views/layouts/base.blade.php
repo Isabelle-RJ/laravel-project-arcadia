@@ -30,6 +30,7 @@
                 <li><a href="{{ route('services')}}">Services</a></li>
                 <li><a href="{{ route('contact')}}">Contact</a></li>
                 <li><a href="{{ route('ticketing')}}">Billetterie</a></li>
+                <li><a href="{{ route('create-form')}}">Zoo</a></li>
             </ul>
         </div>
     </div>
