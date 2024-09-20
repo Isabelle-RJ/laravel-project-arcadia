@@ -4,6 +4,7 @@ namespace App\Models;
 
 use DateTimeImmutable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int $id
@@ -23,4 +24,17 @@ class Zoo extends Model
         'name',
         'description',
     ];
+
+    /**
+     * Get the animals for the habitat
+     */
+    public function habitats(): HasMany
+    {
+        return $this->hasMany(Habitat::class);
+    }
+
+    public function users(): HasMany
+    {
+        return $this->hasMany(User::class);
+    }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnimalsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
@@ -33,7 +34,6 @@ Route::patch('admin/zoo/habitats/edit/{name}', [HabitatsController::class, 'upda
 Route::delete('admin/zoo/habitats/edit/{name}', [HabitatsController::class, 'delete'])->name('habitats.delete');
 
 Route::get('admin/zoo/animals/create', [AnimalsController::class, 'createForm'])->name('animals.createForm');
-Route::post();
 
 // TODO: METTRE AU PROPRE LES ROUTES !!
 Route::get('/admin/zoo', [ZooController::class, 'index'])->name('zoo-index');

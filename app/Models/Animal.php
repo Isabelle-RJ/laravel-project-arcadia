@@ -6,38 +6,33 @@ use DateTimeImmutable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+
 
 /**
  * @property int $id
- * @property int $zoo_id
+ * @property int $habitat_id
  * @property string $name
- * @property string $description
+ * @property string $breed
  * @property string $image
  * @property DateTimeImmutable $created_at
  * @property DateTimeImmutable $update_at
  */
-class Habitat extends Model
+class Animal extends Model
 {
+
     use HasFactory;
 
     protected $fillable = [
         'name',
-        'description',
+        'breed',
         'image',
     ];
 
     /**
-     * Get the animals for the habitat
+     * Get the habitat for the animal
      */
-    public function animals(): HasMany
+    public function habitat(): BelongsTo
     {
-        return $this->hasMany(Animal::class);
+        return $this->belongsTo(Habitat::class);
     }
-
-    public function zoo(): BelongsTo
-    {
-        return $this->belongsTo(Zoo::class);
-    }
-
 }
