@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use DateTimeImmutable;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
 
 /**
  * @property int $id
@@ -15,14 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property DateTimeImmutable $created_at
  * @property DateTimeImmutable $update_at
  */
-class Habitat extends Model
+class Animals extends Model
 {
-    use HasFactory;
-
-    protected $fillable = [
-        'name',
-        'description',
-        'image',
-    ];
 
 }

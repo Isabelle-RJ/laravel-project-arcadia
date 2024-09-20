@@ -4,23 +4,30 @@
           action="{{ route('create-zoo') }}">
         @csrf
 
-        <input
-            type="text"
-            name="name"
-        >
-        @error('name')
-        {{ $message }}
-        @enderror
+        <div>
+            <label for="name">Nom du Zoo</label>
+            <input
+                type="text"
+                name="name"
+            >
+            @error('name')
+            {{ $message }}
+            @enderror
+        </div>
 
-        <input
-            type="text"
-            name="description"
-        >
-        @error('description')
-        {{ $message }}
-        @enderror
+        <div>
+            <label for="description">Décrivez votre zoo :</label>
+            <input
+                type="text"
+                name="description"
+            >
+            @error('description')
+            {{ $message }}
+            @enderror
+        </div>
 
-        <button type="submit">OK !</button>
-
+        <div>
+            <button type="submit">Créer</button>
+        </div>
     </form>
 @endsection

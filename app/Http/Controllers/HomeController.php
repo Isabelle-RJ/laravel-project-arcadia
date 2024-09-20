@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Habitat;
 use App\Models\Zoo;
 use Exception;
 use Illuminate\Contracts\View\View;
@@ -17,6 +18,9 @@ class HomeController extends Controller
         if (!$zoo){
             throw new Exception("Tu n'as pas de zoo", 404);
         }
-        return view('home', compact('zoo'));
+
+        $habitats = Habitat::query()->where('zoo_id', '=', $zoo->id)->get();
+
+        return view('home', compact('zoo', 'habitats'));
     }
 }

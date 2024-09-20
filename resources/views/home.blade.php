@@ -20,6 +20,9 @@
             <p class="home__description">
                 {{ $zoo->description }}
             </p>
+            <div>
+                ici on vera pour insérer "quelques images du zoo"
+            </div>
             <img alt="Logo d'Arcadia"
                  class="home__logo"
                  src="/asset/logos/logo-header.svg">
@@ -32,55 +35,22 @@
                 environnements ...</h2>
             <div class="card__content">
                 <div>
+                    @foreach($habitats as $habitat)
                     <article class="card__article">
                         <div class="card__image">
                             <img alt="Photo de daim au Japon"
                                  class="card__img"
-                                 src="/asset/images/Nara-Japon-Daim-Couverture.jpg">
+                                 src="/storage/asset/images/{{$habitat->image}}">
                             <div class="card__shadow"></div>
                         </div>
                         <div class="card__data">
-                            <h3 class="card__name">Savane</h3>
+                            <h3 class="card__name">{{ $habitat->name }}</h3>
                             <a class="card__button"
-                               href="{{ route('habitats') }}">Voir plus</a>
+                               href="{{ route('habitat', [$habitat->name]) }}">Voir plus</a>
 
                         </div>
                     </article>
-
-                    <article class="card__article">
-                        <div class="card__image">
-                            <img alt="Photo de carpes koi"
-                                 class="card__img"
-                                 src="/asset/images/carpes-koi.webp">
-                            <div class="card__shadow"></div>
-                        </div>
-                        <div class="card__data">
-                            <h3 class="card__name">Marais</h3>
-                            <a class="card__button"
-                               href="{{ route('habitats')}}">
-                                Voir plus
-                            </a>
-                        </div>
-                    </article>
-
-                    <article class="card__article">
-                        <div class="card__image">
-                            <img alt="Photo de macaques japonais"
-                                 class="card__img"
-                                 src="/asset/images/singes-jp.jpg">
-                            <div class="card__shadow"></div>
-                        </div>
-                        <div class="card__data">
-                            <h3 class="card__name">Jungle</h3>
-                            <!-- <p class="card__description">
-                              "Les <em>Macaques Japonais</em> se détendent sur les pierres chaudes dans une source thermale, offrant une scène paisible et captivante au cœur du zoo."
-                            </p> -->
-                            <a class="card__button"
-                               href="{{ route('habitats')}}">Voir plus
-                            </a>
-                        </div>
-                    </article>
-
+                        @endforeach
                 </div>
             </div>
         </div>
@@ -95,7 +65,7 @@
                 <div>
                     <article class="card__article__services">
                         <div class="card__image__services">
-                            <img alt=""
+                            <img alt="le nom d'une photo"
                                  class="card__img__services"
                                  src="/asset/images/services/restaurant-exterior.jpg">
                             <div class="card__shadow__services"></div>

@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/services', [ServicesController::class, 'services'])->name('services');
-Route::get('/habitats', [HabitatsController::class, 'habitats'])->name('habitats');
+Route::get('/habitats', [HabitatsController::class, 'index'])->name('habitats');
+Route::get('/habitat/{name}', [HabitatsController::class, 'show'])->name('habitat');
 Route::get('/contact', function () {})->name('contact');
 Route::get('/ticketing', function () {})->name('ticketing');
 Route::get('/legal-notices', function () {})->name('legal-notices');
@@ -25,6 +26,16 @@ Route::post('/login',[LoginController::class, 'authenticate' ])->name('auth.auth
 Route::get('/register', [RegisterController::class, 'register' ])->name('auth.register');
 Route::post('/register',[RegisterController::class, 'registerPost' ])->name('auth.registerPost');
 
+Route::get('admin/zoo/habitats/create', [HabitatsController::class, 'createForm'])->name('habitats.createForm');
+Route::post('/admin/zoo/habitats/create', [HabitatsController::class, 'create'])->name('habitats.create');
+Route::get('admin/zoo/habitats/edit/{name}', [HabitatsController::class, 'edit'])->name('habitats.edit');
+Route::patch('admin/zoo/habitats/edit/{name}', [HabitatsController::class, 'update'])->name('habitats.update');
+Route::delete('admin/zoo/habitats/edit/{name}', [HabitatsController::class, 'delete'])->name('habitats.delete');
+
+Route::get('admin/zoo/animals/create', [AnimalsController::class, 'createForm'])->name('animals.createForm');
+Route::post();
+
+// TODO: METTRE AU PROPRE LES ROUTES !!
 Route::get('/admin/zoo', [ZooController::class, 'index'])->name('zoo-index');
 Route::get('/admin/zoo/create', [ZooController::class, 'createForm' ])->name('create-form');
 Route::post('/admin/zoo/create', [ZooController::class, 'create'])->name('create-zoo');

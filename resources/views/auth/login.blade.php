@@ -1,11 +1,10 @@
-@extends('layouts.base')
+@extends('layouts.admin')
 
 @section('content')
 
-    <h1>Connexion</h1>
-
-    <div class="card">
-        <div class="card-body">
+    <div class="form-connect">
+        <h1>Connexion</h1>
+        <div class="form-body">
             <form
                 action="{{ route('auth.authenticate') }}"
                 method="post">
@@ -14,6 +13,7 @@
                 <div class="form">
                     <label for="email">Email</label>
                     <input
+                        placeholder="Email"
                         type="email"
                         name="email"
                         id="email"
@@ -27,6 +27,7 @@
                 <div class="form">
                     <label for="password">Mot de passe</label>
                     <input
+                        placeholder="Password"
                         type="password"
                         name="password"
                         id="password"
@@ -36,8 +37,9 @@
                     {{ $message }}
                     @enderror
                 </div>
-
-                <button type="submit" class="btn-primary-dark">Se connecter</button>
+                <div class="form">
+                    <button type="submit" class="btn-primary-dark">Se connecter</button>
+                </div>
 
             </form>
         </div>
