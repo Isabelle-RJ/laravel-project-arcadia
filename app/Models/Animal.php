@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $name
  * @property string $breed
  * @property string $image
+ * @property string $description
  * @property DateTimeImmutable $created_at
  * @property DateTimeImmutable $update_at
  */

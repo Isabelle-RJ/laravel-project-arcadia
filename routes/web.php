@@ -14,11 +14,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/services', [ServicesController::class, 'services'])->name('services');
 Route::get('/habitats', [HabitatsController::class, 'index'])->name('habitats');
 Route::get('/habitat/{name}', [HabitatsController::class, 'show'])->name('habitat');
+Route::get('/animals', [AnimalsController::class, 'index'])->name('animals');
+Route::get('/animal/{name}', [AnimalsController::class, 'show'])->name('animal');
 Route::get('/contact', function () {})->name('contact');
 Route::get('/ticketing', function () {})->name('ticketing');
 Route::get('/legal-notices', function () {})->name('legal-notices');
 Route::get('/cgv', function () {})->name('cgv');
-Route::get('/animal', function () {})->name('animal');
 Route::get('/review', function () {})->name('review');
 Route::get('/faq', function () {})->name('faq');
 
