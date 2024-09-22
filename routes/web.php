@@ -29,12 +29,16 @@ Route::get('/register', [RegisterController::class, 'register' ])->name('auth.re
 Route::post('/register',[RegisterController::class, 'registerPost' ])->name('auth.registerPost');
 
 Route::get('admin/zoo/habitats/create', [HabitatsController::class, 'createForm'])->name('habitats.createForm');
-Route::post('/admin/zoo/habitats/create', [HabitatsController::class, 'create'])->name('habitats.create');
+Route::post('admin/zoo/habitats/create', [HabitatsController::class, 'create'])->name('habitats.create');
 Route::get('admin/zoo/habitats/edit/{name}', [HabitatsController::class, 'edit'])->name('habitats.edit');
 Route::patch('admin/zoo/habitats/edit/{name}', [HabitatsController::class, 'update'])->name('habitats.update');
 Route::delete('admin/zoo/habitats/edit/{name}', [HabitatsController::class, 'delete'])->name('habitats.delete');
 
 Route::get('admin/zoo/animals/create', [AnimalsController::class, 'createForm'])->name('animals.createForm');
+Route::post('admin/zoo/animals/create', [AnimalsController::class, 'create'])->name('animals.create');
+Route::get('admin/zoo/animals/edit/{name}', [AnimalsController::class, 'edit'])->name('animals.edit');
+Route::patch('admin/zoo/animals/edit/{name}', [AnimalsController::class, 'update'])->name('animals.update');
+Route::delete('admin/zoo/animals/edit/{name}', [AnimalsController::class, 'delete'])->name('animals.delete');
 
 // TODO: METTRE AU PROPRE LES ROUTES !!
 Route::get('/admin/zoo', [ZooController::class, 'index'])->name('zoo-index');

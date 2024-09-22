@@ -64,7 +64,7 @@ class HabitatsController extends Controller
 
     public function edit(string $name): View
     {
-        $zoo = Zoo::query()->where('name', '=', 'Arcadia')->first();
+        //$zoo = Zoo::query()->where('name', '=', 'Arcadia')->first();
         $habitat = Habitat::query()->where('name','=', $name)->first();
 
         return view('admin.zoo.habitats.edit', compact('habitat'));

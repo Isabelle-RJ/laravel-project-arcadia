@@ -15,8 +15,8 @@ class HabitatsFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'description' => 'required',
+            'name' => 'required|string',
+            'description' => 'required|string',
             'image'=>'required|image',
         ];
     }
