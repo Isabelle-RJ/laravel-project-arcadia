@@ -64,10 +64,10 @@ class HabitatsController extends Controller
 
     public function edit(string $name): View
     {
-        //$zoo = Zoo::query()->where('name', '=', 'Arcadia')->first();
+        $zoo = Zoo::query()->where('name', '=', 'Arcadia')->first();
         $habitat = Habitat::query()->where('name','=', $name)->first();
 
-        return view('admin.zoo.habitats.edit', compact('habitat'));
+        return view('admin.zoo.habitats.edit', compact('habitat', 'zoo'));
     }
 
     public function update(HabitatsFormRequest $request, string $name): RedirectResponse
@@ -76,12 +76,11 @@ class HabitatsController extends Controller
         $habitat = Habitat::query()->where('name', '=', $name)->first();
 
         $habitat->zoo_id = $zoo->id;
-        $habitat->name = $request->get('name');
-        $habitat->description = $request->get('description');
-        $habitat->image = $request->get('image');
+        $habitat->name = $request->name;
+        $habitat->description = $request->description;
+        $habitat->image = $request->image;
 
         $habitat->save();
-
         return redirect()->route('home');
     }
 

@@ -47,12 +47,14 @@ class AnimalsController extends Controller
         }
         Storage::disk('public')->putFileAs("asset/images",$request->file('image'), $path);
 
+        $animal->save();
         return redirect()->route('home');
     }
 
     public function createForm(): View
     {
-        return view ('admin.zoo.animals.create');
+        $habitats = Habitat::all();
+        return view ('admin.zoo.animals.create', compact('habitats'));
     }
 
     /**
@@ -61,9 +63,9 @@ class AnimalsController extends Controller
     public function edit(string $name): View
     {
         $animal = Animal::query()->where('name', '=', $name)->first();
-        if (!$animal) {
-            throw new Exception("Cet animal n'existe pas.", 404);
-        }
+        // if (!$animal) {
+         //   throw new Exception("Cet animal n'existe pas.", 404);
+        //  }
         return view('admin.zoo.animals.edit', compact('animal'));
     }
 
@@ -73,10 +75,10 @@ class AnimalsController extends Controller
         $animal = Animal::query()->where('name', '=', $name)->first();
 
         $animal->habitat_id = $habitat->id;
-        $animal->name = $request->get('name');
-        $animal->breed = $request->get('breed');
-        $animal->image = $request->get('image');
-        $animal->description = $request->get('description');
+        $animal->name = $request->name;
+        $animal->breed = $request->breed;
+        $animal->image = $request->image;
+        $animal->description = $request->description;
 
         $animal->save();
         return redirect()->route('home');
@@ -85,7 +87,7 @@ class AnimalsController extends Controller
     public function delete(string $name): RedirectResponse
     {
         $animal = Animal::query()->where('name', '=', $name)->first();
-        Storage::disk('public')->delete('asset/images/' . $animal->image);
+        Storage::disk('public')->delete('asset/images/' .$animal->image);
         $animal->delete();
 
         return redirect()->route('home');

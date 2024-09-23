@@ -32,6 +32,7 @@
                 <li><a href="{{ route('ticketing')}}">Billetterie</a></li>
                 <li><a href="{{ route('create-form')}}">Admin Zoo</a></li>
                 <li><a href="{{ route('habitats.createForm')}}">Admin Habitats</a></li>
+                <li><a href="{{ route('animals.createForm')}}">Admin Animals</a></li>
             </ul>
         </div>
     </div>

@@ -1,18 +1,27 @@
 @extends('layouts.base')
 
 @section('content')
+    <div class="dashboard">
+        <h2>Tableau de bord</h2>
+    </div>
+    <div>
+        <ul>
+            <li>Accueil ></li>
+            <li>Éditer un habitat</li>
+        </ul>
+    </div>
     <h1>Liste des habitats</h1>
 
     <div class="add-habitat">
-        <a href=""
+        <a href="{{ route('habitats.create') }}"
            class="btn-primary">
-            Ajouter un habitat
+            Modifier un habitat
         </a>
     </div>
 
     <form
-        action="{{ route ('habitats.edit', ["name" => $habitat->name]) }}"
-        method="post"
+        action="{{ route ('habitats.update', ["name" => $habitat->name]) }}"
+        method="post" enctype="multipart/form-data"
     >
         @csrf
         @method('PATCH')
@@ -55,14 +64,13 @@
             {{ $message }}
             @enderror
         </div>
-        <button type="submit">Créer</button>
-
-        <form action="{{ route ('habitats.delete', ["name" => $habitat->name]) }}"
-              method="post">
-            @csrf
-            @method('DELETE')
+        <button type="submit">Modifier</button>
+    </form>
+    <form action="{{ route ('habitats.delete', ["name" => $habitat->name]) }}"
+          method="post">
+        @csrf
+        @method('DELETE')
         <button type="submit">Supprimer</button>
-        </form>
     </form>
 
 @endsection

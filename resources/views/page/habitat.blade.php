@@ -1,14 +1,25 @@
 @extends('layouts.base')
-
+@section('header')
+    <img
+        alt="image de fond"
+        class="bg__header"
+        src="/asset/images/{{ $habitat->image }}"
+    >
+    <div class="text-header">
+        <h1>{{ $habitat->name }}</h1>
+    </div>
+@endsection
 @section('content')
     <h1>{{ $habitat->name }}</h1>
 
-     <!-- TODO: Faire une boucle lorsque les animaux seront créer !! -->
+    <!-- TODO: Faire une boucle lorsque les animaux seront créer !! -->
 
     <div class="card-animal">
         <div class="img-animal">
-            <img src="asset/images/cat-jp.jpg"
-                 alt="Photo d'un animal">
+            <img
+                src="asset/images/cat-jp.jpg"
+                alt="Photo d'un animal"
+            >
         </div>
         <div class="name-animal">
             Vivi

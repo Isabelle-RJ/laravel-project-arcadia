@@ -2,6 +2,16 @@
 
 @section('content')
 
+    <div class="dashboard">
+        <h2>Tableau de bord</h2>
+    </div>
+    <div>
+        <ul>
+            <li>Accueil ></li>
+            <li>Créer un habitat</li>
+        </ul>
+    </div>
+
     <div class="habitat-create">
 
         <h1>Créer un habitat</h1>
