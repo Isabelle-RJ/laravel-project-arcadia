@@ -5,7 +5,7 @@
     <div class="dashboard">
         <h2>Tableau de bord</h2>
     </div>
-    <div>
+    <div class="fil-ariane">
         <ul>
             <li>Accueil ></li>
             <li>Créer un animal</li>
@@ -87,7 +87,7 @@
                 @enderror
             </div>
 
-            <button type="submit">Créer</button>
+            <button type="submit" class="btn-create">Créer</button>
         </form>
     </div>
 @endsection

@@ -13,14 +13,18 @@
 <header>
     <div class="logo-header">
         <a href="{{ route('auth.login') }}">
-            <img alt="logo arcadia mobile" class="logo-header" src="/asset/logos/admin-logo.svg"/>
+            <img alt="logo arcadia mobile"
+                 class="logo-header"
+                 src="/asset/logos/admin-logo.svg"/>
         </a>
     </div>
 
     <div class="nav-header">
         <nav>
             <a href="#">
-                <img alt="Menu burger" class="menu-burger" src="/asset/icons/white-menu-burger.svg">
+                <img alt="Menu burger"
+                     class="menu-burger"
+                     src="/asset/icons/white-menu-burger.svg">
             </a>
         </nav>
         <div class="nav-links">
@@ -43,9 +47,17 @@
 </main>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ FOOTER ~~~~~~~~~~~~~~~~~~~~~~~~ -->
-<section class="container__footer">
-    <h4>&copy; Zooparc Arcadia</h4>
-</section>
-
+<footer>
+    <section class="bg-logo-footer">
+            <img
+                src="/asset/logos/logo-header.svg"
+                alt="Le logo arcadia"
+            >
+        <div class="title-footer">
+            <h4>&copy; Zooparc Arcadia</h4>
+        </div>
+    </section>
+    <section class="bg-footer"></section>
+</footer>
 </body>
 </html>

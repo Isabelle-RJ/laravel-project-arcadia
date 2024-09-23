@@ -32,8 +32,19 @@ Go to the directory project
 ```shell
 cd arcadia-project
 ```
+Install all package composer.json:
+```shell
+composer install
+```
+Copy .env.example -> create `.env` -> paste content `.env.example` and change lines 22-26.
 
 Start Laravel server in your IDE terminal :
+```shell
+php artisan key:generate
+
+php artisan make:migration
+```
+
 ```shell
 php artisan serve
 ```

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/services', [ServicesController::class, 'services'])->name('services');
+Route::get('/services', [ServicesController::class, 'index'])->name('services');
 Route::get('/habitats', [HabitatsController::class, 'index'])->name('habitats');
 Route::get('/habitat/{name}', [HabitatsController::class, 'show'])->name('habitat');
 Route::get('/animals', [AnimalsController::class, 'index'])->name('animals');
@@ -39,6 +39,12 @@ Route::post('admin/zoo/animals/create', [AnimalsController::class, 'create'])->n
 Route::get('admin/zoo/animals/edit/{name}', [AnimalsController::class, 'edit'])->name('animals.edit');
 Route::patch('admin/zoo/animals/edit/{name}', [AnimalsController::class, 'update'])->name('animals.update');
 Route::delete('admin/zoo/animals/edit/{name}', [AnimalsController::class, 'delete'])->name('animals.delete');
+
+Route::get('admin/zoo/services/create', [ServicesController::class, 'createForm'])->name('services.createForm');
+Route::post('admin/zoo/services/create', [ServicesController::class, 'create'])->name('services.create');
+Route::get('admin/zoo/services/edit/{name}', [ServicesController::class, 'edit'])->name('services.edit');
+Route::patch('admin/zoo/services/edit/{name}', [ServicesController::class, 'update'])->name('services.update');
+Route::delete('admin/zoo/services/edit/{name}', [ServicesController::class, 'delete'])->name('services.delete');
 
 // TODO: METTRE AU PROPRE LES ROUTES !!
 Route::get('/admin/zoo', [ZooController::class, 'index'])->name('zoo-index');

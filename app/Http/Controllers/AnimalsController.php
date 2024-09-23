@@ -25,7 +25,7 @@ class AnimalsController extends Controller
     {
        $animal = Animal::query()->where('name', '=', $name)->first();
        if (!$animal) {
-           throw new Exception("Tu n'as pas d'animal", 404);
+           throw new Exception("Il n'y a pas d'animal", 404);
        }
        return view('page.animal', compact('animal'));
     }

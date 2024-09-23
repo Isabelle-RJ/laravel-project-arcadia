@@ -1,5 +1,14 @@
-@extends('layouts.base')
+@extends('layouts.admin')
 @section('content')
+    <div class="dashboard">
+        <h2>Tableau de bord</h2>
+    </div>
+    <div class="fil-ariane">
+        <ul>
+            <li>Accueil ></li>
+            <li>Créer un Zoo</li>
+        </ul>
+    </div>
     <form method="POST"
           action="{{ route('create-zoo') }}">
         @csrf
@@ -27,7 +36,8 @@
         </div>
 
         <div>
-            <button type="submit">Créer</button>
+            <button type="submit" class="btn-create">Créer</button>
         </div>
     </form>
 @endsection
+
