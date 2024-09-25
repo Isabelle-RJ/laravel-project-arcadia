@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Habitat;
 use App\Models\Zoo;
 use App\Requests\HabitatsFormRequest;
@@ -74,14 +75,20 @@ class HabitatsController extends Controller
     {
         $zoo = Zoo::query()->where('name', '=', 'Arcadia')->first();
         $habitat = Habitat::query()->where('name', '=', $name)->first();
+        $path = $request->file('image')->getClientOriginalName();
 
         $habitat->zoo_id = $zoo->id;
         $habitat->name = $request->name;
         $habitat->description = $request->description;
-        $habitat->image = $request->image;
+
+        $habitat->image = $path;
+        if (!Storage::disk('public')->exists('asset/images')) {
+            Storage::disk('public')->makeDirectory('asset/images');
+        }
+        Storage::disk('public')->putFileAs("asset/images",$request->file('image'), $path);
 
         $habitat->save();
-        return redirect()->route('home');
+        return redirect()->route('habitat', ['name' => $habitat->name]);
     }
 
     public function delete(string $name): RedirectResponse

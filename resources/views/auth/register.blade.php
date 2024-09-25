@@ -5,7 +5,7 @@
     <h1>S'enregistrer</h1>
 
     <div class="card">
-        <div class="card-body">
+        <div class="formulaires-admin">
             <form
                 action="{{ route('auth.registerPost') }}"
                 method="post">

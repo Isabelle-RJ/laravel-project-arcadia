@@ -15,10 +15,10 @@
     <div class="add-habitat">
         <a href="{{ route('habitats.create') }}"
            class="btn-primary">
-            Modifier un habitat
+            Retour créer un habitat
         </a>
     </div>
-
+<div class="formulaires-admin">
     <form
         action="{{ route ('habitats.update', ["name" => $habitat->name]) }}"
         method="post" enctype="multipart/form-data"
@@ -32,7 +32,7 @@
                 type="text"
                 name="name"
                 id="name"
-                value="{{ old('name') }}"
+                value="{{ $habitat->name }}"
             >
             @error('name')
             {{ $message }}
@@ -45,7 +45,7 @@
                 type="text"
                 name="description"
                 id="description"
-                value="{{ old('description') }}"
+                value="{{ $habitat->description }}"
             >
             @error('description')
             {{ $message }}
@@ -58,19 +58,21 @@
                 type="file"
                 name="image"
                 id="image"
-                value="{{ old('image') }}"
+                value="{{ $habitat->image }}"
             >
             @error('image')
             {{ $message }}
             @enderror
         </div>
-        <button type="submit">Modifier</button>
+        <button type="submit" class="btn-primary">Modifier</button>
     </form>
     <form action="{{ route ('habitats.delete', ["name" => $habitat->name]) }}"
           method="post">
         @csrf
         @method('DELETE')
-        <button type="submit">Supprimer</button>
+        <button type="submit" class="btn-danger">Supprimer</button>
     </form>
+
+</div>
 
 @endsection

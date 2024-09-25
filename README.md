@@ -42,7 +42,11 @@ Start Laravel server in your IDE terminal :
 ```shell
 php artisan key:generate
 
-php artisan make:migration
+php artisan migrate
+
+php artisan migrate:fresh --seed
+
+php artisan storage:link
 ```
 
 ```shell

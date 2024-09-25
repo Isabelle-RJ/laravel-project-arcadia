@@ -38,7 +38,7 @@
                     @foreach($habitats as $habitat)
                     <article class="card__article">
                         <div class="card__image">
-                            <img alt="Photo de daim au Japon"
+                            <img alt="Photo {{ $habitat->name }}"
                                  class="card__img"
                                  src="/storage/asset/images/{{$habitat->image}}">
                             <div class="card__shadow"></div>
@@ -54,78 +54,32 @@
                 </div>
             </div>
         </div>
-
     </section>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ Section Services ~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
     <section class="container__services">
-        <div class="card__container__services">
+        <div class="card__container">
             <h2 class="services__title">... et nos différents services</h2>
-            <div class="card__content__services">
+            <div class="card__content">
                 <div>
-                    <article class="card__article__services">
-                        <div class="card__image__services">
-                            <img alt="le nom d'une photo"
-                                 class="card__img__services"
-                                 src="/asset/images/services/restaurant-exterior.jpg">
-                            <div class="card__shadow__services"></div>
-                        </div>
-                        <div class="card__data__services">
-                            <h3 class="card__name__services">Restauration</h3>
-                            <p class="card__description__services">
-                                "Une pause gourmande au cœur du zoo : un repas
-                                savoureux qui ravit les visiteurs tout
-                                autant que les animaux."
-                            </p>
-                            <a class="card__button__services"
-                               href="{{ route('services')}}">Voir plus
-                            </a>
-                        </div>
-                    </article>
-
-                    <article class="card__article__services">
-                        <div class="card__image__services">
-                            <img alt=""
-                                 class="card__img__services"
-                                 src="/asset/images/services/parc-nara-daim.jpg">
-                            <div class="card__shadow__services"></div>
-                        </div>
-                        <div class="card__data__services">
-                            <h3 class="card__name__services">Visite guidée</h3>
-                            <p class="card__description__services">
-                                "Découvrez les secrets du zoo lors de nos
-                                visites guidées gratuites, où chaque pas
-                                révèle une aventure fascinante dans le monde
-                                animal."
-                            </p>
-                            <a class="card__button__services"
-                               href="{{ route('services')}}">Voir plus</a>
-                        </div>
-                    </article>
-
-                    <article class="card__article__services">
-                        <div class="card__image__services">
-                            <img alt=""
-                                 class="card__img__services"
-                                 src="/asset/images/services/train-touristique.jpg">
-                            <div class="card__shadow__services"></div>
-                        </div>
-                        <div class="card__data__services">
-                            <h3 class="card__name__services">Visite en petit
-                                train </h3>
-                            <p class="card__description__services">
-                                "Embarquez pour un voyage enchanté en petit
-                                train à travers le zoo, pour une exploration
-                                amusante et immersive des merveilles animales."
-                            </p>
-                            <a class="card__button__services"
-                               href="{{ route('services')}}">Voir plus</a>
-                        </div>
-                    </article>
-
+                    @foreach($services as $service)
+                        <article class="card__article">
+                            <div class="card__image">
+                                <img alt="Photo {{ $service->name }}"
+                                     class="card__img"
+                                     src="/storage/asset/images/{{$service->image}}">
+                                <div class="card__shadow"></div>
+                            </div>
+                            <div class="card__data">
+                                <h3 class="card__name">{{ $service->name }}</h3>
+                                <a class="card__button"
+                                   href="">Voir plus</a>
+                            </div>
+                        </article>
+                    @endforeach
                 </div>
             </div>
         </div>
+
     </section>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ Section Schedules ~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <section class="container__hours">

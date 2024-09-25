@@ -12,7 +12,7 @@
         </ul>
     </div>
 
-    <div class="animal-create">
+    <div class="formulaires-admin">
 
         <h1>Créer un animal</h1>
 

@@ -4,7 +4,7 @@
 
     <div class="form-connect">
         <h1>Connexion</h1>
-        <div class="form-body">
+        <div class="formulaires-admin">
             <form
                 action="{{ route('auth.authenticate') }}"
                 method="post">

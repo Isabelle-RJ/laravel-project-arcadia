@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Animal;
 use App\Models\Habitat;
 use App\Requests\AnimalsFormRequest;
@@ -63,22 +64,25 @@ class AnimalsController extends Controller
     public function edit(string $name): View
     {
         $animal = Animal::query()->where('name', '=', $name)->first();
-        // if (!$animal) {
-         //   throw new Exception("Cet animal n'existe pas.", 404);
-        //  }
-        return view('admin.zoo.animals.edit', compact('animal'));
+        $habitats = Habitat::all();
+
+        return view('admin.zoo.animals.edit', compact('animal', 'habitats'));
     }
 
     public function update(AnimalsFormRequest $request, string $name): RedirectResponse
     {
-        $habitat = Habitat::query()->where('id', '=', $request->habitat_id)->first();
+        $path = $request->file('image')->getClientOriginalName();
         $animal = Animal::query()->where('name', '=', $name)->first();
 
-        $animal->habitat_id = $habitat->id;
+        $animal->habitat_id = $request->habitat_id;
         $animal->name = $request->name;
         $animal->breed = $request->breed;
-        $animal->image = $request->image;
+        $animal->image = $path;
         $animal->description = $request->description;
+        if (!Storage::disk('public')->exists('asset/images')) {
+            Storage::disk('public')->makeDirectory('asset/images');
+        }
+        Storage::disk('public')->putFileAs("asset/images",$request->file('image'), $path);
 
         $animal->save();
         return redirect()->route('home');
