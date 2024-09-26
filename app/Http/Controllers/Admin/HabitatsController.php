@@ -29,7 +29,7 @@ class HabitatsController extends Controller
      */
     public function show(string $name): View
     {
-        $habitat = Habitat::query()->where('name','=', $name)->first();
+        $habitat = Habitat::query()->where('name','=', $name)->with('animals')->first();
         if (!$habitat){
             throw new Exception("Tu n'as pas d'habitat", 404);
         }

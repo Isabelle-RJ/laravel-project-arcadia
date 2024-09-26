@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AnimalsController;
 use App\Http\Controllers\Admin\HabitatsController;
 use App\Http\Controllers\Admin\ServicesController;
+use App\Http\Controllers\Admin\TimetableController;
 use App\Http\Controllers\Admin\ZooController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -16,6 +17,7 @@ Route::get('/habitats', [HabitatsController::class, 'index'])->name('habitats');
 Route::get('/habitat/{name}', [HabitatsController::class, 'show'])->name('habitat');
 Route::get('/animals', [AnimalsController::class, 'index'])->name('animals');
 Route::get('/animal/{name}', [AnimalsController::class, 'show'])->name('animal');
+
 Route::get('/contact', function () {})->name('contact');
 Route::get('/ticketing', function () {})->name('ticketing');
 Route::get('/legal-notices', function () {})->name('legal-notices');

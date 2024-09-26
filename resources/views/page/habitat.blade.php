@@ -12,8 +12,7 @@
 @section('content')
     <h1>{{ $habitat->name }}</h1>
 
-    <!-- TODO: Faire une boucle lorsque les animaux seront créer !! -->
-
+    @forelse( $habitat->animals as $animal )
     <div class="card-animal">
         <div class="img-animal">
             <img
@@ -22,29 +21,16 @@
             >
         </div>
         <div class="name-animal">
-            Vivi
+            {{ $animal->name }}
         </div>
         <div class="description-animal">
-            Petite description de Vivi
+            {{ $animal->description }}
         </div>
         <div class="btn-animal">
             <a href="">Fiche animal</a>
         </div>
     </div>
-    <div class="card-animal">
-        <div class="img-animal">
-            <img src="asset/images/rabbit-young.jpg"
-                 alt="Photo d'un animal">
-        </div>
-        <div class="name-animal">
-            Nihon
-        </div>
-        <div class="description-animal">
-            Petite description de Nihon
-        </div>
-        <div class="btn-animal">
-            <a href="">Fiche animal</a>
-        </div>
-    </div>
-
+    @empty
+        <p>Il y a aucun animal</p>
+    @endforelse
 @endsection
