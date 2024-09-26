@@ -11,7 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
-class AnimalsController extends Controller
+class AnimalsAdminController extends Controller
 {
     public function index(): View
     {

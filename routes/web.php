@@ -1,13 +1,15 @@
 <?php
 
-use App\Http\Controllers\Admin\AnimalsController;
-use App\Http\Controllers\Admin\HabitatsController;
-use App\Http\Controllers\Admin\ServicesController;
-use App\Http\Controllers\Admin\TimetableController;
-use App\Http\Controllers\Admin\ZooController;
+use App\Http\Controllers\Admin\AnimalsAdminController;
+use App\Http\Controllers\Admin\HabitatsAdminController;
+use App\Http\Controllers\Admin\ServicesAdminController;
+use App\Http\Controllers\Admin\ZooAdminController;
+use App\Http\Controllers\AnimalsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\HabitatsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ServicesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -30,26 +32,26 @@ Route::post('/login',[LoginController::class, 'authenticate' ])->name('auth.auth
 Route::get('/register', [RegisterController::class, 'register' ])->name('auth.register');
 Route::post('/register',[RegisterController::class, 'registerPost' ])->name('auth.registerPost');
 
-Route::get('admin/zoo/habitats/create', [HabitatsController::class, 'createForm'])->name('habitats.createForm');
-Route::post('admin/zoo/habitats/create', [HabitatsController::class, 'create'])->name('habitats.create');
-Route::get('admin/zoo/habitats/edit/{name}', [HabitatsController::class, 'edit'])->name('habitats.edit');
-Route::patch('admin/zoo/habitats/edit/{name}', [HabitatsController::class, 'update'])->name('habitats.update');
-Route::delete('admin/zoo/habitats/edit/{name}', [HabitatsController::class, 'delete'])->name('habitats.delete');
+Route::get('admin/zoo/habitats/create', [HabitatsAdminController::class, 'createForm'])->name('habitats.createForm');
+Route::post('admin/zoo/habitats/create', [HabitatsAdminController::class, 'create'])->name('habitats.create');
+Route::get('admin/zoo/habitats/edit/{name}', [HabitatsAdminController::class, 'edit'])->name('habitats.edit');
+Route::patch('admin/zoo/habitats/edit/{name}', [HabitatsAdminController::class, 'update'])->name('habitats.update');
+Route::delete('admin/zoo/habitats/edit/{name}', [HabitatsAdminController::class, 'delete'])->name('habitats.delete');
 
-Route::get('admin/zoo/animals/create', [AnimalsController::class, 'createForm'])->name('animals.createForm');
-Route::post('admin/zoo/animals/create', [AnimalsController::class, 'create'])->name('animals.create');
-Route::get('admin/zoo/animals/edit/{name}', [AnimalsController::class, 'edit'])->name('animals.edit');
-Route::patch('admin/zoo/animals/edit/{name}', [AnimalsController::class, 'update'])->name('animals.update');
-Route::delete('admin/zoo/animals/edit/{name}', [AnimalsController::class, 'delete'])->name('animals.delete');
+Route::get('admin/zoo/animals/create', [AnimalsAdminController::class, 'createForm'])->name('animals.createForm');
+Route::post('admin/zoo/animals/create', [AnimalsAdminController::class, 'create'])->name('animals.create');
+Route::get('admin/zoo/animals/edit/{name}', [AnimalsAdminController::class, 'edit'])->name('animals.edit');
+Route::patch('admin/zoo/animals/edit/{name}', [AnimalsAdminController::class, 'update'])->name('animals.update');
+Route::delete('admin/zoo/animals/edit/{name}', [AnimalsAdminController::class, 'delete'])->name('animals.delete');
 
-Route::get('admin/zoo/services/create', [ServicesController::class, 'createForm'])->name('services.createForm');
-Route::post('admin/zoo/services/create', [ServicesController::class, 'create'])->name('services.create');
-Route::get('admin/zoo/services/edit/{name}', [ServicesController::class, 'edit'])->name('services.edit');
-Route::patch('admin/zoo/services/edit/{name}', [ServicesController::class, 'update'])->name('services.update');
-Route::delete('admin/zoo/services/edit/{name}', [ServicesController::class, 'delete'])->name('services.delete');
+Route::get('admin/zoo/services/create', [ServicesAdminController::class, 'createForm'])->name('services.createForm');
+Route::post('admin/zoo/services/create', [ServicesAdminController::class, 'create'])->name('services.create');
+Route::get('admin/zoo/services/edit/{name}', [ServicesAdminController::class, 'edit'])->name('services.edit');
+Route::patch('admin/zoo/services/edit/{name}', [ServicesAdminController::class, 'update'])->name('services.update');
+Route::delete('admin/zoo/services/edit/{name}', [ServicesAdminController::class, 'delete'])->name('services.delete');
 
 // TODO: METTRE AU PROPRE LES ROUTES !!
-Route::get('/admin/zoo', [ZooController::class, 'index'])->name('zoo-index');
-Route::get('/admin/zoo/create', [ZooController::class, 'createForm' ])->name('create-form');
-Route::post('/admin/zoo/create', [ZooController::class, 'create'])->name('create-zoo');
-Route::get('/admin/zoo/{name}', [ZooController::class, 'show'])->name('show-zoo');
+Route::get('/admin/zoo', [ZooAdminController::class, 'index'])->name('zoo-index');
+Route::get('/admin/zoo/create', [ZooAdminController::class, 'createForm' ])->name('create-form');
+Route::post('/admin/zoo/create', [ZooAdminController::class, 'create'])->name('create-zoo');
+Route::get('/admin/zoo/{name}', [ZooAdminController::class, 'show'])->name('show-zoo');

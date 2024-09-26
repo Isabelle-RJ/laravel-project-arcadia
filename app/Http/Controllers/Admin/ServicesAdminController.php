@@ -11,7 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
-class ServicesController extends Controller
+class ServicesAdminController extends Controller
 {
     public function index(): View
     {

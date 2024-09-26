@@ -11,7 +11,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 
-class HabitatsController extends Controller
+class HabitatsAdminController extends Controller
 {
     public function index(): View
     {
