@@ -30,10 +30,10 @@
                 <li><a href="{{ route('services')}}">Services</a></li>
                 <li><a href="{{ route('contact')}}">Contact</a></li>
                 <li><a href="{{ route('ticketing')}}">Billetterie</a></li>
-                <li><a href="{{ route('create-form')}}">Admin Zoo</a></li>
                 <li><a href="{{ route('habitats.createForm')}}">Admin Habitats</a></li>
                 <li><a href="{{ route('animals.createForm')}}">Admin Animals</a></li>
                 <li><a href="{{ route('services.createForm')}}">Admin Services</a></li>
+                <li><a href="{{ route('openings.createForm')}}">Admin Horaires</a></li>
             </ul>
         </div>
     </div>

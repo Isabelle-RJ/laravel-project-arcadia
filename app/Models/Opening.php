@@ -7,24 +7,23 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-
 /**
  * @property int $id
  * @property int $zoo_id
- * @property string $name
- * @property string $description
- * @property string $image
+ * @property string $day_open
+ * @property string $hour_open
+ * @property string $hour_close
  * @property DateTimeImmutable $created_at
- * @property DateTimeImmutable $update_at
+ * @property DateTimeImmutable $updated_at
  */
-class Services extends Model
+class Opening extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'description',
-        'image',
+        'day_open',
+        'hour_open',
+        'hour_close',
     ];
 
     public function zoo(): BelongsTo

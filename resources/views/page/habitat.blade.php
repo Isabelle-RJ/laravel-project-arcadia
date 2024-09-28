@@ -3,7 +3,7 @@
     <img
         alt="image de fond"
         class="bg__header"
-        src="/asset/images/{{ $habitat->image }}"
+        src="/storage/asset/images/{{ $habitat->image }}"
     >
     <div class="text-header">
         <h1>{{ $habitat->name }}</h1>
@@ -16,7 +16,7 @@
     <div class="card-animal">
         <div class="img-animal">
             <img
-                src="asset/images/cat-jp.jpg"
+                src="/storage/asset/images/{{ $animal->image }}"
                 alt="Photo d'un animal"
             >
         </div>

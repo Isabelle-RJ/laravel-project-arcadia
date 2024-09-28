@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Animal;
 use App\Models\Habitat;
+use App\Models\Opening;
+use App\Models\Service;
 use App\Models\User;
 use App\Models\Zoo;
 use Illuminate\Database\Seeder;
@@ -19,6 +21,8 @@ class PersonaSeeder extends Seeder
         $this->users($persona['users']);
         $this->habitats($persona['habitats']);
         $this->animals($persona['animals']);
+        $this->services($persona['services']);
+        $this->openings($persona['openings']);
     }
 
     private function zoo(array $zoo): void
@@ -70,7 +74,18 @@ class PersonaSeeder extends Seeder
 
     private function services(array $services): void
     {
-        // TODO : implement services
+        foreach ($services as $service) {
+            $newService = [
+                'id' => $service['id'],
+                'zoo_id' => $service['zoo_id'],
+                'name' => $service['name'],
+                'description' => $service['description'],
+                'image' => $service['image'],
+            ];
+
+            Service::factory()
+                ->create($newService);
+        }
     }
 
     private function animals(array $animals): void
@@ -87,6 +102,22 @@ class PersonaSeeder extends Seeder
 
             Animal::factory()
                 ->create($newAnimal);
+        }
+    }
+
+    private function openings(array $openings): void
+    {
+        foreach ($openings as $opening) {
+            $newOpening = [
+                'id' => $opening['id'],
+                'zoo_id' => $opening['zoo_id'],
+                'day_open' => $opening['day_open'],
+                'hour_open' => $opening['hour_open'],
+                'hour_close' => $opening['hour_close'],
+            ];
+
+            Opening::factory()
+                ->create($newOpening);
         }
     }
 }

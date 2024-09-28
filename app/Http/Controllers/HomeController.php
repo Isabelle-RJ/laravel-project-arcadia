@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Habitat;
-use App\Models\Services;
+use App\Models\Opening;
+use App\Models\Service;
 use App\Models\Zoo;
 use Exception;
 use Illuminate\Contracts\View\View;
@@ -21,8 +22,9 @@ class HomeController extends Controller
         }
 
         $habitats = Habitat::query()->where('zoo_id', '=', $zoo->id)->get();
-        $services = Services::query()->where('zoo_id', '=', $zoo->id)->orderByDesc('name')->get();
+        $services = Service::query()->where('zoo_id', '=', $zoo->id)->get();
+        $openings = Opening::query()->where('zoo_id', '=', $zoo->id)->get();
 
-        return view('home', compact('zoo', 'habitats', 'services'));
+        return view('home', compact('zoo', 'habitats', 'services', 'openings'));
     }
 }

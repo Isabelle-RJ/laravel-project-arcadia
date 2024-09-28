@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('habitats', function (Blueprint $table) {
+        Schema::create('openings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('zoo_id'); // ->constrained()->cascadeOnDelete();
-            $table->string('name')->unique();
-            $table->text('description');
-            $table->string('image');
+            $table->foreignId('zoo_id');
+            $table->string('day_open')->unique();
+            $table->string('hour_open')->nullable();
+            $table->string('hour_close')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('habitats');
+        Schema::dropIfExists('openings');
     }
 };

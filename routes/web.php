@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AnimalsAdminController;
 use App\Http\Controllers\Admin\HabitatsAdminController;
+use App\Http\Controllers\Admin\OpeningsAdminController;
 use App\Http\Controllers\Admin\ServicesAdminController;
 use App\Http\Controllers\Admin\ZooAdminController;
 use App\Http\Controllers\AnimalsController;
@@ -49,6 +50,12 @@ Route::post('admin/zoo/services/create', [ServicesAdminController::class, 'creat
 Route::get('admin/zoo/services/edit/{name}', [ServicesAdminController::class, 'edit'])->name('services.edit');
 Route::patch('admin/zoo/services/edit/{name}', [ServicesAdminController::class, 'update'])->name('services.update');
 Route::delete('admin/zoo/services/edit/{name}', [ServicesAdminController::class, 'delete'])->name('services.delete');
+
+Route::get('admin/zoo/openings/create', [OpeningsAdminController::class,'createForm'])->name('openings.createForm');
+Route::post('admin/zoo/openings/create',[OpeningsAdminController::class, 'create'])->name('openings.create');
+Route::get('admin/zoo/openings/edit/{day_open}', [OpeningsAdminController::class, 'edit'])->name('openings.edit');
+Route::patch('admin/zoo/openings/edit/{day_open}', [OpeningsAdminController::class, 'update'])->name('openings.update');
+Route::delete('admin/zoo/openings/edit/{day_open}', [OpeningsAdminController::class, 'delete'])->name('openings.delete');
 
 // TODO: METTRE AU PROPRE LES ROUTES !!
 Route::get('/admin/zoo', [ZooAdminController::class, 'index'])->name('zoo-index');

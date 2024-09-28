@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Services;
+use App\Models\Service;
 use App\Models\Zoo;
 use App\Requests\ServicesFormRequest;
 use Exception;
@@ -23,7 +23,7 @@ class ServicesAdminController extends Controller
      */
     public function show(string $name): View
     {
-        $service = Services::query()->where('name', '=', $name)->first();
+        $service = Service::query()->where('name', '=', $name)->first();
         if (!$service) {
             throw new Exception("Il n'y a pas de service", 404);
         }
@@ -40,7 +40,7 @@ class ServicesAdminController extends Controller
         $zoo = Zoo::query()->where('name', '=', 'Arcadia')->first();
         $path = $request->file('image')->getClientOriginalName();
 
-        $service = new Services();
+        $service = new Service();
         $service->zoo_id = $zoo->id;
         $service->name = $request->name;
         $service->description = $request->description;
@@ -56,14 +56,14 @@ class ServicesAdminController extends Controller
 
     public function edit(string $name): View
     {
-        $service = Services::query()->where('name', '=', $name)->first();
+        $service = Service::query()->where('name', '=', $name)->first();
         return view('admin.zoo.services.edit', compact('service'));
     }
 
     public function update(ServicesFormRequest $request, string $name): RedirectResponse
     {
         $zoo = Zoo::query()->where('name', '=', 'Arcadia')->first();
-        $service = Services::query()->where('name', '=', $name)->first();
+        $service = Service::query()->where('name', '=', $name)->first();
         $path = $request->file('image')->getClientOriginalName();
 
         $service->zoo_id = $zoo->id;
@@ -81,7 +81,7 @@ class ServicesAdminController extends Controller
 
     public function delete(string $name): RedirectResponse
     {
-        $service = Services::query()->where('name', '=', $name)->first();
+        $service = Service::query()->where('name', '=', $name)->first();
         Storage::disk('public')->delete("asset/images/" . $service->image);
         $service->delete();
 

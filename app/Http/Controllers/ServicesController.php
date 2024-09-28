@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Services;
-use Exception;
+use App\Models\Service;
+
 use Illuminate\View\View;
 
 class ServicesController extends Controller
 {
     public function index(): View
     {
-        $services = Services::all();
+        $services = Service::all();
         $cover = $services->random()->image;
         return view('page.services', compact('services', 'cover'));
     }

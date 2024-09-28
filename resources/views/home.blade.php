@@ -21,7 +21,10 @@
                 {{ $zoo->description }}
             </p>
             <div>
-                ici on vera pour insérer "quelques images du zoo"
+                <img
+                    src=""
+                     alt=""
+                >
             </div>
             <img alt="Logo d'Arcadia"
                  class="home__logo"
@@ -47,7 +50,6 @@
                                 <h3 class="card__name">{{ $habitat->name }}</h3>
                                 <a class="card__button"
                                    href="{{ route('habitat', [$habitat->name]) }}">Voir plus</a>
-
                             </div>
                         </article>
                     @endforeach
@@ -90,25 +92,20 @@
         <h2 class="hours__title">HORAIRES</h2>
         <h3 class="hours__list__title">Ouvert tous les jours</h3>
         <div class="hours__content">
+            @foreach( $openings as $opening)
             <div class="hours__list">
                 <ul>
-                    <li>Février à Mars</li>
-                    <li>Avril à Août</li>
-                    <li>Septembre à Octobre</li>
+                    <li>{{ $opening->day_open }}
+                        {{ !$opening->hour_open && !$opening->hour_close
+                            ? 'Fermé'
+                            : 'de ' . $opening->hour_open . ' à ' . $opening->hour_close }}
+                    </li>
                 </ul>
             </div>
-            <div class="hours__list">
-                <ul>
-                    <li>De 14H à 18H</li>
-                    <li>De 10H à 19H</li>
-                    <li>De 11H à 18H</li>
-                </ul>
-            </div>
+            @endforeach
         </div>
-        <h3 class="hours__close">FERMETURE ANNUELLE : <br>NOVEMBRE À JANVIER
-            INCLUS</h3>
+        <h3 class="hours__close">FERMETURE ANNUELLE DE NOVEMBRE À JANVIER INCLUS</h3>
     </section>
-
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ Section Avis ~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <section class="container__reviews">
         <div class="card__container__reviews">
@@ -141,5 +138,3 @@
         </div>
     </section>
 @endsection
-
-
