@@ -26,7 +26,7 @@
         </div>
     </section>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ Section Habitats ~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <section class="container bg-habitats">
+    <section class="container section-habitats">
         <h2>Découvrez nos animaux et leurs
             environnements ...</h2>
         @foreach($habitats as $habitat)
@@ -51,13 +51,12 @@
         @endforeach
     </section>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ Section Services ~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <section class="container bg-services">
-        <h2>... et nos différents services</h2>
-
-        <div class="card-container">
-            <div class="card-content">
-                <div>
-                    @foreach($services as $service)
+    <section class="container section-services">
+        <h2>Nos différents services</h2>
+        @foreach($services as $service)
+            <div class="card-container">
+                <div class="card-content">
+                    <div>
                         <article class="card-article">
                             <div class="card-image">
                                 <img alt="Photo {{ $service->name }}"
@@ -66,19 +65,18 @@
                             </div>
                             <div class="card-data">
                                 <h3 class="card-name">{{ $service->name }}</h3>
+                                <a
+                                    class="card-button"
+                                    href="{{ route('services') }}"
+                                >
+                                    Voir tous les services
+                                </a>
                             </div>
                         </article>
-                    @endforeach
-                    <a
-                        class="card-button"
-                        href="{{ route('services') }}"
-                    >
-                        Voir tous les services
-                    </a>
+                    </div>
                 </div>
             </div>
-        </div>
-
+        @endforeach
     </section>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ Section Schedules ~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <section class="container section-openings">

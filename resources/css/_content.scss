@@ -22,6 +22,10 @@
     align-items: center;
 }
 
+.section-services{
+    background-color: var(--primary);
+}
+
 .container img{
     width: 100%;
     height: auto;
@@ -54,6 +58,10 @@
     padding: 0.75rem;
 }
 
+.section-services .card-image{
+    background-color: var(--bg-secondary-light);
+}
+
 .card-img{
     border-radius: 0.2rem;
 }
@@ -67,8 +75,18 @@
     z-index: 10;
 }
 
+.section-services .card-data{
+    background-color: var(--bg-secondary-light);
+}
+
 .card-name{
-    color: var(--light);
+    color: var(--secondary-light);
+    font-size: 2rem;
+    padding-bottom: 1rem;
+}
+
+.section-services .card-name{
+    color: var(--primary-dark);
 }
 
 .card-button{
@@ -79,6 +97,11 @@
     font-weight: 600;
     text-decoration: none;
     color: var(--secondary-light);
+}
+
+.section-services .card-button{
+    border:var(--primary-dark) solid 1px ;
+    color: var(--primary-dark);
 }
 
 .card-button:hover{
@@ -96,15 +119,21 @@
     text-align: center;
 }
 
-.bg-habitats h2{
-    color: var(--primary-dark);
-    text-align: center;
-}
-
 .section-openings h2{
     color: var(--light);
-
+    padding: 1.5rem;
 }
 
+.section-habitats h2{
+    color: var(--primary-dark);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 2rem;
+}
 
-
+.section-services h2{
+    color: var(--bg-secondary-light);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 2rem;
+}
