@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('header')
     <img alt="image de fond"
-         class="bg__header"
+         class="bg-header"
          src="/storage/asset/images/{{ $cover }}">
     <div class="text-header">
         <h1>Les Services proposés,

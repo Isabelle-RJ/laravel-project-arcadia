@@ -12,10 +12,10 @@
 <body>
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ HEADER ~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <header>
-    <div class="div__header">
+    <div class="div-header">
         <nav>
             <a href="#">
-                <img alt="Menu burger" class="menu__burger" src="/asset/icons/white-menu-burger.svg">
+                <img alt="Menu burger" class="menu-burger" src="/asset/icons/white-menu-burger.svg">
             </a>
             <a href="{{ route('home') }}">
                 <img alt="logo arcadia mobile" class="logo-header" src="/asset/logos/logo-footer.svg"/>
@@ -24,8 +24,8 @@
                 <img alt="icon ticket" class="icon-ticket" src="/asset/icons/icon-ticket.svg"/>
             </a>
         </nav>
-        <div class="nav__links">
-            <ul id="nav-links">
+        <div class="nav-links">
+            <ul id="nav-link">
                 <li><a href="{{ route('habitats')}}">Habitats</a></li>
                 <li><a href="{{ route('services')}}">Services</a></li>
                 <li><a href="{{ route('contact')}}">Contact</a></li>
@@ -50,17 +50,17 @@
 
 </main>
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ NAV FOOTER ~~~~~~~~~~~~~~~~~~~~~~~~ -->
-<section class="container__navfooter">
-    <div class="navfooter__content">
+<section class="container-navfooter">
+    <div class="navfooter-content">
         <a href="#"><img alt="Le logo d'Arcadia"
-                         class="logo__footer"
+                         class="logo-footer"
                          src="/asset/logos/logo-header.svg">
         </a>
 
-        <div class="navfooter__location">
+        <div class="navfooter-location">
             <h3>Nous rendre visite</h3>
             <img alt="Icône de localisation"
-                 class="icon__footer"
+                 class="icon-footer"
                  src="/asset/icons/map.svg">
             <ul>
                 <li><em>ZooParc Arcadia</em></li>
@@ -70,7 +70,7 @@
             </ul>
         </div>
 
-        <div class="navfooter__website">
+        <div class="navfooter-website">
             <h3>Plan du site</h3>
             <ul>
                 <li><a href="{{ route('home')}}">Accueil</a></li>
@@ -81,7 +81,7 @@
             </ul>
         </div>
 
-        <div class="navfooter__infos">
+        <div class="navfooter-infos">
             <h3>Infos Pratiques</h3>
             <ul>
                 <li><a href="{{ route('contact')}}">Contact</a></li>
@@ -93,7 +93,7 @@
     </div>
 </section>
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ FOOTER ~~~~~~~~~~~~~~~~~~~~~~~~ -->
-<section class="container__footer">
+<section class="container-footer">
     <h4>&copy; Zooparc Arcadia : Zoo en Ille et vilaine (35) en Bretagne |
         <a href="{{ route('legal-notices')}}">
             <em>Mentions légales</em>

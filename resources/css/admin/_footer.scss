@@ -22,3 +22,20 @@ img{
     background-color: var(--primary-dark);
     height: 1rem;
 }
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+main{
+    flex: 1 0 auto;
+    padding: 20px;
+}
+
+footer{
+    flex-shrink: 0;
+    position: static;
+    bottom: 0;
+}

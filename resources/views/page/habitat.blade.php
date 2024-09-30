@@ -2,7 +2,7 @@
 @section('header')
     <img
         alt="image de fond"
-        class="bg__header"
+        class="bg-header"
         src="/storage/asset/images/{{ $habitat->image }}"
     >
     <div class="text-header">

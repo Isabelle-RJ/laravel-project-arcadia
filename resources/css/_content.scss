@@ -1,0 +1,110 @@
+.home-container{
+    background-color: var(--primary-xlight);
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 4rem;
+}
+
+.home-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.5rem;
+}
+
+.container{
+    background-color: var(--bg-secondary-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container img{
+    width: 100%;
+    height: auto;
+}
+
+.card-container{
+    display: flex;
+   justify-content: center;
+}
+
+.card-content{
+    margin-inline: 1.75rem;
+    border-radius: 1.2rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.card-article{
+    width: 300px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    padding-bottom: 2rem;
+}
+
+.card-image{
+    background-color: var(--primary-dark);
+    position: relative;
+    margin-bottom: -0.75rem;
+    padding: 0.75rem;
+}
+
+.card-img{
+    border-radius: 0.2rem;
+}
+
+.card-data{
+    background-color: var(--primary-dark);
+    padding: 1.5rem 2rem;
+    border-radius: 0 0 1rem 1rem;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.card-name{
+    color: var(--light);
+}
+
+.card-button{
+    display: inline-block;
+    border: var(--secondary-light) solid 1px;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--secondary-light);
+}
+
+.card-button:hover{
+    background-color: var(--secondary-light);
+    color: var(--secondary-dark);
+}
+
+.section-openings{
+    background-color: var(--primary-dark);
+    color: var(--light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.bg-habitats h2{
+    color: var(--primary-dark);
+    text-align: center;
+}
+
+.section-openings h2{
+    color: var(--light);
+
+}
+
+
+

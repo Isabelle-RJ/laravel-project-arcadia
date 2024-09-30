@@ -2,7 +2,7 @@
 
 @section('header')
     <img alt="image de fond"
-         class="bg__header"
+         class="bg-header"
          src="/asset/images/red-fox-istockphoto.jpg">
     <div class="text-header">
         <h1>Présentation</h1>
@@ -11,73 +11,66 @@
 
 @section('content')
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ Section présentation ~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <section class="home__container">
-        <div class="home__content">
-            <h2 class="home__title">Bienvenue au Zoo Arcadia</h2>
+    <section class="home-container">
+        <div class="home-content">
+            <h2 class="home-title">Bienvenue au Zoo Arcadia</h2>
             <img alt="Icon écologie"
-                 class="home__icon"
+                 class="home-icon"
                  src="/asset/icons/icon-ecologie.svg">
-            <p class="home__description">
+            <p class="home-description">
                 {{ $zoo->description }}
             </p>
-            <div>
-                <img
-                    src=""
-                     alt=""
-                >
-            </div>
             <img alt="Logo d'Arcadia"
-                 class="home__logo"
+                 class="home-logo"
                  src="/asset/logos/logo-header.svg">
         </div>
     </section>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ Section Habitats ~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <section class="container__habitats">
-        <div class="card__container">
-            <h2 class="habitats__title">Découvrez nos animaux et leurs
-                environnements ...</h2>
-            <div class="card__content">
-                <div>
-                    @foreach($habitats as $habitat)
-                        <article class="card__article">
-                            <div class="card__image">
+    <section class="container bg-habitats">
+        <h2>Découvrez nos animaux et leurs
+            environnements ...</h2>
+        @foreach($habitats as $habitat)
+            <div class="card-container">
+                <div class="card-content">
+                    <div>
+                        <article class="card-article">
+                            <div class="card-image">
                                 <img alt="Photo {{ $habitat->name }}"
-                                     class="card__img"
+                                     class="card-img"
                                      src="/storage/asset/images/{{$habitat->image}}">
-                                <div class="card__shadow"></div>
                             </div>
-                            <div class="card__data">
-                                <h3 class="card__name">{{ $habitat->name }}</h3>
-                                <a class="card__button"
+                            <div class="card-data">
+                                <h3 class="card-name">{{ $habitat->name }}</h3>
+                                <a class="card-button"
                                    href="{{ route('habitat', [$habitat->name]) }}">Voir plus</a>
                             </div>
                         </article>
-                    @endforeach
+                    </div>
                 </div>
             </div>
-        </div>
+        @endforeach
     </section>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ Section Services ~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <section class="container__services">
-        <div class="card__container">
-            <h2 class="services__title">... et nos différents services</h2>
-            <div class="card__content">
+    <section class="container bg-services">
+        <h2>... et nos différents services</h2>
+
+        <div class="card-container">
+            <div class="card-content">
                 <div>
                     @foreach($services as $service)
-                        <article class="card__article">
-                            <div class="card__image">
+                        <article class="card-article">
+                            <div class="card-image">
                                 <img alt="Photo {{ $service->name }}"
-                                     class="card__img"
+                                     class="card-img"
                                      src="/storage/asset/images/{{$service->image}}">
-                                <div class="card__shadow"></div>
                             </div>
-                            <div class="card__data">
-                                <h3 class="card__name">{{ $service->name }}</h3>
+                            <div class="card-data">
+                                <h3 class="card-name">{{ $service->name }}</h3>
                             </div>
                         </article>
                     @endforeach
                     <a
-                        class="card__button"
+                        class="card-button"
                         href="{{ route('services') }}"
                     >
                         Voir tous les services
@@ -88,46 +81,49 @@
 
     </section>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ Section Schedules ~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <section class="container__hours">
-        <h2 class="hours__title">HORAIRES</h2>
-        <h3 class="hours__list__title">Ouvert tous les jours</h3>
-        <div class="hours__content">
+    <section class="container section-openings">
+        <h2>HORAIRES</h2>
+        <p>Ouvert tous les jours</p>
+        <div class="content-openings">
             @foreach( $openings as $opening)
-            <div class="hours__list">
-                <ul>
-                    <li>{{ $opening->day_open }}
-                        {{ !$opening->hour_open && !$opening->hour_close
-                            ? 'Fermé'
-                            : 'de ' . $opening->hour_open . ' à ' . $opening->hour_close }}
-                    </li>
-                </ul>
-            </div>
+                <div class="openings-list">
+                    <ul>
+                        <li>{{ $opening->day_open }}
+                            {{ !$opening->hour_open && !$opening->hour_close
+                                ? 'Fermé'
+                                : 'de ' . $opening->hour_open . ' à ' . $opening->hour_close }}
+                        </li>
+                    </ul>
+                </div>
             @endforeach
         </div>
-        <h3 class="hours__close">FERMETURE ANNUELLE DE NOVEMBRE À JANVIER INCLUS</h3>
+        <div>
+            <p>FERMETURE ANNUELLE</p>
+            <p>DE NOVEMBRE À JANVIER INCLUS</p>
+        </div>
     </section>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ Section Avis ~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <section class="container__reviews">
-        <div class="card__container__reviews">
-            <h2 class="reviews__title">Nos visiteurs parlent de nous...</h2>
-            <div class="card__content__reviews">
+    <section class="container section-reviews">
+        <div class="card-container container-reviews">
+            <h2 class="reviews-title">Nos visiteurs parlent de nous...</h2>
+            <div class="card-content-reviews">
                 <div>
-                    <article class="card__article__reviews">
-                        <div class="card__image__reviews">
+                    <article class="card-article-reviews">
+                        <div class="card-image-reviews">
                             <img alt=""
-                                 id="card__img__services"
+                                 id="card-img-services"
                                  src="">
-                            <div class="card__shadow__services"></div>
+                            <div class="card-shadow-services"></div>
                         </div>
-                        <div class="card__data__services">
-                            <h3 class="card__name__services">Titre</h3>
-                            <p class="card__description__services">
+                        <div class="card-data-services">
+                            <h3 class="card-name-services">Titre</h3>
+                            <p class="card-description-services">
                                 "Une pause gourmande au cœur du zoo : un repas
                                 savoureux qui ravit les visiteurs tout
                                 autant que les animaux."
                             </p>
 
-                            <a class="button__reviews"
+                            <a class="button-reviews"
                                href="{{ route('review') }}"
                                id="add-review">Donnez-nous votre avis</a>
 
