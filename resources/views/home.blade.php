@@ -42,7 +42,7 @@
                             <div class="card-data">
                                 <h3 class="card-name">{{ $habitat->name }}</h3>
                                 <a class="card-button"
-                                   href="{{ route('habitat', [$habitat->name]) }}">Voir plus</a>
+                                   href="{{ route('habitat', [$habitat->name]) }}">Voir les animaux</a>
                             </div>
                         </article>
                     </div>
@@ -69,7 +69,7 @@
                                     class="card-button"
                                     href="{{ route('services') }}"
                                 >
-                                    Voir tous les services
+                                    Voir les services
                                 </a>
                             </div>
                         </article>

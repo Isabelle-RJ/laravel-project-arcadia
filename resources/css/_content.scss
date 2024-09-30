@@ -57,6 +57,17 @@
     margin-bottom: -0.75rem;
     padding: 0.75rem;
 }
+.card-image.savane{
+    background-color: var(--secondary-light);
+}
+.card-image.marais{
+    background-color: var(--primary-light);
+}
+
+.card-description{
+    color: var(--bg-secondary-light);
+    padding-bottom: 1rem;
+}
 
 .section-services .card-image{
     background-color: var(--bg-secondary-light);
@@ -74,6 +85,12 @@
     position: relative;
     z-index: 10;
 }
+.card-data.savane{
+    background-color: var(--secondary-light);
+}
+.card-data.marais{
+    background-color: var(--primary-light);
+}
 
 .section-services .card-data{
     background-color: var(--bg-secondary-light);
@@ -84,6 +101,16 @@
     font-size: 2rem;
     padding-bottom: 1rem;
 }
+.card-data.savane .card-name{
+    color: var(--secondary-dark);
+}
+.card-data.jungle .card-name{
+    color: var(--bg-primary-light);
+}
+.card-data.marais .card-name{
+    color: var(--primary-dark);
+}
+
 
 .section-services .card-name{
     color: var(--primary-dark);
@@ -94,9 +121,25 @@
     border: var(--secondary-light) solid 1px;
     border-radius: 0.25rem;
     padding: 0.5rem 1rem;
-    font-weight: 600;
+    font-weight: 400;
+    font-size: 1.6rem;
     text-decoration: none;
     color: var(--secondary-light);
+}
+.card-data.savane .card-button{
+    color: var(--light);
+    background-color: var(--secondary-dark);
+    border: none;
+}
+.card-data.jungle .card-button{
+    color: var(--light);
+    background-color: var(--primary-xlight);
+    border: none;
+}
+.card-data.marais .card-button{
+    color: var(--light);
+    background-color: var(--primary-dark);
+    border: none;
 }
 
 .section-services .card-button{
@@ -107,6 +150,13 @@
 .card-button:hover{
     background-color: var(--secondary-light);
     color: var(--secondary-dark);
+    font-weight: 500;
+}
+
+.section-services .card-button:hover{
+    background-color: var(--primary-dark);
+    color: var(--bg-primary-light);
+    font-weight: 500;
 }
 
 .section-openings{
@@ -137,3 +187,5 @@
     padding: 1.5rem;
     font-size: 2rem;
 }
+
+

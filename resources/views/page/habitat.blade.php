@@ -10,27 +10,36 @@
     </div>
 @endsection
 @section('content')
-    <h1>{{ $habitat->name }}</h1>
+    <section class="container section-habitat {{ strtolower($habitat->name) }}">
+    <h2>{{ $habitat->name }}</h2>
 
     @forelse( $habitat->animals as $animal )
-    <div class="card-animal">
-        <div class="img-animal">
-            <img
-                src="/storage/asset/images/{{ $animal->image }}"
-                alt="Photo d'un animal"
-            >
+        <div class="card-container">
+            <div class="card-content">
+                <div>
+                    <article class="card-article">
+                        <div class="card-image">
+                            <img
+                                src="/storage/asset/images/{{ $animal->image }}"
+                                alt="Photo d'un animal"
+                                class="card-img"
+                            >
+                        </div>
+                        <div class="card-data">
+                            <h3 class="card-name">
+                                {{ $animal->name }}
+                            </h3>
+                            <div class="card-description">
+                                {{ $animal->description }}
+                            </div>
+                                <a class="card-button" href="">Fiche animal</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </div>
-        <div class="name-animal">
-            {{ $animal->name }}
-        </div>
-        <div class="description-animal">
-            {{ $animal->description }}
-        </div>
-        <div class="btn-animal">
-            <a href="">Fiche animal</a>
-        </div>
-    </div>
     @empty
         <p>Il y a aucun animal</p>
     @endforelse
+    </section>
 @endsection
