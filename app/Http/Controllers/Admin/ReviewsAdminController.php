@@ -6,13 +6,22 @@ use App\Http\Controllers\Controller;
 use App\Models\Review;
 use App\Models\Zoo;
 use App\Requests\ReviewsFormRequest;
+use Exception;
 use Illuminate\Http\JsonResponse;
-use Illuminate\View\View;
 
 class ReviewsAdminController extends Controller
 {
+    /**
+     *
+     * @throws Exception
+     */
     public function index(): JsonResponse
     {
+        $reviews = Review::all();
+
+        if (!$reviews) {
+            throw new Exception("Aucun avis trouvé.", 404);
+        }
         return response()->json(Review::all());
     }
 

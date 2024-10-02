@@ -1,5 +1,5 @@
 @extends('layouts.base')
-
+@vite(['resources/js/components/carousel.js'])
 @section('header')
     <img alt="image de fond"
          class="bg-header"
@@ -100,35 +100,17 @@
             <p>DE NOVEMBRE À JANVIER INCLUS</p>
         </div>
     </section>
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ Section Avis ~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ Section Reviews ~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <section class="container section-reviews">
-        <div class="card-container container-reviews">
-            <h2 class="reviews-title">Nos visiteurs parlent de nous...</h2>
-            <div class="card-content-reviews">
-                <div>
-                    <article class="card-article-reviews">
-                        <div class="card-image-reviews">
-                            <img alt=""
-                                 id="card-img-services"
-                                 src="">
-                            <div class="card-shadow-services"></div>
-                        </div>
-                        <div class="card-data-services">
-                            <h3 class="card-name-services">Titre</h3>
-                            <p class="card-description-services">
-                                "Une pause gourmande au cœur du zoo : un repas
-                                savoureux qui ravit les visiteurs tout
-                                autant que les animaux."
-                            </p>
-
-                            <a class="button-reviews"
-                               href="{{ route('review') }}"
-                               id="add-review">Donnez-nous votre avis</a>
-
-                        </div>
-                    </article>
-                </div>
+        <h2>Les Avis</h2>
+        <div class="carousel">
+            <button class="btn-carousel btn-previous"> < </button>
+            <div id="error-container" class="carousel-content">
+                <h3>author</h3>
+                <span><i>icones étoiles pour l'avis</i></span>
+                <p>Text contenu dans l'avis</p>
             </div>
+            <button class="btn-carousel btn-next"> > </button>
         </div>
     </section>
 @endsection

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Animal;
 use App\Models\Habitat;
 use App\Models\Opening;
+use App\Models\Review;
 use App\Models\Service;
 use App\Models\User;
 use App\Models\Zoo;
@@ -23,6 +24,7 @@ class PersonaSeeder extends Seeder
         $this->animals($persona['animals']);
         $this->services($persona['services']);
         $this->openings($persona['openings']);
+        $this->reviews($persona['reviews']);
     }
 
     private function zoo(array $zoo): void
@@ -118,6 +120,24 @@ class PersonaSeeder extends Seeder
 
             Opening::factory()
                 ->create($newOpening);
+        }
+    }
+
+    private function reviews(array $reviews): void
+    {
+        foreach ($reviews as $review) {
+            $newReview = [
+                'id' => $review['id'],
+                'zoo_id' => $review['zoo_id'],
+                'title' => $review['title'],
+                'content' => $review['content'],
+                'status' => $review['status'],
+                'author' => $review['author'],
+                'rating' => $review['rating'],
+            ];
+
+            Review::factory()
+                ->create($newReview);
         }
     }
 }
