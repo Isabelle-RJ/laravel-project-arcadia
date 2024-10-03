@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HabitatsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\ServicesController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,7 @@ Route::get('/habitats', [HabitatsController::class, 'index'])->name('habitats');
 Route::get('/habitat/{name}', [HabitatsController::class, 'show'])->name('habitat');
 Route::get('/animals', [AnimalsController::class, 'index'])->name('animals');
 Route::get('/animal/{name}', [AnimalsController::class, 'show'])->name('animal');
+Route::get('/review', [ReviewsController::class, 'createForm'])->name('review.createForm');
 
 Route::get('/contact', function () {})->name('contact');
 Route::get('/ticketing', function () {})->name('ticketing');

@@ -112,5 +112,8 @@
             </div>
             <button class="btn-carousel btn-next"> > </button>
         </div>
+        <div class="btn-create send-review">
+            <a href="{{ route('review') }}">Donnez-nous votre avis</a>
+        </div>
     </section>
 @endsection
