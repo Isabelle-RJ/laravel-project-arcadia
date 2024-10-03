@@ -11,7 +11,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  * @property int $id
  * @property int $zoo_id
- * @property string $title
  * @property string $content
  * @property string $status
  * @property string $author
@@ -24,7 +23,6 @@ class Review extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title',
         'content',
         'status',
         'author',

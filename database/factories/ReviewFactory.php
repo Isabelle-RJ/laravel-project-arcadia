@@ -15,7 +15,6 @@ class ReviewFactory extends Factory
     {
         return [
             'zoo_id' => Zoo::all()->random()->id,
-            'title' => $this->faker->sentence(),
             'content' => $this->faker->paragraph(),
             'status' => $this->faker->randomElement(['pending', 'validated', 'rejected']),
             'author' => $this->faker->name(),

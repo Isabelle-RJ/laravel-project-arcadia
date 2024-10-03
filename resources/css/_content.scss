@@ -188,4 +188,43 @@
     font-size: 2rem;
 }
 
+/* */
+.form-review{
+    display: flex;
+    margin: 2rem;
+}
 
+.form{
+    display: flex;
+    flex-direction: column;
+}
+
+.send{
+    background-color: var(--primary-dark);
+    border: none;
+    border-radius: 8px;
+    color: var(--light);
+    font-size: 20px;
+    font-family: "Recoleta Alt", sans-serif;
+    margin: 1rem 0 1rem 0 ;
+    padding: 0.4rem 0 0.4rem 0;
+}
+
+input,
+textarea{
+    background-color: var(--bg-primary-light);
+    border: none;
+    font-size: 1.2rem;
+    color: var(--primary-dark);
+    font-family: "Recoleta Alt", sans-serif;
+    border-radius: .25rem;
+    padding: 0.4rem 0 0.4rem 0;
+}
+
+.rating-icon{
+    display: flex;
+}
+
+.rating-icon.active{
+    /* étoile pleine */
+}

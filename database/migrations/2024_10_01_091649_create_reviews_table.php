@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->foreignId('zoo_id');
-            $table->string('title');
             $table->text('content');
             $table->string('status')->default('pending');
             $table->string('author');

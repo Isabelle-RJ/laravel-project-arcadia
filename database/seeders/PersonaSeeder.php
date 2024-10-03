@@ -129,7 +129,6 @@ class PersonaSeeder extends Seeder
             $newReview = [
                 'id' => $review['id'],
                 'zoo_id' => $review['zoo_id'],
-                'title' => $review['title'],
                 'content' => $review['content'],
                 'status' => $review['status'],
                 'author' => $review['author'],

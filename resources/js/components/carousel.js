@@ -15,12 +15,10 @@ async function getReviews() {
         reviews = await response.json()
         makeCarousel(reviews, currentIndex)
     } catch (e) {
-        console.error("Erreur lors de la récupération des avis :", e)
         errorContainer.textContent = `Erreur: ${e.message}`
         carouselContent.innerHTML = ""
     }
 }
-console.log(error)
 
 function makeCarousel(reviews, index) {
     if (reviews.length === 0) {
@@ -66,6 +64,6 @@ function next() {
 btnPrevious.addEventListener("click", previous)
 btnNext.addEventListener("click", next)
 
-getReviews()
+void getReviews()
 
 section.appendChild(carousel)
