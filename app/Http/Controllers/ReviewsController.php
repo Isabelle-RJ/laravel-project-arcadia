@@ -27,7 +27,6 @@ class ReviewsController extends Controller
 
         $review = new Review();
         $review->zoo_id = $zoo->id;
-        $review->title = $request->title;
         $review->content = $request->get('content');
         $review->author = $request->author;
         $review->rating = $request->rating;

@@ -61,8 +61,9 @@ Route::delete('admin/zoo/openings/edit/{day_open}', [OpeningsAdminController::cl
 
 Route::get('api/admin/zoo/reviews', [ReviewsAdminController::class, 'index'])->name('reviews.index');
 Route::get('api/admin/zoo/reviews/{id}', [ReviewsAdminController::class, 'show'])->name('reviews.show');
+Route::post('api/admin/zoo/reviews/create', [ReviewsController::class, 'create'])->name('reviews.create');
+
 Route::get('admin/zoo/reviews/create', [ReviewsAdminController::class, 'createForm'])->name('reviews.createForm');
-Route::post('admin/zoo/reviews/create', [ReviewsAdminController::class, 'create'])->name('reviews.create');
 Route::patch('admin/zoo/reviews/edit/{id}', [ReviewsAdminController::class, 'update'])->name('reviews.update');
 Route::delete('admin/zoo/reviews/edit/{id}', [ReviewsAdminController::class, 'delete'])->name('reviews.delete');
 

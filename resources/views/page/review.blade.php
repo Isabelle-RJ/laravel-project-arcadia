@@ -1,5 +1,5 @@
 @extends('layouts.base')
-@vite(['resources/js/components/rating.js'])
+@vite(['resources/js/components/rating.js', 'resources/js/components/reviewsForm.js'])
 @section('header')
     <img
         alt="image de fond"
@@ -16,11 +16,11 @@
         <div class="form-review">
             <form
                 class="form"
-                action=""
                 method="post"
                 enctype="multipart/form-data"
             >
                 @csrf
+
                 <label for="author">Votre pseudo</label>
                 <input
                     placeholder="Pseudonyme"
@@ -86,9 +86,7 @@
                             alt="L'icône d'une étoile vide"
                         >
                     </i>
-
                 </div>
-
                 <button
                     class="send"
                     type="submit"
