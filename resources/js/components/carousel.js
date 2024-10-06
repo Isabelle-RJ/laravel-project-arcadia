@@ -65,5 +65,3 @@ btnPrevious.addEventListener("click", previous)
 btnNext.addEventListener("click", next)
 
 void getReviews()
-
-section.appendChild(carousel)

@@ -1,4 +1,5 @@
 @extends('layouts.base')
+@vite(['resources/js/components/rating.js'])
 @section('header')
     <img
         alt="image de fond"
@@ -44,28 +45,43 @@
                 @enderror
 
                 <label for="rating">Votre note</label>
-                <div class="rating-icon">
+                <input
+                    type="hidden"
+                    name="rating"
+                    class="input-rating"
+                >
+                <div class="rating-icons">
                     <i><img
+                            data-review-value="1"
+                            class="rating-icon"
                             src="asset/icons/empty-star.svg"
                             alt="L'icône d'une étoile vide"
                         >
                     </i>
                     <i><img
+                            data-review-value="2"
+                            class="rating-icon"
                             src="asset/icons/empty-star.svg"
                             alt="L'icône d'une étoile vide"
                         >
                     </i>
                     <i><img
+                            data-review-value="3"
+                            class="rating-icon"
                             src="asset/icons/empty-star.svg"
                             alt="L'icône d'une étoile vide"
                         >
                     </i>
                     <i><img
+                            data-review-value="4"
+                            class="rating-icon"
                             src="asset/icons/empty-star.svg"
                             alt="L'icône d'une étoile vide"
                         >
                     </i>
                     <i><img
+                            data-review-value="5"
+                            class="rating-icon"
                             src="asset/icons/empty-star.svg"
                             alt="L'icône d'une étoile vide"
                         >

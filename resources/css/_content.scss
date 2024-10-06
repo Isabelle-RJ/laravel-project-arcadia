@@ -221,10 +221,14 @@ textarea{
     padding: 0.4rem 0 0.4rem 0;
 }
 
-.rating-icon{
+.rating-icons{
     display: flex;
 }
 
-.rating-icon.active{
-    /* étoile pleine */
+.rating-icon{
+    cursor: pointer;
+}
+
+.star-active{
+
 }
