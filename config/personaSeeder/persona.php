@@ -23,7 +23,7 @@ return [
             'name' => 'Josette Veterinarian',
             'email' => 'josetteveterinarian@gmail.com',
             'password' => '123456789aze',
-            'role' => 'Veterinarian',
+            'role' => 'veterinarian',
         ],
         [
             'id' => '3',
@@ -31,7 +31,7 @@ return [
             'name' => 'Joseph Employee',
             'email' => 'josephemployee@gmail.com',
             'password' => '123456789aze',
-            'role' => 'Employee',
+            'role' => 'employee',
         ],
     ],
     'habitats' => [

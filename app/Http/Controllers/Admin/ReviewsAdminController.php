@@ -7,6 +7,8 @@ use App\Models\Review;
 use App\Requests\ReviewsFormRequest;
 use Exception;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Gate;
 
 class ReviewsAdminController extends Controller
 {
@@ -24,8 +26,13 @@ class ReviewsAdminController extends Controller
         return response()->json(Review::all());
     }
 
-    public function update(ReviewsFormRequest $request, int $id): void
+    public function update(ReviewsFormRequest $request, int $id): RedirectResponse
     {
+        // TODO : change route redirect
+        if (Gate::denies('create', Review::class)) {
+            return redirect()->route('login');
+        }
+
         $review = Review::query()->find($id);
 
         $review->status = $request->status;

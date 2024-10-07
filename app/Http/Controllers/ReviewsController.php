@@ -6,6 +6,8 @@ use App\Models\Review;
 use App\Models\Zoo;
 use App\Requests\ReviewsFormRequest;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\View\View;
 
 class ReviewsController extends Controller
@@ -23,6 +25,8 @@ class ReviewsController extends Controller
 
     public function create(ReviewsFormRequest $request): JsonResponse
     {
+        Gate::authorize('create', Review::class);
+
         $zoo = Zoo::query()->where('name', '=', 'Arcadia')->first();
 
         $review = new Review();
