@@ -9,6 +9,7 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\View\View;
 
 class ReviewsAdminController extends Controller
 {
@@ -16,21 +17,21 @@ class ReviewsAdminController extends Controller
      *
      * @throws Exception
      */
-    public function index(): JsonResponse
+    public function index(): View
     {
         $reviews = Review::all();
 
         if (!$reviews) {
             throw new Exception("Aucun avis trouvé.", 404);
         }
-        return response()->json(Review::all());
+        return view('admin.zoo.reviews.reviews-list', compact('reviews'));
     }
 
     public function update(ReviewsFormRequest $request, int $id): RedirectResponse
     {
         // TODO : change route redirect
         if (Gate::denies('create', Review::class)) {
-            return redirect()->route('login');
+            return redirect()->route('reviews.list');
         }
 
         $review = Review::query()->find($id);

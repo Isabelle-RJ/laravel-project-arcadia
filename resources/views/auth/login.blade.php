@@ -1,7 +1,5 @@
 @extends('layouts.admin')
-
 @section('content')
-
     <div class="form-connect">
         <h1>Connexion</h1>
         <div class="formulaires-admin">
