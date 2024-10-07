@@ -33,7 +33,7 @@
 
         </table>
     </div>
-    <!--  TODO : link route dashboard -->
-    <a href="" class="send" >Retour</a>
+
+    <a href="{{ route('dashboard') }}" class="send" >Retour</a>
 
 @endsection

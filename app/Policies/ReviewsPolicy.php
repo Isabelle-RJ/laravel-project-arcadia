@@ -11,4 +11,9 @@ class ReviewsPolicy extends Gate
     {
         return $user->role === 'employee';
     }
+
+    public function view(User $user): bool
+    {
+        return $user->role === 'employee';
+    }
 }

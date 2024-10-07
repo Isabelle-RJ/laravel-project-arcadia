@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AnimalsAdminController;
 use App\Http\Controllers\Admin\HabitatsAdminController;
+use App\Http\Controllers\Admin\HomeAdminController;
 use App\Http\Controllers\Admin\OpeningsAdminController;
 use App\Http\Controllers\Admin\ReviewsAdminController;
 use App\Http\Controllers\Admin\ServicesAdminController;
@@ -30,6 +31,7 @@ Route::get('/legal-notices', function () {})->name('legal-notices');
 Route::get('/cgv', function () {})->name('cgv');
 Route::get('/faq', function () {})->name('faq');
 
+Route::get('/admin', [HomeAdminController::class, 'index'])->name('dashboard');
 Route::get('/login', [LoginController::class, 'login' ])->name('auth.login');
 Route::post('/login',[LoginController::class, 'authenticate' ])->name('auth.authenticate');
 Route::get('/register', [RegisterController::class, 'register' ])->name('auth.register');

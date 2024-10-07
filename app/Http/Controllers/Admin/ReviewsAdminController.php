@@ -17,9 +17,13 @@ class ReviewsAdminController extends Controller
      *
      * @throws Exception
      */
-    public function index(): View
+    public function index(): View|RedirectResponse
     {
         $reviews = Review::all();
+
+        if (Gate::denies('update', Review::class)) {
+            return redirect()->route('reviews.list');
+        }
 
         if (!$reviews) {
             throw new Exception("Aucun avis trouvé.", 404);
@@ -30,7 +34,7 @@ class ReviewsAdminController extends Controller
     public function update(ReviewsFormRequest $request, int $id): RedirectResponse
     {
         // TODO : change route redirect
-        if (Gate::denies('create', Review::class)) {
+        if (Gate::denies('update', Review::class)) {
             return redirect()->route('reviews.list');
         }
 
