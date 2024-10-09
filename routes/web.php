@@ -61,7 +61,7 @@ Route::get('admin/zoo/openings/edit/{day_open}', [OpeningsAdminController::class
 Route::patch('admin/zoo/openings/edit/{day_open}', [OpeningsAdminController::class, 'update'])->name('openings.update');
 Route::delete('admin/zoo/openings/edit/{day_open}', [OpeningsAdminController::class, 'delete'])->name('openings.delete');
 
-Route::get('api/admin/zoo/reviews', [ReviewsAdminController::class, 'index'])->name('reviews.index');
+Route::get('api/admin/zoo/reviews', [ReviewsController::class, 'index'])->name('reviews.index');
 Route::get('api/admin/zoo/reviews/{id}', [ReviewsAdminController::class, 'show'])->name('reviews.show');
 Route::post('api/admin/zoo/reviews/create', [ReviewsController::class, 'create'])->name('reviews.create');
 
