@@ -44,7 +44,7 @@
     <section id="bg-header">
         @yield('header')
     </section>
-
+    @include('partials.flashMessage')
     @yield('content')
 
 

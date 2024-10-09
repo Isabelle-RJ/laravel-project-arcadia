@@ -25,8 +25,6 @@ class ReviewsController extends Controller
 
     public function create(ReviewsFormRequest $request): JsonResponse
     {
-        Gate::authorize('create', Review::class);
-
         $zoo = Zoo::query()->where('name', '=', 'Arcadia')->first();
 
         $review = new Review();
@@ -38,7 +36,10 @@ class ReviewsController extends Controller
 
         $review->save();
 
-        return response()->json(['message' => 'Votre avis à bien été créé.']);
+        session()->flash('success', 'Votre avis a bien été créé.');
+
+        return response()->json(['message' => 'Votre avis a bien été créé.'], 201);
+
     }
 
 }
