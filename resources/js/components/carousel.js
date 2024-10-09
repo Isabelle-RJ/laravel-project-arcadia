@@ -40,7 +40,6 @@ function makeCarousel(reviews, index) {
     carouselContent.appendChild(title)
     carouselContent.appendChild(rating)
     carouselContent.appendChild(content)
-    carousel.appendChild(carouselContent)
 }
 
 function previous() {

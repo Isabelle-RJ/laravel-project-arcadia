@@ -102,18 +102,33 @@
     </section>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ Section Reviews ~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <section class="container section-reviews">
-        <h2>Les Avis</h2>
-        <div class="carousel">
-            <button class="btn-carousel btn-previous"> < </button>
-            <div id="error-container" class="carousel-content">
-                <h3>author</h3>
-                <span><i>icônes étoiles pour l'avis</i></span>
-                <p>Text contenu dans l'avis</p>
+        <div class="reviews-container">
+            <h2>Les Avis</h2>
+            <div class="review-content">
+                <div class="carousel">
+                    <button class="btn-carousel btn-previous">
+                        <img src="asset/icons/arrow-left-bold.svg"
+                             alt="Icône d'une flèche directionnelle gauche"
+                             class="icon-arrow"
+                        >
+                    </button>
+                    <div id="error-container"
+                         class="carousel-content">
+                        <h3>author</h3>
+                        <span><i>icônes étoiles pour l'avis</i></span>
+                        <p>Text contenu dans l'avis</p>
+                    </div>
+                    <button class="btn-carousel btn-next">
+                        <img src="asset/icons/arrow-right-bold.svg"
+                             alt="Icône d'une flèche directionnelle droite"
+                             class="icon-arrow"
+                        >
+                    </button>
+                </div>
+                <div class="btn-create send-review">
+                    <a href="{{ route('review') }}">Donnez-nous votre avis</a>
+                </div>
             </div>
-            <button class="btn-carousel btn-next"> > </button>
-        </div>
-        <div class="btn-create send-review">
-            <a href="{{ route('review') }}">Donnez-nous votre avis</a>
         </div>
     </section>
 @endsection
