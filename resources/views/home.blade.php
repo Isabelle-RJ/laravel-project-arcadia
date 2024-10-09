@@ -107,7 +107,7 @@
             <button class="btn-carousel btn-previous"> < </button>
             <div id="error-container" class="carousel-content">
                 <h3>author</h3>
-                <span><i>icones étoiles pour l'avis</i></span>
+                <span><i>icônes étoiles pour l'avis</i></span>
                 <p>Text contenu dans l'avis</p>
             </div>
             <button class="btn-carousel btn-next"> > </button>

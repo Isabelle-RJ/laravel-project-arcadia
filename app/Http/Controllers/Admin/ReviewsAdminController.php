@@ -31,7 +31,7 @@ class ReviewsAdminController extends Controller
         return view('admin.zoo.reviews.reviews-list', compact('reviews'));
     }
 
-    public function update(ReviewsFormRequest $request, int $id): RedirectResponse
+    public function update(ReviewsFormRequest $request, int $id): null|RedirectResponse
     {
         // TODO : change route redirect
         if (Gate::denies('update', Review::class)) {
@@ -41,6 +41,8 @@ class ReviewsAdminController extends Controller
         $review = Review::query()->find($id);
 
         $review->status = $request->status;
+        $review->save();
+        return redirect()->route('reviews.list');
     }
 
     public function delete(int $id): JsonResponse
