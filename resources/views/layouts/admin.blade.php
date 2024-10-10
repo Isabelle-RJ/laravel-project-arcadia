@@ -33,6 +33,7 @@
                 <li><a href="{{ route('habitats.createForm')}}">Admin Habitats</a></li>
                 <li><a href="{{ route('animals.createForm')}}">Admin Animaux</a></li>
                 <li><a href="{{ route('services.createForm')}}">Admin Services</a></li>
+                <li><a href="{{ route('openings.createForm')}}">Admin Horaires</a></li>
             </ul>
         </div>
     </div>

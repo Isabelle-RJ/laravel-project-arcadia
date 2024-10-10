@@ -74,10 +74,9 @@
             <h3>Plan du site</h3>
             <ul>
                 <li><a href="{{ route('home')}}">Accueil</a></li>
-                <li><a href="">Animaux de la Savane</a></li>
-                <li><a href="">Animaux de la Jungle</a></li>
-                <li><a href="">Animaux des Marais</a></li>
+                <li><a href="{{ route('habitats') }}">Habitats</a></li>
                 <li><a href="{{ route('services')}}">Services</a></li>
+                <li><a href="{{ route('review')}}">Avis</a></li>
             </ul>
         </div>
 
@@ -87,6 +86,7 @@
                 <li><a href="{{ route('contact')}}">Contact</a></li>
                 <li><a href="{{ route('faq')}}">FAQ</a></li>
                 <li><a href="{{ route('cgv')}}">CGV</a></li>
+                <li><a href="{{ route('auth.login')}}">Compte Pro</a></li>
             </ul>
         </div>
 

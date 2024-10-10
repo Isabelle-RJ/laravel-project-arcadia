@@ -19,3 +19,8 @@ async function handleSubmit(event){
 }
 
 form.addEventListener('submit', handleSubmit)
+
+document.querySelector('.menu-burger').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector('.nav-header').classList.toggle('menu-active');
+});

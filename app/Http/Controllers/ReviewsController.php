@@ -19,7 +19,7 @@ class ReviewsController extends Controller
 
     public function index(): JsonResponse
     {
-        $reviews = Review::all();
+        $reviews = Review::query()->where('status', '=', 'validated')->get();
         return response()->json($reviews);
     }
 

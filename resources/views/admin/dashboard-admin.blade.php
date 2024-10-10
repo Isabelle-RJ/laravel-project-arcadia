@@ -1,20 +1,21 @@
 @extends('layouts.admin')
 @section('content')
-    <div class="dashboard">
-        <h2>Tableau de bord</h2>
+    <div class="header-dash">
+        <div class="dashboard">
+            <h2>Tableau de bord</h2>
+        </div>
+        <div class="fil-ariane">
+            <ul>
+                <li>Accueil</li>
+            </ul>
+        </div>
     </div>
-    <div class="fil-ariane">
-        <ul>
-            <li>Accueil</li>
-        </ul>
-    </div>
-
     <div class="dashboard-cards">
         <a href="">
             <div class="cards-list">
                 <img
                     class="icon-dashboard"
-                    src="/asset/icons/"
+                    src="/asset/icons/profil.svg"
                     alt="Icône du tableau de bord"
                 >
                 <p>Gestion des comptes</p>
@@ -25,7 +26,7 @@
             <div class="cards-list">
                 <img
                     class="icon-dashboard"
-                    src="/asset/icons/"
+                    src="/asset/icons/services.svg"
                     alt="Icône du tableau de bord"
                 >
                 <p>Gestion des services</p>
@@ -36,7 +37,7 @@
             <div class="cards-list">
                 <img
                     class="icon-dashboard"
-                    src="/asset/icons/"
+                    src="/asset/icons/openings.svg"
                     alt="Icône du tableau de bord"
                 >
                 <p>Gestion des horaires</p>
@@ -47,7 +48,7 @@
             <div class="cards-list">
                 <img
                     class="icon-dashboard"
-                    src="/asset/icons/"
+                    src="/asset/icons/habitats.svg"
                     alt="Icône du tableau de bord"
                 >
                 <p>Gestion des habitats</p>
@@ -58,7 +59,7 @@
             <div class="cards-list">
                 <img
                     class="icon-dashboard"
-                    src="/asset/icons/"
+                    src="/asset/icons/animals.svg"
                     alt="Icône du tableau de bord"
                 >
                 <p>Gestion des animaux</p>
@@ -69,7 +70,7 @@
             <div class="cards-list">
                 <img
                     class="icon-dashboard"
-                    src="/asset/icons/"
+                    src="/asset/icons/reports.svg"
                     alt="Icône du tableau de bord"
                 >
                 <p>Gestion des compte-rendus</p>
@@ -80,7 +81,7 @@
             <div class="cards-list">
                 <img
                     class="icon-dashboard"
-                    src="/asset/icons/"
+                    src="/asset/icons/animals-views.svg"
                     alt="Icône du tableau de bord"
                 >
                 <p>Gestion des vues animaux</p>
