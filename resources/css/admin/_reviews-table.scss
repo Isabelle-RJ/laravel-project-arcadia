@@ -4,7 +4,7 @@
     color: var(--primary-dark);
     font-size: 2rem;
 }
-/* Styles pour le tableau */
+
 .table-list {
     width: 100%;
     max-width: 1200px;
@@ -16,7 +16,6 @@
     overflow: hidden;
 }
 
-/* Bordure et couleur de l'en-tête */
 .table-list thead {
     background-color: var(--primary);
     color: white;
@@ -32,7 +31,6 @@
     text-align: center;
 }
 
-/* Alternance de couleur pour les lignes */
 .table-list tbody tr:nth-child(odd) {
     background-color: transparent;
 }
@@ -84,10 +82,32 @@
     }
 }
 
-/* Centrage et marges */
 .list-container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    padding: 0 20px; /* Ajout de marges sur les côtés */
+    padding: 0 20px;
+}
+
+.reviews-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.send{
+    margin: 2rem 0;
+}
+
+.btn-send{
+    color: var(--light);
+    font-size: 1.2rem;
+    background-color: var(--primary-dark);
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.2rem;
+}
+
+.td-wrap{
+    text-wrap: nowrap;
 }

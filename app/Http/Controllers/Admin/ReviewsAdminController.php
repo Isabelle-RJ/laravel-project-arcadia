@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Review;
 use App\Requests\ReviewsFormRequest;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -19,16 +20,27 @@ class ReviewsAdminController extends Controller
      */
     public function index(): View|RedirectResponse
     {
-        $reviews = Review::all();
-
         if (Gate::denies('update', Review::class)) {
             return redirect()->route('reviews.list');
         }
 
+        $reviews = Review::all();
+
         if (!$reviews) {
             throw new Exception("Aucun avis trouvé.", 404);
         }
-        return view('admin.zoo.reviews.reviews-list', compact('reviews'));
+        $reviewsData = [];
+        foreach ($reviews as $review) {
+            $reviewsData[] = [
+                'author' => $review->author,
+                'content' => $review->content,
+                'rating' => $review->rating,
+                'created_at' => Carbon::createFromTimestamp($review->created_at)->format('d-m-Y'),
+                'status' => $review->status,
+            ];
+        }
+
+        return view('admin.zoo.reviews.reviews-list', compact('reviewsData'));
     }
 
     public function update(ReviewsFormRequest $request, int $id): null|RedirectResponse
