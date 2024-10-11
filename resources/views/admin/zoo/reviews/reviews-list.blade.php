@@ -7,12 +7,12 @@
         <div class="fil-ariane">
             <ul>
                 <li>Accueil ></li>
-                <li>Gestion des avis</li>
+                <li>Organisation des avis</li>
             </ul>
         </div>
     </div>
     <div class="reviews-container">
-        <h2 class="review-title">Gestion des avis</h2>
+        <h2 class="review-title">Organisation des avis</h2>
         <div class="list-container">
             <table class="table-list">
                 <thead class="table-primary">
@@ -33,7 +33,7 @@
                         <td data-label="Note">{{ $review['rating'] }}</td>
                         <td data-label="Date" class="td-wrap">{{ $review['created_at'] }}</td>
                         <td data-label="Voir">
-                            <a href="">
+                            <a href="{{ route('reviews.pending') }}">
                                 <img src="/asset/icons/icon-view.svg"
                                      alt="Icône d'un oeil pour voir l'avis">
                             </a>
