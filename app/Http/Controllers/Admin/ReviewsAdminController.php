@@ -93,6 +93,7 @@ class ReviewsAdminController extends Controller
     private function transformReview(Review $review): array
     {
         return [
+            'id' => $review->id,
             'author' => $review->author,
             'content' => $review->content,
             'rating' => $review->rating,
