@@ -15,28 +15,25 @@
 
     <div class="container">
         <h2>Gestion des avis</h2>
-        @foreach($reviewsWithPagination['items'] as $review)
+        @if( !$reviewsWithPagination['items'] )
+            <p>Il n'y a pas d'avis en attente.</p>
+        @endif
+        @foreach( $reviewsWithPagination['items'] as $review )
             <div class="card-content-review"
                  data-id="{{ $review['id'] }}">
                 <h3>{{ $review['author'] }}</h3>
                 <p>{{ $review['content'] }}</p>
                 <div class="btn-check">
-                    <form action="{{ route('reviews.update', ['id'=>$review['id']]) }}"
-                          method="post"
-                    >
-                        @csrf
-                        @method('PATCH')
-                        <button type="submit"
-                                class="btn-rejected">
-                            <img src="/asset/icons/rejected.svg"
-                                 alt="Icône checkbox refuser l'avis">
-                        </button>
-                        <button type="submit"
-                                class="btn-validated">
-                            <img src="/asset/icons/validated.svg"
-                                 alt="Icône checkbox valider l'avis">
-                        </button>
-                    </form>
+                    <button type="submit"
+                            class="btn-rejected">
+                        <img src="/asset/icons/rejected.svg"
+                             alt="Icône checkbox refuser l'avis">
+                    </button>
+                    <button type="submit"
+                            class="btn-validated">
+                        <img src="/asset/icons/validated.svg"
+                             alt="Icône checkbox valider l'avis">
+                    </button>
                 </div>
             </div>
             <div class="btn-actions">

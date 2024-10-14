@@ -38,7 +38,17 @@
                                      alt="Icône d'un oeil pour voir l'avis">
                             </a>
                         </td>
-                        <td data-label="Status">{{ $review['status'] }}</td>
+                        <td data-label="Status">
+                            @if( $review['status'] === 'validated' )
+                             Validé
+                            @endif
+                            @if( $review['status'] === 'rejected' )
+                                Rejeté
+                            @endif
+                            @if( $review['status'] === 'pending' )
+                                En attente
+                            @endif
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

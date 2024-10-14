@@ -6,8 +6,6 @@ use App\Models\Review;
 use App\Models\Zoo;
 use App\Requests\ReviewsFormRequest;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\View\View;
 
 class ReviewsController extends Controller

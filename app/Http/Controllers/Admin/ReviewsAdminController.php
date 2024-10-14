@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Review;
-use App\Requests\ReviewsFormRequest;
+use App\Requests\UpdateReviewsFormRequest;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -25,7 +25,7 @@ class ReviewsAdminController extends Controller
             return redirect()->route('reviews.list');
         }
 
-        $reviews = Review::all();
+        $reviews = Review::all()->sortByDesc('created_at');
 
         if (!$reviews) {
             throw new Exception("Aucun avis trouvé.", 404);
@@ -69,17 +69,17 @@ class ReviewsAdminController extends Controller
         return view('admin.zoo.reviews.pending', compact('reviewsWithPagination'));
     }
 
-    public function update(ReviewsFormRequest $request, int $id): null|RedirectResponse
+    public function update(UpdateReviewsFormRequest $request, int $id): null|JsonResponse
     {
         if (Gate::denies('update', Review::class)) {
-            return redirect()->route('reviews.list');
+            return response()->json(["Vous n'êtes pas autorisé à modifier l'avis."], 403);
         }
 
         $review = Review::query()->find($id);
 
         $review->status = $request->status;
         $review->save();
-        return redirect()->route('reviews.list');
+        return response()->json(['success' => "Le status de l'avis à bien été mis à jour."]);
     }
 
     public function delete(int $id): JsonResponse
@@ -97,7 +97,7 @@ class ReviewsAdminController extends Controller
             'author' => $review->author,
             'content' => $review->content,
             'rating' => $review->rating,
-            'created_at' => Carbon::createFromTimestamp($review->created_at)->format('d-m-Y'),
+            'created_at' => Carbon::parse($review->created_at)->format('d-m-Y'),
             'status' => $review->status,
         ];
     }

@@ -1,4 +1,5 @@
-<!doctype html>
+@php use Illuminate\Support\Facades\Auth; @endphp
+    <!doctype html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -17,6 +18,9 @@
                  class="logo-header"
                  src="/asset/logos/admin-logo.svg"/>
         </a>
+        <div class="pseudo">
+            {{ Auth::user()->name }}
+        </div>
     </div>
 
     <div class="nav-header">
@@ -52,10 +56,10 @@
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ FOOTER ~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <footer>
     <section class="bg-logo-footer">
-            <img
-                src="/asset/logos/logo-header.svg"
-                alt="Le logo arcadia"
-            >
+        <img
+            src="/asset/logos/logo-header.svg"
+            alt="Le logo arcadia"
+        >
         <div class="title-footer">
             <h4>&copy; Zooparc Arcadia</h4>
         </div>
