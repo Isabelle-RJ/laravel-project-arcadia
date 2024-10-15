@@ -45,6 +45,10 @@ class ReviewsAdminController extends Controller
      */
     public function getPendingReviews(Request $request): View|RedirectResponse
     {
+        if (Gate::denies('view', Review::class)) {
+            return redirect()->route('dashboard');
+        }
+
         $reviews = Review::query()->where('status', 'pending')->paginate(
             $perPage = 1, $columns = ['*'], $pageName = 'page', $page = $request->query('page')
         );
