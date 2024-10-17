@@ -11,61 +11,77 @@
         </div>
     </div>
     <div class="dashboard-cards">
-        <a href="">
-            <div class="cards-list">
-                <img
-                    class="icon-dashboard"
-                    src="/asset/icons/profil.svg"
-                    alt="Icône du tableau de bord"
-                >
-                <p>Gestion des comptes</p>
-                <span>Comptes</span>
-            </div>
-        </a>
-        <a href="">
-            <div class="cards-list">
-                <img
-                    class="icon-dashboard"
-                    src="/asset/icons/services.svg"
-                    alt="Icône du tableau de bord"
-                >
-                <p>Gestion des services</p>
-                <span>Services</span>
-            </div>
-        </a>
-        <a href="">
-            <div class="cards-list">
-                <img
-                    class="icon-dashboard"
-                    src="/asset/icons/openings.svg"
-                    alt="Icône du tableau de bord"
-                >
-                <p>Gestion des horaires</p>
-                <span>Horaires</span>
-            </div>
-        </a>
-        <a href="">
-            <div class="cards-list">
-                <img
-                    class="icon-dashboard"
-                    src="/asset/icons/habitats.svg"
-                    alt="Icône du tableau de bord"
-                >
-                <p>Gestion des habitats</p>
-                <span>Habitats</span>
-            </div>
-        </a>
-        <a href="">
-            <div class="cards-list">
-                <img
-                    class="icon-dashboard"
-                    src="/asset/icons/animals.svg"
-                    alt="Icône du tableau de bord"
-                >
-                <p>Gestion des animaux</p>
-                <span>Animaux</span>
-            </div>
-        </a>
+
+        @can('view', App\Models\User::class)
+            <a href="{{ route('auth.register') }}">
+                <div class="cards-list">
+                    <img
+                        class="icon-dashboard"
+                        src="/asset/icons/profil.svg"
+                        alt="Icône du tableau de bord"
+                    >
+                    <p>Gestion des comptes</p>
+                    <span>Comptes</span>
+                </div>
+            </a>
+        @endcan
+
+        @can('view', App\Models\Service::class)
+            <a href="{{ route('services.create') }}">
+                <div class="cards-list">
+                    <img
+                        class="icon-dashboard"
+                        src="/asset/icons/services.svg"
+                        alt="Icône du tableau de bord"
+                    >
+                    <p>Gestion des services</p>
+                    <span>Services</span>
+                </div>
+            </a>
+        @endcan
+
+        @can('view', App\Models\Opening::class)
+            <a href="{{ route('openings.create') }}">
+                <div class="cards-list">
+                    <img
+                        class="icon-dashboard"
+                        src="/asset/icons/openings.svg"
+                        alt="Icône du tableau de bord"
+                    >
+                    <p>Gestion des horaires</p>
+                    <span>Horaires</span>
+                </div>
+            </a>
+        @endcan
+
+        @can('view', App\Models\Habitat::class)
+            <a href="{{ route('admin.habitats') }}">
+                <div class="cards-list">
+                    <img
+                        class="icon-dashboard"
+                        src="/asset/icons/habitats.svg"
+                        alt="Icône du tableau de bord"
+                    >
+                    <p>Gestion des habitats</p>
+                    <span>Habitats</span>
+                </div>
+            </a>
+        @endcan
+
+        @can('view', App\Models\Animal::class)
+            <a href="">
+                <div class="cards-list">
+                    <img
+                        class="icon-dashboard"
+                        src="/asset/icons/animals.svg"
+                        alt="Icône du tableau de bord"
+                    >
+                    <p>Gestion des animaux</p>
+                    <span>Animaux</span>
+                </div>
+            </a>
+        @endcan
+
         <a href="">
             <div class="cards-list">
                 <img
@@ -77,6 +93,7 @@
                 <span>Compte-rendu</span>
             </div>
         </a>
+
         <a href="">
             <div class="cards-list">
                 <img

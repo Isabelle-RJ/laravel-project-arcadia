@@ -73,7 +73,12 @@ For sass :
 npm install -D sass-embedded
 ```
 
+### Accounts for testing :
+```Admin : joseadmin@gmail.com -- 123456789aze```
 
+```Veterinarian : josetteveterinarian@gmail.com -- 123456789aze```
+
+```Employee : josephemployee@gmail.com -- 123456789aze```
 
 ### Author :
 

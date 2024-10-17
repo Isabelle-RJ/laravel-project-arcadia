@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\ServicesAdminController;
 use App\Http\Controllers\Admin\ZooAdminController;
 use App\Http\Controllers\AnimalsController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HabitatsController;
 use App\Http\Controllers\HomeController;
@@ -33,10 +34,12 @@ Route::get('/faq', function () {})->name('faq');
 
 Route::get('/admin', [HomeAdminController::class, 'index'])->name('dashboard');
 Route::get('/login', [LoginController::class, 'login' ])->name('auth.login');
+Route::get('/logout', [LogoutController::class, 'logout' ])->name('auth.logout');
 Route::post('/login',[LoginController::class, 'authenticate' ])->name('auth.authenticate');
 Route::get('/register', [RegisterController::class, 'register' ])->name('auth.register');
 Route::post('/register',[RegisterController::class, 'registerPost' ])->name('auth.registerPost');
 
+Route::get('admin/zoo/habitats', [HabitatsAdminController::class, 'index' ])->name('admin.habitats');
 Route::get('admin/zoo/habitats/create', [HabitatsAdminController::class, 'createForm'])->name('habitats.createForm');
 Route::post('admin/zoo/habitats/create', [HabitatsAdminController::class, 'create'])->name('habitats.create');
 Route::get('admin/zoo/habitats/edit/{name}', [HabitatsAdminController::class, 'edit'])->name('habitats.edit');
@@ -75,4 +78,4 @@ Route::delete('admin/zoo/reviews/edit/{id}', [ReviewsAdminController::class, 'de
 Route::get('/admin/zoo', [ZooAdminController::class, 'index'])->name('zoo-index');
 Route::get('/admin/zoo/create', [ZooAdminController::class, 'createForm' ])->name('create-form');
 Route::post('/admin/zoo/create', [ZooAdminController::class, 'create'])->name('create-zoo');
-Route::get('/admin/zoo/{name}', [ZooAdminController::class, 'show'])->name('show-zoo');
+Route::delete('/admin/zoo/{name}', [ZooAdminController::class, 'show'])->name('show-zoo');

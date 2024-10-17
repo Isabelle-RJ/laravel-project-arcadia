@@ -8,13 +8,17 @@ use App\Models\Habitat;
 use App\Requests\AnimalsFormRequest;
 use Exception;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class AnimalsAdminController extends Controller
 {
-    public function index(): View
+    public function index(): View|RedirectResponse
     {
+        if (Gate::denies('view', Animal::class)) {
+            return redirect()->route('dashboard');
+        }
         $animals = Animal::all()->groupBy('habitat_id');
         return view('page.animals', compact('animals'));
     }
@@ -22,8 +26,11 @@ class AnimalsAdminController extends Controller
     /**
      * @throws Exception
      */
-    public function show(string $name): View
+    public function show(string $name): View|RedirectResponse
     {
+        if (Gate::denies('view', Animal::class)) {
+            return redirect()->route('dashboard');
+        }
        $animal = Animal::query()->where('name', '=', $name)->first();
        if (!$animal) {
            throw new Exception("Il n'y a pas d'animal", 404);
@@ -33,6 +40,10 @@ class AnimalsAdminController extends Controller
 
     public function create(AnimalsFormRequest $request): RedirectResponse
     {
+        if (Gate::denies('create', Animal::class)) {
+            return redirect()->route('dashboard');
+        }
+
         $path = $request->file('image')->getClientOriginalName();
 
         $animal = new Animal();
@@ -52,8 +63,12 @@ class AnimalsAdminController extends Controller
         return redirect()->route('home');
     }
 
-    public function createForm(): View
+    public function createForm(): View|RedirectResponse
     {
+        if (Gate::denies('create', Animal::class)) {
+            return redirect()->route('dashboard');
+        }
+
         $habitats = Habitat::all();
         return view ('admin.zoo.animals.create', compact('habitats'));
     }
@@ -61,8 +76,12 @@ class AnimalsAdminController extends Controller
     /**
      * @throws Exception
      */
-    public function edit(string $name): View
+    public function edit(string $name): View|RedirectResponse
     {
+        if (Gate::denies('update', Animal::class)) {
+            return redirect()->route('dashboard');
+        }
+
         $animal = Animal::query()->where('name', '=', $name)->first();
         $habitats = Habitat::all();
 
@@ -71,6 +90,10 @@ class AnimalsAdminController extends Controller
 
     public function update(AnimalsFormRequest $request, string $name): RedirectResponse
     {
+        if (Gate::denies('update', Animal::class)) {
+            return redirect()->route('dashboard');
+        }
+
         $path = $request->file('image')->getClientOriginalName();
         $animal = Animal::query()->where('name', '=', $name)->first();
 
@@ -90,6 +113,9 @@ class AnimalsAdminController extends Controller
 
     public function delete(string $name): RedirectResponse
     {
+        if (Gate::denies('delete', Animal::class)) {
+            return redirect()->route('dashboard');
+        }
         $animal = Animal::query()->where('name', '=', $name)->first();
         Storage::disk('public')->delete('asset/images/' .$animal->image);
         $animal->delete();

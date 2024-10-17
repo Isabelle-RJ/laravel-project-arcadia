@@ -8,6 +8,7 @@ use App\Models\Zoo;
 use App\Requests\ServicesFormRequest;
 use Exception;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
@@ -21,8 +22,12 @@ class ServicesAdminController extends Controller
     /**
      * @throws Exception
      */
-    public function show(string $name): View
+    public function show(string $name): View|RedirectResponse
     {
+        if (Gate::denies('view', Service::class)) {
+            return redirect()->route('dashboard');
+        }
+
         $service = Service::query()->where('name', '=', $name)->first();
         if (!$service) {
             throw new Exception("Il n'y a pas de service", 404);
@@ -30,13 +35,21 @@ class ServicesAdminController extends Controller
         return view('page.service', compact('service'));
     }
 
-    public function createForm(): View
+    public function createForm(): View|RedirectResponse
     {
+        if (Gate::denies('create', Service::class)) {
+            return redirect()->route('dashboard');
+        }
+
         return view('admin.zoo.services.create');
     }
 
     public function create(ServicesFormRequest $request): RedirectResponse
     {
+        if(Gate::denies('create', Service::class)) {
+            return redirect()->route('dashboard');
+        }
+
         $zoo = Zoo::query()->where('name', '=', 'Arcadia')->first();
         $path = $request->file('image')->getClientOriginalName();
 
@@ -54,14 +67,21 @@ class ServicesAdminController extends Controller
         return redirect()->route('home');
     }
 
-    public function edit(string $name): View
+    public function edit(string $name): View|RedirectResponse
     {
+        if (Gate::denies('update', Service::class)) {
+            return redirect()->route('dashboard');
+        }
         $service = Service::query()->where('name', '=', $name)->first();
         return view('admin.zoo.services.edit', compact('service'));
     }
 
     public function update(ServicesFormRequest $request, string $name): RedirectResponse
     {
+        if(Gate::denies('update', Service::class)) {
+            return redirect()->route('dashboard');
+        }
+
         $zoo = Zoo::query()->where('name', '=', 'Arcadia')->first();
         $service = Service::query()->where('name', '=', $name)->first();
         $path = $request->file('image')->getClientOriginalName();
@@ -81,6 +101,10 @@ class ServicesAdminController extends Controller
 
     public function delete(string $name): RedirectResponse
     {
+        if(Gate::denies('delete', Service::class)) {
+            return redirect()->route('dashboard');
+        }
+
         $service = Service::query()->where('name', '=', $name)->first();
         Storage::disk('public')->delete("asset/images/" . $service->image);
         $service->delete();

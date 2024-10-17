@@ -33,6 +33,7 @@
         </nav>
         <div class="nav-links">
             <ul id="nav-link">
+                <li><a href="{{ route('auth.logout')}}">Se déconnecter </a></li>
                 <li><a href="{{ route('create-form')}}">Admin Zoo</a></li>
                 <li><a href="{{ route('habitats.createForm')}}">Admin Habitats</a></li>
                 <li><a href="{{ route('animals.createForm')}}">Admin Animaux</a></li>

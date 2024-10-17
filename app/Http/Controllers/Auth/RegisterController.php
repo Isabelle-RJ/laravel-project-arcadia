@@ -8,11 +8,16 @@ use App\Models\Zoo;
 use App\Requests\RegisterFormRequest;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Gate;
 
 class RegisterController extends Controller
 {
     public function registerPost(RegisterFormRequest $request): RedirectResponse
     {
+        if(Gate::denies('create', User::class)){
+            return redirect()->route('dashboard');
+        }
+
         $zoo = Zoo::query()->where('name', '=', 'Arcadia')->first();
 
         $user = new User();
@@ -27,8 +32,12 @@ class RegisterController extends Controller
         return redirect()->route('auth.login');
     }
 
-    public function register(): View
+    public function register(): View|RedirectResponse
     {
+        if(Gate::denies('create', User::class)){
+            return redirect()->route('dashboard');
+        }
+
         return view('auth.register');
     }
 }

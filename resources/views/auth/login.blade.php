@@ -77,6 +77,9 @@
                     @enderror
                 </div>
                 <div class="form">
+                    <a href="">Mot de passe oublié ?</a>
+                </div>
+                <div class="form">
                     <button type="submit"
                             class="btn-primary-dark">Se connecter
                     </button>
