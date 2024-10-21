@@ -19,8 +19,8 @@ class AnimalsAdminController extends Controller
         if (Gate::denies('view', Animal::class)) {
             return redirect()->route('dashboard');
         }
-        $animals = Animal::all()->groupBy('habitat_id');
-        return view('page.animals', compact('animals'));
+        $animals = Animal::all();
+        return view('admin.zoo.animals.index', compact('animals'));
     }
 
     /**

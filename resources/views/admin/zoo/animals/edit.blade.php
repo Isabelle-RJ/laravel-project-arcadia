@@ -10,7 +10,7 @@
             <li>Éditer un animal</li>
         </ul>
     </div>
-    <h1>Liste des animaux</h1>
+    <h1>Modifier un animal</h1>
 
     <div class="add-animaux">
         <a href="{{ route('animals.create') }}"

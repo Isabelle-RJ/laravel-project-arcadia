@@ -46,6 +46,7 @@ Route::get('admin/zoo/habitats/edit/{name}', [HabitatsAdminController::class, 'e
 Route::patch('admin/zoo/habitats/edit/{name}', [HabitatsAdminController::class, 'update'])->name('habitats.update');
 Route::delete('admin/zoo/habitats/edit/{name}', [HabitatsAdminController::class, 'delete'])->name('habitats.delete');
 
+Route::get('admin/zoo/animals', [AnimalsAdminController::class, 'index' ])->name('admin.animals');
 Route::get('admin/zoo/animals/create', [AnimalsAdminController::class, 'createForm'])->name('animals.createForm');
 Route::post('admin/zoo/animals/create', [AnimalsAdminController::class, 'create'])->name('animals.create');
 Route::get('admin/zoo/animals/edit/{name}', [AnimalsAdminController::class, 'edit'])->name('animals.edit');
