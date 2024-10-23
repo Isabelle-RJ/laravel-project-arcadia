@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('veterinarian_report', function (Blueprint $table) {
+        Schema::create('veterinarian_reports', function (Blueprint $table) {
             $table->id();
-            $table->string('animal-state');
+            $table->foreignId('animal_id');
+            $table->string('animal_state');
+            $table->foreignId('food_consum_id');
             $table->string('content');
             $table->foreignId('user_id');
-            $table->foreignId('food_id');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('veterinarian_report');
+        Schema::dropIfExists('veterinarian_reports');
     }
 };

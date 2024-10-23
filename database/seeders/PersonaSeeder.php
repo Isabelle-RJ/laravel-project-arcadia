@@ -3,11 +3,14 @@
 namespace Database\Seeders;
 
 use App\Models\Animal;
+use App\Models\Food;
+use App\Models\FoodConsum;
 use App\Models\Habitat;
 use App\Models\Opening;
 use App\Models\Review;
 use App\Models\Service;
 use App\Models\User;
+use App\Models\VeterinarianReport;
 use App\Models\Zoo;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -25,6 +28,8 @@ class PersonaSeeder extends Seeder
         $this->services($persona['services']);
         $this->openings($persona['openings']);
         $this->reviews($persona['reviews']);
+        $this->foods($persona['foods']);
+        $this->veterinarianReports($persona['veterinarian_reports']);
     }
 
     private function zoo(array $zoo): void
@@ -137,6 +142,53 @@ class PersonaSeeder extends Seeder
 
             Review::factory()
                 ->create($newReview);
+        }
+    }
+
+    private function foods(array $foods): void
+    {
+        foreach ($foods as $food) {
+            $newFood = [
+                'id' => $food['id'],
+                'name' => $food['name'],
+            ];
+
+            Food::factory()
+                ->create($newFood);
+        }
+    }
+
+
+    private function foodsConsum(array $foodsConsum): void
+    {
+        foreach ($foodsConsum as $foodConsum) {
+            $newFoodsConsum = [
+                'id' => $foodConsum['id'],
+                'animal_id' => $foodConsum['animal_id'],
+                'food_id' => $foodConsum['food_id'],
+                'quantity' => $foodConsum['quantity'],
+            ];
+
+            FoodConsum::factory()
+                ->create($newFoodsConsum);
+        }
+    }
+
+
+    private function veterinarianReports(array $veterinarianReports): void
+    {
+        foreach ($veterinarianReports as $veterinarianReport) {
+            $newVeterinarianReport = [
+                'id' => $veterinarianReport['id'],
+                'animal_id' => $veterinarianReport['animal_id'],
+                'animal_state' => $veterinarianReport['animal_state'],
+                'food_consum_id' => $veterinarianReport['food_consum_id'],
+                'content' => $veterinarianReport['content'],
+                'user_id' => $veterinarianReport['user_id'],
+            ];
+
+            VeterinarianReport::factory()
+                ->create($newVeterinarianReport);
         }
     }
 }
