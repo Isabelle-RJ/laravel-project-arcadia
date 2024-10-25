@@ -30,6 +30,7 @@ class PersonaSeeder extends Seeder
         $this->reviews($persona['reviews']);
         $this->foods($persona['foods']);
         $this->veterinarianReports($persona['veterinarian_reports']);
+        $this->foodsConsum($persona['foods_consum']);
     }
 
     private function zoo(array $zoo): void

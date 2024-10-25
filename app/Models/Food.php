@@ -5,6 +5,7 @@ namespace App\Models;
 use DateTimeImmutable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property int $id
@@ -19,4 +20,14 @@ class Food extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function animals(): BelongsTo
+    {
+        return $this->belongsTo(Animal::class);
+    }
+
+    public function foodsConsum(): BelongsTo
+    {
+        return $this->belongsTo(FoodConsum::class);
+    }
 }

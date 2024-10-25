@@ -6,6 +6,7 @@ use DateTimeImmutable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int $id
@@ -34,8 +35,8 @@ class FoodConsum extends Model
         return $this->belongsTo(Animal::class);
     }
 
-    public function food(): BelongsTo
+    public function food(): HasMany
     {
-        return $this->belongsTo(Food::class);
+        return $this->hasMany(Food::class);
     }
 }

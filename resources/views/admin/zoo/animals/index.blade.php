@@ -26,6 +26,7 @@
                 </thead>
                 <tbody>
                 @foreach( $animals as $animal )
+                    @dd($animal->foodsConsum->quantity)
                     <tr>
                         <td data-label="Name"
                             class="td-wrap">{{ $animal->name }}
@@ -34,7 +35,7 @@
                             class="td-wrap">{{ $animal->habitat->name }}
                         </td>
                         <td data-label="Nourriture"
-                            class="td-wrap">Nourriture
+                            class="td-wrap">{{ $animal->food }}
                         </td>
                         <td data-label="Grammage"
                             class="td-wrap">Grammage
