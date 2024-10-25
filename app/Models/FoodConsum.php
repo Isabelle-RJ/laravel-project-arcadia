@@ -22,6 +22,8 @@ class FoodConsum extends Model
 {
     use HasFactory;
 
+    protected $table = 'foods_consum';
+
     protected $fillable = [
         'animal_id',
         'food_id',
