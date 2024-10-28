@@ -6,11 +6,11 @@
     <div class="fil-ariane">
         <ul>
             <li>Accueil ></li>
-            <li>Liste des animaux</li>
+            <li>État des animaux</li>
         </ul>
     </div>
     <div class="animals-container">
-        <h2 class="">Liste des animaux</h2>
+        <h2 class="">État des animaux</h2>
         <div class="list-container">
             <table class="table-list">
                 <thead class="table-primary">
@@ -21,33 +21,36 @@
                     <th>Grammage de la nourriture</th>
                     <th>État de l'animal</th>
                     <th>Date du compte-rendu</th>
+                    <th>Vétérinaire</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach( $animals as $animal )
-                    @dd($animal->foodsConsum->quantity)
                     <tr>
                         <td data-label="Name"
-                            class="td-wrap">{{ $animal->name }}
+                            class="td-wrap">{{ $animal['name'] }}
                         </td>
                         <td data-label="Habitat"
-                            class="td-wrap">{{ $animal->habitat->name }}
+                            class="td-wrap">{{ $animal['habitat']->name }}
                         </td>
                         <td data-label="Nourriture"
-                            class="td-wrap">{{ $animal->food }}
+                            class="td-wrap">{{ $animal['lastFoodConsum']->food->name }}
                         </td>
                         <td data-label="Grammage"
-                            class="td-wrap">Grammage
+                            class="td-wrap">{{ $animal['lastFoodConsum']->quantity }}{{ $animal['lastFoodConsum']->unit }}
                         </td>
                         <td data-label="Etat"
-                            class="td-wrap">Etat
+                            class="td-wrap">{{ $animal['lastVeterinarianReport']['animal_state'] }}
                         </td>
                         <td data-label="Date"
-                            class="td-wrap">Date
+                            class="td-wrap">{{ $animal['lastVeterinarianReport']['created_at'] }}
+                        </td>
+                        <td data-label="Veterinarian"
+                            class="td-wrap">{{ $animal['lastVeterinarianReport']['veterinarian_name'] }}
                         </td>
                         <td data-label="Actions"
-                            class="td-wrap">Actions
+                            class="td-wrap">Éditer / Supprimer
                         </td>
                     </tr>
                 @endforeach

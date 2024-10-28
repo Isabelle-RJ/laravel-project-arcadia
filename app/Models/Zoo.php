@@ -28,9 +28,6 @@ class Zoo extends Model
         'description',
     ];
 
-    /**
-     * Get the animals for the habitat
-     */
     public function habitats(): HasMany
     {
         return $this->hasMany(Habitat::class);

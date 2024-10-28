@@ -20,7 +20,7 @@ class FoodConsumFactory extends Factory
             'animal_id' => Animal::query()->where('id', 1)->first()->id,
             'food_id' => Food::query()->inRandomOrder()->first()->id,
             'quantity' => $this->faker->numberBetween(100, 1000),
-            'unit' => $this->faker->randomElement(['g', 'l']),
+            'unit' => 'g',
             'user_id' => User::query()->where('role', 'employee')->inRandomOrder()->first()->id
         ];
     }

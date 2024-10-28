@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Animal;
+use App\Models\Food;
 use App\Models\Habitat;
 use App\Requests\AnimalsFormRequest;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Gate;
@@ -19,7 +21,16 @@ class AnimalsAdminController extends Controller
         if (Gate::denies('view', Animal::class)) {
             return redirect()->route('dashboard');
         }
+
         $animals = Animal::all();
+        $animalData = [];
+
+        foreach ($animals as $animal) {
+            $animalData[] = $this->transformAnimal($animal);
+        }
+
+        $animals = $animalData;
+
         return view('admin.zoo.animals.index', compact('animals'));
     }
 
@@ -121,6 +132,33 @@ class AnimalsAdminController extends Controller
         $animal->delete();
 
         return redirect()->route('home');
+    }
+
+    private function transformAnimal(Animal $animal): array
+    {
+        $foods = Food::all();
+        // Get the last foodsConsum and last veterinarianReport to add property of animal.
+        $lastFoodConsum = $animal->foodsConsum->sortByDesc('created_at')->first();
+        $lastVeterinarianReport = $animal->veterinarianReports->sortByDesc('created_at')->first();
+        if ($lastFoodConsum) {
+            $food = $foods->where('id', '=', $lastFoodConsum->food_id)->first();
+            $lastFoodConsum->food = $food;
+        }
+
+        return [
+            'id' => $animal->id,
+            'habitat' => $animal->habitat,
+            'name' => $animal->name,
+            'breed' => $animal->breed,
+            'image' => $animal->image,
+            'description' => $animal->description,
+            'lastFoodConsum' => $lastFoodConsum,
+            'lastVeterinarianReport' => [
+                'animal_state' => $lastVeterinarianReport->animal_state,
+                'created_at' => Carbon::parse($lastVeterinarianReport->created_at)->format('d-m-Y'),
+                'veterinarian_name' => $lastVeterinarianReport->user->name,
+            ],
+        ];
     }
 
 }

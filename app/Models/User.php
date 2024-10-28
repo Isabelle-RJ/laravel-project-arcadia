@@ -5,6 +5,7 @@ namespace App\Models;
 use DateTimeImmutable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -60,5 +61,10 @@ class User extends Authenticatable
     public function zoo(): BelongsTo
     {
         return $this->belongsTo(Zoo::class);
+    }
+
+    public function veterinarianReports(): HasMany
+    {
+        return $this->hasMany(VeterinarianReport::class);
     }
 }
