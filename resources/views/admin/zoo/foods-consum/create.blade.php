@@ -48,26 +48,23 @@
                     @endforelse
                 </select>
             </div>
-
             <div class="form">
-                <label for="foodsConsum_id">Quantité</label>
-                <select
-                    name="foodsConsum_id"
-                    id="foodsConsum_id"
+                <label for="quantity">Quantité</label>
+                <input
+                    type="text"
+                    name="quantity"
+                    id="quantity"
                 >
-                    <option disabled selected>Choisissez une quantité</option>
-                    @forelse($foodsConsum as $foodConsum)
-                        <option value="{{ $foodConsum->id }}">{{ $foodConsum->quantity }}</option>
-                    @empty
-                        <option value="" disabled>Aucune alimentation trouvée</option>
-                    @endforelse
+            </div>
+            <div class="form">
+                <label for="unit">Choisissez une unité :</label>
+                <select
+                    name="unit"
+                    id="unit"
+                >
+                    <option value="g">grammes</option>
                 </select>
             </div>
-            
-            <div class="form">
-                <label for="unit"></label>
-            </div>
-            
             <button type="submit" class="btn-create">Créer</button>
         </form>
     </div>

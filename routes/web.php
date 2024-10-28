@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AnimalsAdminController;
+use App\Http\Controllers\Admin\FoodsConsumAdminController;
 use App\Http\Controllers\Admin\HabitatsAdminController;
 use App\Http\Controllers\Admin\HomeAdminController;
 use App\Http\Controllers\Admin\OpeningsAdminController;
@@ -74,6 +75,10 @@ Route::get('admin/zoo/reviews', [ReviewsAdminController::class, 'index'])->name(
 Route::get('admin/zoo/reviews/pending', [ReviewsAdminController::class, 'getPendingReviews'])->name('reviews.pending');
 Route::get('admin/zoo/reviews/create', [ReviewsAdminController::class, 'createForm'])->name('reviews.createForm');
 Route::delete('admin/zoo/reviews/edit/{id}', [ReviewsAdminController::class, 'delete'])->name('reviews.delete');
+
+Route::get('admin/zoo/foods-consum', [FoodsConsumAdminController::class, 'index'])->name('foods-consum.index');
+Route::post('admin/zoo/foods-consum/create', [FoodsConsumAdminController::class, 'create'])->name('foods-consum.create');
+Route::get('admin/zoo/foods-consum/create', [FoodsConsumAdminController::class, 'createForm'])->name('foods-consum.createForm');
 
 // TODO: METTRE AU PROPRE LES ROUTES !!
 Route::get('/admin/zoo', [ZooAdminController::class, 'index'])->name('zoo-index');
