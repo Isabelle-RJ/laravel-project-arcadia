@@ -12,7 +12,7 @@
     <div class="formulaires-admin">
         <h1>Créer un zoo</h1>
         <form method="POST"
-              action="{{ route('create-zoo') }}">
+              action="{{ route('zoo.create') }}">
             @csrf
 
             <div>

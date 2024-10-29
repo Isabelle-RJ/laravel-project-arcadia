@@ -86,7 +86,7 @@
                 <li><a href="{{ route('contact')}}">Contact</a></li>
                 <li><a href="{{ route('faq')}}">FAQ</a></li>
                 <li><a href="{{ route('cgv')}}">CGV</a></li>
-                <li><a href="{{ route('auth.login')}}">Compte Pro</a></li>
+                <li><a href="{{ route('login')}}">Compte Pro</a></li>
             </ul>
         </div>
 

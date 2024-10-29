@@ -13,7 +13,7 @@
 <body>
 <header>
     <div class="logo-header">
-        <a href="{{ route('auth.login') }}">
+        <a href="{{ route('dashboard') }}">
             <img alt="logo arcadia mobile"
                  class="logo-header"
                  src="/asset/logos/admin-logo.svg"/>
@@ -34,7 +34,7 @@
         <div class="nav-links">
             <ul id="nav-link">
                 <li><a href="{{ route('auth.logout')}}">Se déconnecter </a></li>
-                <li><a href="{{ route('create-form')}}">Admin Zoo</a></li>
+                <li><a href="{{ route('zoo.createForm')}}">Admin Zoo</a></li>
                 <li><a href="{{ route('habitats.createForm')}}">Admin Habitats</a></li>
                 <li><a href="{{ route('animals.createForm')}}">Admin Animaux</a></li>
                 <li><a href="{{ route('services.createForm')}}">Admin Services</a></li>
