@@ -1,5 +1,4 @@
 @extends('layouts.admin')
-
 @section('content')
     <div class="dashboard">
         <h2>Tableau de bord</h2>

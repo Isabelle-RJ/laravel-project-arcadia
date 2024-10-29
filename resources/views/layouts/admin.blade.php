@@ -47,9 +47,11 @@
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ Section background header title ~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <section id="bg-header">
         @yield('header')
-    </section>
 
+    </section>
+    @include('partials.flashMessage')
     @yield('content')
+
 
 
 </main>

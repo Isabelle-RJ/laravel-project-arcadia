@@ -6,11 +6,11 @@
     <div class="fil-ariane">
         <ul>
             <li>Accueil ></li>
-            <li>État des animaux</li>
+            <li>État actuel des animaux</li>
         </ul>
     </div>
     <div class="animals-container">
-        <h2 class="">État des animaux</h2>
+        <h2 class="">État actuel des animaux</h2>
         <div class="list-container">
             <table class="table-list">
                 <thead class="table-primary">
@@ -49,8 +49,12 @@
                         <td data-label="Veterinarian"
                             class="td-wrap">{{ $animal['lastVeterinarianReport']['veterinarian_name'] }}
                         </td>
-                        <td data-label="Actions"
-                            class="td-wrap">Éditer / Supprimer
+                        <td
+                            data-label="Actions"
+                            class="td-wrap"
+                        >
+                            <!-- TODO : Mettre une action pour soit nourrir un animal si c'est l'employé qui regarde, soit rédiger un rapport si c'est le vétérinaire qui regarde -->
+                            Éditer / Supprimer / [Nourrir / Rédiger un rapport]
                         </td>
                     </tr>
                 @endforeach
@@ -59,5 +63,7 @@
         </div>
     </div>
 
-
+    <div class="btn-create">
+        <a href="{{ route('foods-consum.create') }}" class="btn-send">Ajouter un repas</a>
+    </div>
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Animal;
+use App\Models\FoodConsum;
 use App\Models\Habitat;
 use App\Models\Opening;
 use App\Models\Review;
@@ -11,6 +12,7 @@ use App\Models\User;
 use App\Models\Zoo;
 use App\Policies\AccountPolicy;
 use App\Policies\AnimalsPolicy;
+use App\Policies\FoodsConsumPolicy;
 use App\Policies\HabitatsPolicy;
 use App\Policies\OpeningsPolicy;
 use App\Policies\ReportsPolicy;
@@ -44,6 +46,7 @@ class AppServiceProvider extends ServiceProvider
         Gate::policy(Habitat::class, HabitatsPolicy::class);
         Gate::policy(Animal::class, AnimalsPolicy::class);
         Gate::policy(Report::class, ReportsPolicy::class);
+        Gate::policy(FoodConsum::class, FoodsConsumPolicy::class);
     }
 
 }

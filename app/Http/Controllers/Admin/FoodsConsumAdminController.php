@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Animal;
 use App\Models\Food;
 use App\Models\FoodConsum;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\View\View;
 
 
@@ -18,8 +20,12 @@ class FoodsConsumAdminController extends Controller
         return view('admin.zoo.foods-consum.index');
     }
 
-    public function create(Request $request): void
+    public function create(Request $request): RedirectResponse
     {
+        if (Gate::denies('create', FoodConsum::class)) {
+            return redirect()->route('dashboard');
+        }
+
         $foodConsum = new FoodConsum();
         $foodConsum->animal_id = $request->animal_id;
         $foodConsum->food_id = $request->food_id;
@@ -27,10 +33,15 @@ class FoodsConsumAdminController extends Controller
         $foodConsum->unit = $request->unit;
         $foodConsum->user_id = Auth::user()->id;
         $foodConsum->save();
+
+        return redirect()->route('admin.animals')->with(["success" => "La consommation de nourriture a bien été ajoutée."]);
     }
 
-    public function createForm(): View
+    public function createForm(): View|RedirectResponse
     {
+        if (Gate::denies('view', FoodConsum::class)) {
+            return redirect()->route('dashboard');
+        }
         $animals = Animal::all();
         $foods = Food::all();
         return view('admin.zoo.foods-consum.create', compact('animals', 'foods'));

@@ -74,7 +74,9 @@ Route::middleware('auth')->group(function () {
     Route::get('admin/zoo/reviews/create', [ReviewsAdminController::class, 'createForm'])->name('reviews.createForm');
     Route::delete('admin/zoo/reviews/edit/{id}', [ReviewsAdminController::class, 'delete'])->name('reviews.delete');
 
-    Route::get('admin/zoo/foods-consum', [FoodsConsumAdminController::class, 'index'])->name('foods-consum.index');
+    // TODO: en bonus faire la page index
+    // Route::get('admin/zoo/foods-consum', [FoodsConsumAdminController::class, 'index'])->name('foods-consum.index');
+
     Route::post('admin/zoo/foods-consum/create', [FoodsConsumAdminController::class, 'create'])->name('foods-consum.create');
     Route::get('admin/zoo/foods-consum/create', [FoodsConsumAdminController::class, 'createForm'])->name('foods-consum.createForm');
 

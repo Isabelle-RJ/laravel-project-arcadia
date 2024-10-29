@@ -32,6 +32,9 @@
                     <option value="" disabled>Aucun animal trouvé</option>
                     @endforelse
                 </select>
+                @error('animal_id')
+                {{ $message }}
+                @enderror
             </div>
 
             <div class="form">
@@ -47,6 +50,9 @@
                         <option value="" disabled>Aucune alimentation trouvée</option>
                     @endforelse
                 </select>
+                @error('food_id')
+                {{ $message }}
+                @enderror
             </div>
             <div class="form">
                 <label for="quantity">Quantité</label>
@@ -55,6 +61,9 @@
                     name="quantity"
                     id="quantity"
                 >
+                @error('quantity')
+                {{ $message }}
+                @enderror
             </div>
             <div class="form">
                 <label for="unit">Choisissez une unité :</label>
@@ -64,6 +73,9 @@
                 >
                     <option value="g">grammes</option>
                 </select>
+                @error('unit')
+                {{ $message }}
+                @enderror
             </div>
             <button type="submit" class="btn-create">Créer</button>
         </form>
