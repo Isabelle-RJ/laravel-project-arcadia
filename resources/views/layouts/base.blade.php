@@ -19,6 +19,8 @@
             </a>
             <a href="{{ route('home') }}">
                 <img alt="logo arcadia mobile" class="logo-header" src="/asset/logos/logo-footer.svg"/>
+                <img src="/asset/logos/logo-header.svg" class="logo-desktop"
+                     alt="logo arcadia desktop">
             </a>
             <a href="{{ route('ticketing') }}">
                 <img alt="icon ticket" class="icon-ticket" src="/asset/icons/icon-ticket.svg"/>
@@ -30,10 +32,6 @@
                 <li><a href="{{ route('services')}}">Services</a></li>
                 <li><a href="{{ route('contact')}}">Contact</a></li>
                 <li><a href="{{ route('ticketing')}}">Billetterie</a></li>
-                <li><a href="{{ route('habitats.createForm')}}">Admin Habitats</a></li>
-                <li><a href="{{ route('animals.createForm')}}">Admin Animals</a></li>
-                <li><a href="{{ route('services.createForm')}}">Admin Services</a></li>
-                <li><a href="{{ route('openings.createForm')}}">Admin Horaires</a></li>
             </ul>
         </div>
     </div>
@@ -84,8 +82,7 @@
             <h3>Infos Pratiques</h3>
             <ul>
                 <li><a href="{{ route('contact')}}">Contact</a></li>
-                <li><a href="{{ route('faq')}}">FAQ</a></li>
-                <li><a href="{{ route('cgv')}}">CGV</a></li>
+                <li><a href="{{ route('legal-notices')}}">Mentions légales</a></li>
                 <li><a href="{{ route('login')}}">Compte Pro</a></li>
             </ul>
         </div>
@@ -94,12 +91,8 @@
 </section>
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ FOOTER ~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <section class="container-footer">
-    <h4>&copy; Zooparc Arcadia : Zoo en Ille et vilaine (35) en Bretagne |
-        <a href="{{ route('legal-notices')}}">
-            <em>Mentions légales</em>
-        </a>
-        |
-        <a href="">Politique de confidentialité</a></h4>
+    <h4>&copy; Zooparc Arcadia : Zoo en Ille et vilaine (35) en Bretagne</h4>
+    <span class="txt-hidden">Isabelle Jurain Radermecker</span>
 </section>
 
 </body>

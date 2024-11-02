@@ -75,10 +75,18 @@ nav {
     color: var(--secondary-dark);
 }
 
+.logo-desktop{
+    display: none;
+}
+
+.txt-hidden{
+    color: transparent;
+}
 /* Show nav-links when the menu is open */
 .menu-open .nav-links {
     display: flex;
 }
+
 
 /* For larger screens (1024px and above) */
 @media (min-width: 1024px) {
@@ -86,8 +94,14 @@ nav {
     .menu-burger {
         display: none;
     }
+    img.logo-header{
+        display: none;
+    }
+    .logo-desktop{
+        display: flex;
+        justify-content: center;
+    }
 
-    /* Display nav-links in a horizontal row */
     .nav-links {
         display: flex;
         position: static;
@@ -96,7 +110,7 @@ nav {
         background-color: transparent;
         backdrop-filter: none;
         flex-direction: row;
-        justify-content: flex-end; /* Align links to the right */
+        justify-content: flex-end;
         align-items: center;
     }
 
@@ -108,6 +122,12 @@ nav {
 
     .nav-links ul li {
         margin: 0;
+    }
+
+    .navfooter-content{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
     }
 
     /* Logo stays on the left */
