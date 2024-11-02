@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\HomeAdminController;
 use App\Http\Controllers\Admin\OpeningsAdminController;
 use App\Http\Controllers\Admin\ReviewsAdminController;
 use App\Http\Controllers\Admin\ServicesAdminController;
+use App\Http\Controllers\Admin\VeterinarianReportsAdminController;
 use App\Http\Controllers\Admin\ZooAdminController;
 use App\Http\Controllers\AnimalsController;
 use App\Http\Controllers\Auth\LoginController;
@@ -79,6 +80,10 @@ Route::middleware('auth')->group(function () {
 
     Route::post('admin/zoo/foods-consum/create', [FoodsConsumAdminController::class, 'create'])->name('foods-consum.create');
     Route::get('admin/zoo/foods-consum/create', [FoodsConsumAdminController::class, 'createForm'])->name('foods-consum.createForm');
+
+    Route::post('admin/zoo/veterinarian-reports/create', [VeterinarianReportsAdminController::class, 'create'])->name
+    ('veterinarian-report.create');
+    Route::get('admin/zoo/veterinarian-reports/create', [VeterinarianReportsAdminController::class, 'createForm'])->name('veterinarian-report.createForm');
 
     Route::get('/admin/zoo', [ZooAdminController::class, 'index'])->name('zoo.index');
     Route::get('/admin/zoo/create', [ZooAdminController::class, 'createForm' ])->name('zoo.createForm');
