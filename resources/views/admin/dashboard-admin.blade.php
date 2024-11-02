@@ -83,7 +83,7 @@
         @endcan
 
         @can('view', App\Models\VeterinarianReport::class)
-            <a href="{{ route('veterinarian-reports.create') }}">
+            <a href="{{ route('veterinarian-reports') }}">
                 <div class="cards-list">
                     <img
                         class="icon-dashboard"

@@ -8,28 +8,31 @@ use App\Models\FoodConsum;
 use App\Models\VeterinarianReport;
 use App\Requests\VeterinarianReportsFormRequest;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\View\View;
 
 class VeterinarianReportsAdminController extends Controller
 {
-    public function index(): View
+    public function index(): View|RedirectResponse
     {
-        return view('admin.veterinarian-reports.index');
+        if (Gate::denies('view', VeterinarianReport::class)) {
+            return redirect()->route('dashboard');
+        }
+        return view('admin.zoo.veterinarian-reports.index');
     }
 
-    public function create(VeterinarianReportsFormRequest $request): RedirectResponse
+    public function create(VeterinarianReportsFormRequest $request): View|RedirectResponse
     {
         if (Gate::denies('create', VeterinarianReport::class)) {
             return redirect()->route('dashboard');
         }
 
+        $foodConsumId = FoodConsum::query()->where('animal_id', $request->animal_id)->first()->id;
         $veterinarianReport = new VeterinarianReport();
         $veterinarianReport->animal_id = $request->animal_id;
         $veterinarianReport->animal_state = $request->animal_state;
-        $veterinarianReport->food_consum_id = $request->food_consum_id;
+        $veterinarianReport->food_consum_id = $foodConsumId;
         $veterinarianReport->content = $request->get('content');
         $veterinarianReport->user_id = Auth::user()->id;
         $veterinarianReport->save();

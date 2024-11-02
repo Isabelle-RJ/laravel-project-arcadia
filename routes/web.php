@@ -81,6 +81,7 @@ Route::middleware('auth')->group(function () {
     Route::post('admin/zoo/foods-consum/create', [FoodsConsumAdminController::class, 'create'])->name('foods-consum.create');
     Route::get('admin/zoo/foods-consum/create', [FoodsConsumAdminController::class, 'createForm'])->name('foods-consum.createForm');
 
+    Route::get('admin/zoo/veterinarian-reports', [VeterinarianReportsAdminController::class, 'index'])->name('veterinarian-reports');
     Route::post('admin/zoo/veterinarian-reports/create', [VeterinarianReportsAdminController::class, 'create'])->name
     ('veterinarian-reports.create');
     Route::get('admin/zoo/veterinarian-reports/create', [VeterinarianReportsAdminController::class, 'createForm'])
@@ -96,3 +97,6 @@ Route::get('api/admin/zoo/reviews', [ReviewsController::class, 'index'])->name('
 Route::get('api/admin/zoo/reviews/{id}', [ReviewsAdminController::class, 'show'])->name('reviews.show');
 Route::post('api/admin/zoo/reviews/create', [ReviewsController::class, 'create'])->name('reviews.create');
 Route::patch('api/admin/zoo/reviews/edit/{id}', [ReviewsAdminController::class, 'update'])->name('reviews.update');
+
+Route::get('api/admin/zoo/foods-consum/animal/{animal}', [FoodsConsumAdminController::class, 'getFoodConsumedByAnimal'])
+    ->name('foods-consum.animal');

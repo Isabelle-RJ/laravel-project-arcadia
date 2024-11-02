@@ -7,8 +7,8 @@ use App\Models\Animal;
 use App\Models\Food;
 use App\Models\FoodConsum;
 use App\Requests\FoodsConsumFormRequest;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\View\View;
@@ -47,4 +47,16 @@ class FoodsConsumAdminController extends Controller
         $foods = Food::all();
         return view('admin.zoo.foods-consum.create', compact('animals', 'foods'));
     }
+
+    public function getFoodConsumedByAnimal($animalId)
+    {
+        $lastFoodConsumed = FoodConsum::query()
+            ->where('animal_id', $animalId)
+            ->with('food')
+            ->orderByDesc('created_at')
+            ->first();
+        return response()->json($lastFoodConsumed);
+    }
+
+
 }

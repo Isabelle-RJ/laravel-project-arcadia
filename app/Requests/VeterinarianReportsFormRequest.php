@@ -16,7 +16,6 @@ class VeterinarianReportsFormRequest extends FormRequest
         return [
             'animal_id' => 'required|integer',
             'animal_state' => 'required|string',
-            'food_consum_id' => 'required|integer',
             'content' => 'required|string',
         ];
     }

@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@vite(['resources/js/components/veterinarianReportForm.js'])
 @section('content')
     <div class="dashboard">
         <h2>Tableau de bord</h2>
@@ -12,7 +13,7 @@
 
     <div class="container veto-report">
         <form
-            action=""
+            action="{{ route('veterinarian-reports.create') }}"
             method="post"
             enctype="multipart/form-data"
         >
@@ -37,23 +38,42 @@
                             </option>
                         @endforelse
                     </select>
+                    @error('animal_id')
+                    {{ $message }}
+                    @enderror
+                </div>
+
+                <div class="form-select"
+                     id="food-consumed-section">
+                    <div>Sélectionnez un animal pour voir la nourriture consommée.</div>
+                    <label for="food_consum_id">Nourriture déjà consommée :</label>
+                    <div id="food-consumed-list"></div>
                 </div>
                 <div class="form-select">
                     <label for="animal_state">État de l'animal :</label>
                     <select name="animal_state"
                             id="animal_state">
+                        <option disabled
+                                selected>Choisir un état de santé
+                        </option>
                         <option value="En bonne santé">En bonne santé</option>
                         <option value="À surveiller">À surveiller</option>
                         <option value="Signe de vieillesse">Signe de vieillesse</option>
                     </select>
+                    @error('animal_state')
+                    {{ $message }}
+                    @enderror
                 </div>
-                <div class="form-select">
-                    <label for="food_consum_id">Nourriture proposée par l'employé :</label>
-                    @foreach( $foods_consum as $food_consum )
-                        <p>{{ $food_consum->food->name }}</p>
-                    @endforeach
+                <div class="form">
+                    <label for="content">Observations :</label>
+                    <textarea name="content"
+                              id=""
+                              cols="30"
+                              rows="10"></textarea>
+                    @error('content')
+                    {{ $message }}
+                    @enderror
                 </div>
-
             </div>
             <div class="div-create">
                 <button type="submit"
