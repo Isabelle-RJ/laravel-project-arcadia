@@ -9,7 +9,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property int $id
+ * @property int $animal_id
  * @property string $animal_state
+ * @property int $food_consum_id
  * @property string $content
  * @property int $user_id
  * @property DateTimeImmutable $created_at
@@ -20,7 +22,9 @@ class VeterinarianReport extends Model
     use HasFactory;
 
     protected $fillable = [
+        'animal_id',
         'animal_state',
+        'food_consum_id',
         'content',
         'user_id',
     ];

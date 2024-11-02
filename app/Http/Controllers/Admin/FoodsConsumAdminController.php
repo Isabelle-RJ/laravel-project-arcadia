@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Animal;
 use App\Models\Food;
 use App\Models\FoodConsum;
+use App\Requests\FoodsConsumFormRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,7 @@ class FoodsConsumAdminController extends Controller
         return view('admin.zoo.foods-consum.index');
     }
 
-    public function create(Request $request): RedirectResponse
+    public function create(FoodsConsumFormRequest $request): RedirectResponse
     {
         if (Gate::denies('create', FoodConsum::class)) {
             return redirect()->route('dashboard');

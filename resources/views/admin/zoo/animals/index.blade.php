@@ -38,7 +38,7 @@
                             class="td-wrap">{{ $animal['lastFoodConsum']->food->name }}
                         </td>
                         <td data-label="Grammage"
-                            class="td-wrap">{{ $animal['lastFoodConsum']->quantity }}{{ $animal['lastFoodConsum']->unit }}
+                            class="td-wrap">{{ $animal['lastFoodConsum']->quantity }} {{ $animal['lastFoodConsum']->unit }}
                         </td>
                         <td data-label="Etat"
                             class="td-wrap">{{ $animal['lastVeterinarianReport']['animal_state'] }}
@@ -53,17 +53,17 @@
                             data-label="Actions"
                             class="td-wrap"
                         >
-                            <!-- TODO : Mettre une action pour soit nourrir un animal si c'est l'employé qui regarde, soit rédiger un rapport si c'est le vétérinaire qui regarde -->
-                            Éditer / Supprimer / [Nourrir / Rédiger un rapport]
+                            @can('view', App\Models\FoodConsum::class)
+                           <a href="{{ route('foods-consum.create') }}">Ajouter un repas</a>
+                            @endcan
+                            @can('view', App\Models\VeterinarianReport::class)
+                            <a href="{{ route('veterinarian-reports.create') }}">Ajouter un rapport vétérinaire</a>
+                            @endcan
                         </td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
         </div>
-    </div>
-
-    <div class="btn-create">
-        <a href="{{ route('foods-consum.create') }}" class="btn-send">Ajouter un repas</a>
     </div>
 @endsection

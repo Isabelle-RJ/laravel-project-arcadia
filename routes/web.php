@@ -82,8 +82,9 @@ Route::middleware('auth')->group(function () {
     Route::get('admin/zoo/foods-consum/create', [FoodsConsumAdminController::class, 'createForm'])->name('foods-consum.createForm');
 
     Route::post('admin/zoo/veterinarian-reports/create', [VeterinarianReportsAdminController::class, 'create'])->name
-    ('veterinarian-report.create');
-    Route::get('admin/zoo/veterinarian-reports/create', [VeterinarianReportsAdminController::class, 'createForm'])->name('veterinarian-report.createForm');
+    ('veterinarian-reports.create');
+    Route::get('admin/zoo/veterinarian-reports/create', [VeterinarianReportsAdminController::class, 'createForm'])
+        ->name('veterinarian-reports.createForm');
 
     Route::get('/admin/zoo', [ZooAdminController::class, 'index'])->name('zoo.index');
     Route::get('/admin/zoo/create', [ZooAdminController::class, 'createForm' ])->name('zoo.createForm');

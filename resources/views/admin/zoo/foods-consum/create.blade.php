@@ -15,7 +15,8 @@
 
         <form
             action=""
-            method="post" enctype="multipart/form-data"
+            method="post"
+            enctype="multipart/form-data"
         >
             @csrf
 
@@ -25,11 +26,15 @@
                     name="animal_id"
                     id="animal_id"
                 >
-                    <option disabled selected>Choisissez un animal</option>
+                    <option disabled
+                            selected>Choisissez un animal
+                    </option>
                     @forelse($animals as $animal)
-                    <option value="{{ $animal->id }}">{{ $animal->name }}</option>
+                        <option value="{{ $animal->id }}">{{ $animal->name }}</option>
                     @empty
-                    <option value="" disabled>Aucun animal trouvé</option>
+                        <option value=""
+                                disabled>Aucun animal trouvé
+                        </option>
                     @endforelse
                 </select>
                 @error('animal_id')
@@ -43,11 +48,15 @@
                     name="food_id"
                     id="food_id"
                 >
-                    <option disabled selected>Choisissez une alimentation</option>
-                    @forelse($foods as $food)
+                    <option disabled
+                            selected>Choisissez une alimentation
+                    </option>
+                    @forelse( $foods as $food )
                         <option value="{{ $food->id }}">{{ $food->name }}</option>
                     @empty
-                        <option value="" disabled>Aucune alimentation trouvée</option>
+                        <option value=""
+                                disabled>Aucune alimentation trouvée
+                        </option>
                     @endforelse
                 </select>
                 @error('food_id')
@@ -77,7 +86,9 @@
                 {{ $message }}
                 @enderror
             </div>
-            <button type="submit" class="btn-create">Créer</button>
+            <button type="submit"
+                    class="btn-create">Créer
+            </button>
         </form>
     </div>
 

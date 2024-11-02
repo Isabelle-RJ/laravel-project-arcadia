@@ -82,17 +82,19 @@
             </a>
         @endcan
 
-        <a href="">
-            <div class="cards-list">
-                <img
-                    class="icon-dashboard"
-                    src="/asset/icons/reports.svg"
-                    alt="Icône du tableau de bord"
-                >
-                <p>Gestion des compte-rendus</p>
-                <span>Compte-rendu</span>
-            </div>
-        </a>
+        @can('view', App\Models\VeterinarianReport::class)
+            <a href="{{ route('veterinarian-reports.create') }}">
+                <div class="cards-list">
+                    <img
+                        class="icon-dashboard"
+                        src="/asset/icons/reports.svg"
+                        alt="Icône du tableau de bord"
+                    >
+                    <p>Gestion des compte-rendus</p>
+                    <span>Compte-rendu</span>
+                </div>
+            </a>
+        @endcan
 
         <a href="">
             <div class="cards-list">

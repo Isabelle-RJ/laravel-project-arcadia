@@ -9,6 +9,7 @@ use App\Models\Opening;
 use App\Models\Review;
 use App\Models\Service;
 use App\Models\User;
+use App\Models\VeterinarianReport;
 use App\Models\Zoo;
 use App\Policies\AccountPolicy;
 use App\Policies\AnimalsPolicy;
@@ -21,7 +22,6 @@ use App\Policies\ServicesPolicy;
 use App\Policies\ZooPolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
-use SebastianBergmann\CodeCoverage\Report\Xml\Report;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -45,7 +45,7 @@ class AppServiceProvider extends ServiceProvider
         Gate::policy(Opening::class, OpeningsPolicy::class);
         Gate::policy(Habitat::class, HabitatsPolicy::class);
         Gate::policy(Animal::class, AnimalsPolicy::class);
-        Gate::policy(Report::class, ReportsPolicy::class);
+        Gate::policy(VeterinarianReport::class, ReportsPolicy::class);
         Gate::policy(FoodConsum::class, FoodsConsumPolicy::class);
     }
 
