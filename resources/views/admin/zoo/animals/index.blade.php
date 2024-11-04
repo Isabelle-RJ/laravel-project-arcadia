@@ -10,7 +10,11 @@
         </ul>
     </div>
     <div class="animals-container">
-        <h2 class="">État actuel des animaux</h2>
+        <h2 class="title-cards">État actuel des animaux</h2>
+        <div class="btn-back">
+            <a href="{{ route('veterinarian-reports') }}"
+               class="btn-send">Retour à l'historique des rapports</a>
+        </div>
         <div class="list-container">
             <table class="table-list">
                 <thead class="table-primary">

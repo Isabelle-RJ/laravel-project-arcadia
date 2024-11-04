@@ -9,9 +9,31 @@
             <li>Liste des Compte-rendu Vétérinaire</li>
         </ul>
     </div>
+    <div class="container-block">
+        <h2 class="title-cards">Historique des rapports vétérinaire :</h2>
+        <div class="btn-top">
+            <div class="btn-back">
+                <a href="{{ route('dashboard') }}"
+                   class="btn-send">Retour au tableau de bord</a>
+            </div>
+            <div>
+                <a href="{{ route('veterinarian-reports.create') }}"
+                   class="btn-send">Créer un rapport</a>
+            </div>
+        </div>
+        <div class="list-reports">
+            @foreach($veterinarianReports as $veterinarianReport)
+                <div class="card-reports">
+                    <div class="card-name">{{$veterinarianReport->animal->name}}</div>
+                    <div class="card-content">
+                        <div class="card-state">{{$veterinarianReport->state}}</div>
+                        <div class="card-author">Rapport fait par : {{$veterinarianReport->user->name}}</div>
+                        <div class="card-description">Le : {{$veterinarianReport->created_at}}</div>
+                        <div class="card-description">{{$veterinarianReport->content}}</div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
 
-    <div class="list-reports">
-
-        <a href="{{ route('veterinarian-reports.create') }}">Créer un rapport</a>
     </div>
 @endsection

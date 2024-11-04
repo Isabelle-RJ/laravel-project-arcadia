@@ -11,6 +11,10 @@
         </ul>
     </div>
 
+    <div class="btn-back">
+        <a href="{{ route('dashboard') }}" class="btn-send">Retour tableau de bord</a>
+    </div>
+
     <div class="container veto-report">
         <form
             action="{{ route('veterinarian-reports.create') }}"
@@ -46,7 +50,7 @@
                 <div class="form-select"
                      id="food-consumed-section">
                     <div>Sélectionnez un animal pour voir la nourriture consommée.</div>
-                    <label for="food_consum_id">Nourriture déjà consommée :</label>
+                    <label for="food_consum_id">Dernier repas consommé :</label>
                     <div id="food-consumed-list"></div>
                 </div>
                 <div class="form-select">
@@ -83,5 +87,8 @@
                 </button>
             </div>
         </form>
+    </div>
+    <div class="btn-back">
+        <a href="{{ route('veterinarian-reports') }}" class="btn-send">Page précédente</a>
     </div>
 @endsection
