@@ -16,7 +16,7 @@
     <div class="container">
         <h2>Gestion des avis</h2>
         <div class="card-content">
-            @if( !$reviewsWithPagination['items'] )
+            @if( empty($reviewsWithPagination['items']) )
                 <p>Il n'y a pas d'avis en attente.</p>
             @endif
             @foreach( $reviewsWithPagination['items'] as $review )
@@ -47,6 +47,7 @@
                     @endif
                 </div>
             @endforeach
+
         </div>
         <div class="send">
             <a href="{{ route('reviews.list') }}"

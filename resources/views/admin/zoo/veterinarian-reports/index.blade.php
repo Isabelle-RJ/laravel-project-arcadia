@@ -13,6 +13,10 @@
         <h2 class="title-cards">Historique des rapports vétérinaire :</h2>
         <div class="btn-nav-reports">
             <div class="btn-back">
+                <a href="{{ route('admin.animals') }}"
+                   class="btn-send">État des animaux</a>
+            </div>
+            <div class="btn-back">
                 <a href="{{ route('dashboard') }}"
                    class="btn-send">Retour au tableau de bord</a>
             </div>
@@ -36,6 +40,5 @@
                 </div>
             @endforeach
         </div>
-
     </div>
 @endsection

@@ -16,6 +16,7 @@
     </div>
 
     <div class="container veto-report">
+        <h2 class="title-cards">Ajouter un rapport</h2>
         <form
             action="{{ route('veterinarian-reports.create') }}"
             method="post"
@@ -23,7 +24,7 @@
         >
             @csrf
 
-            <h2>Ajouter un rapport</h2>
+
             <div class="add-report">
 
                 <div class="form-select">
@@ -81,7 +82,7 @@
             </div>
             <div class="div-create">
                 <button type="submit"
-                        class="btn-create"
+                        class="btn-submit"
                 >
                     Ajouter
                 </button>

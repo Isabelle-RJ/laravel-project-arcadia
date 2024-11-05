@@ -17,6 +17,7 @@ document.getElementById('animal-name').addEventListener('change', async function
         // Affiche le dernier aliment consommé ou un message
         if (lastFoodConsumed) {
             const foodItem = document.createElement('p');
+            foodItem.classList.add('food-item');
             foodItem.textContent = `${lastFoodConsumed.food.name} - ${lastFoodConsumed.quantity} ${lastFoodConsumed.unit}`;
             foodList.appendChild(foodItem);
         } else {

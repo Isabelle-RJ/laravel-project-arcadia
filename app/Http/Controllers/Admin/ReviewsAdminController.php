@@ -50,17 +50,33 @@ class ReviewsAdminController extends Controller
         }
 
         $reviews = Review::query()->where('status', 'pending')->paginate(
-            $perPage = 1, $columns = ['*'], $pageName = 'page', $page = $request->query('page')
+            $perPage = 1,
+            $columns = ['*'],
+            $pageName = 'page',
+            $page = $request->query('page', 1)
         );
 
-        if (!$reviews) {
-            throw new Exception("Aucun avis en attente.", 404);
+        if ($reviews->isEmpty() && $reviews->total() > 0) {
+            return redirect()->route('reviews.pending', ['page' => 1]);
+        }
+
+        if ($reviews->isEmpty()) {
+            return view('admin.zoo.reviews.pending', ['reviewsWithPagination' => [
+                'items' => [],
+                'currentPage' => $reviews->currentPage(),
+                'next_page' => $reviews->nextPageUrl(),
+                'prev_page' => $reviews->previousPageUrl(),
+                'per_page' => $reviews->perPage(),
+                'total_items' => $reviews->total(),
+                'total_pages' => $reviews->lastPage(),
+            ]]);
         }
 
         $reviewsData = [];
         foreach ($reviews as $review) {
             $reviewsData[] = $this->transformReview($review);
         }
+
         $reviewsWithPagination = [
             'items' => $reviewsData,
             'currentPage' => $reviews->currentPage(),
@@ -70,8 +86,10 @@ class ReviewsAdminController extends Controller
             'total_items' => $reviews->total(),
             'total_pages' => $reviews->lastPage(),
         ];
+
         return view('admin.zoo.reviews.pending', compact('reviewsWithPagination'));
     }
+
 
     public function update(UpdateReviewsFormRequest $request, int $id): null|JsonResponse
     {
