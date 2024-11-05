@@ -11,15 +11,17 @@
     </div>
     <div class="container-block">
         <h2 class="title-cards">Historique des rapports vétérinaire :</h2>
-        <div class="btn-top">
+        <div class="btn-nav-reports">
             <div class="btn-back">
                 <a href="{{ route('dashboard') }}"
                    class="btn-send">Retour au tableau de bord</a>
             </div>
-            <div>
-                <a href="{{ route('veterinarian-reports.create') }}"
-                   class="btn-send">Créer un rapport</a>
-            </div>
+            @can('view', App\Models\VeterinarianReport::class)
+                <div class="btn-back">
+                    <a href="{{ route('veterinarian-reports.create') }}"
+                       class="btn-send">Créer un rapport</a>
+                </div>
+            @endcan
         </div>
         <div class="list-reports">
             @foreach($veterinarianReports as $veterinarianReport)

@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\User;
+use App\Models\VeterinarianReport;
 use Illuminate\Support\Facades\Gate;
 
 class ReportsPolicy extends Gate
@@ -12,14 +13,14 @@ class ReportsPolicy extends Gate
         return $user->role === 'veterinarian';
     }
 
-    public function update(User $user): bool
+    public function update(User $user, VeterinarianReport $veterinarianReport): bool
     {
-        return $user->role === 'veterinarian';
+        return $user->id === $veterinarianReport->user_id;
     }
 
-    public function delete(User $user): bool
+    public function delete(User $user, VeterinarianReport $veterinarianReport): bool
     {
-        return $user->role === 'veterinarian';
+        return $user->id === $veterinarianReport->user_id;
     }
 
     public function view(User $user): bool

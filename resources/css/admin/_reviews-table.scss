@@ -17,22 +17,20 @@
 }
 
 .table-list thead {
-    background-color: var(--primary);
+    background-color: var(--primary-dark);
     color: white;
+    font-weight: normal;
 }
 
 .table-list th, .table-list td {
     padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-.table-list td:nth-child(odd){
-    text-align: center;
+    border-bottom: 1px solid var(--primary-dark);
+    font-weight: 400;
 }
 
 .table-list tbody tr:nth-child(odd) {
-    background-color: transparent;
+    background-color: var(--primary-light);
 }
 
 .table-list tbody tr:nth-child(even) {
@@ -40,7 +38,9 @@
 }
 
 .table-list tbody tr:hover {
-    background-color: rgba(143, 188, 172, 0.8);
+    background-color: var(--primary);
+    color: var(--light);
+    font-weight: normal;
 }
 
 /* Style responsive */
@@ -77,18 +77,19 @@
         position: absolute;
         left: 0;
         padding-left: 10px;
-        font-weight: bold;
+        font-weight: normal;
         text-align: left;
     }
 }
 
-.list-container {
+.list-container{
     display: flex;
     justify-content: center;
     margin-top: 20px;
     padding: 0 20px;
     flex-direction: column;
     align-items: flex-end;
+    margin-bottom: 2rem;
 }
 
 .reviews-container{

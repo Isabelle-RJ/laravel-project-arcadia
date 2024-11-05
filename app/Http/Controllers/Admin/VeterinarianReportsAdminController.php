@@ -19,10 +19,9 @@ class VeterinarianReportsAdminController extends Controller
         if (Gate::denies('view', VeterinarianReport::class)) {
             return redirect()->route('dashboard');
         }
-        // Récupérer tous les rapports vétérinaires
+        // Get all reports
         $veterinarianReports = VeterinarianReport::with(['animal', 'user'])->get();
 
-        // Passer les rapports à la vue
         return view('admin.zoo.veterinarian-reports.index', compact('veterinarianReports'));
     }
 
