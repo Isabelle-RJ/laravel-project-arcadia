@@ -1,14 +1,3 @@
-/*nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--primary);
-    padding-left: 2rem;
-    padding-right: 2rem;
-    min-height: 4rem;
-}
-
-*/
 .logo-header {
     cursor: pointer;
 }
@@ -72,7 +61,7 @@ nav {
 }
 
 .nav-links ul li a:hover {
-    color: var(--secondary-dark);
+    text-decoration: underline;
 }
 
 .logo-desktop{

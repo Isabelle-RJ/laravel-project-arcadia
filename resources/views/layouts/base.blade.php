@@ -28,6 +28,7 @@
         </nav>
         <div class="nav-links">
             <ul id="nav-link">
+                <li><a href="{{ route('animals') }}">Animaux</a></li>
                 <li><a href="{{ route('habitats')}}">Habitats</a></li>
                 <li><a href="{{ route('services')}}">Services</a></li>
                 <li><a href="{{ route('contact')}}">Contact</a></li>
@@ -73,6 +74,7 @@
             <ul>
                 <li><a href="{{ route('home')}}">Accueil</a></li>
                 <li><a href="{{ route('habitats') }}">Habitats</a></li>
+                <li><a href="{{ route('animals') }}">Animaux</a></li>
                 <li><a href="{{ route('services')}}">Services</a></li>
                 <li><a href="{{ route('review')}}">Avis</a></li>
             </ul>

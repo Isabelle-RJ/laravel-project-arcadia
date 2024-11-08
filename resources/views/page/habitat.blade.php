@@ -32,7 +32,7 @@
                             <div class="card-description">
                                 {{ $animal->description }}
                             </div>
-                                <a class="card-button" href="">Fiche animal</a>
+                                <a class="card-button" href="{{ route('animal', [$animal->name]) }}">Fiche animal</a>
                         </div>
                     </article>
                 </div>

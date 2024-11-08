@@ -118,7 +118,6 @@
     color: var(--primary-dark);
 }
 
-
 .section-services .card-name{
     color: var(--primary-dark);
 }
@@ -294,14 +293,71 @@ textarea{
     color: var(--light);
 }
 
+.title-animals {
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
 
-/* Media query pour les écrans desktop */
+.animals-container {
+    display: grid;
+    gap: 3rem;
+}
+
+.animal-card {
+    background-color: var(--secondary-light);
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.animal-card img {
+    width: 100%;
+    max-width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.animal-card h3 {
+    font-size: 1.2em;
+    color: var(--secondary);
+    margin: 10px 0;
+}
+
+.animal-card p {
+    font-size: 1.2em;
+    color: var(--secondary-dark);
+    display: inline-block;
+}
+
+.btn-back{
+    background-color: var(--primary-dark);
+    border-radius: .2rem;
+    margin: 0.5rem;
+    padding: .2rem .5rem;
+    color: var(--light);
+    border: none;
+    font-family: "Recoleta Alt", sans-serif;
+    font-size: 1.2rem;
+}
+
+
+
+/* ------------------------------------ MEDIA QUERIES ------------------------------------*/
 @media (min-width: 768px) {
+    .title-animals{
+        font-size: 2.2rem;
+    }
+
     .div-services {
         flex-direction: row;
         text-align: left;
         max-width: 100%;
     }
+
 
     /* Section impaire : image à gauche, texte à droite */
     .container-services:nth-child(odd) .img-services {
@@ -333,5 +389,45 @@ textarea{
         width: 100%;
         height: auto;
         border-radius: 8px;
+    }
+
+    .animals-container{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 colonnes de taille égale */
+        grid-template-rows: repeat(2, auto);
+        gap: 3rem;
+    }
+    .animal-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (min-width: 488px) and (max-width: 518px) {
+    .animals-container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 4 colonnes de taille égale */
+        grid-template-rows: repeat(2, auto);
+        gap: 3rem;
+    }
+}
+
+@media (min-width: 519px) and (max-width: 767px) {
+    .animals-container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 4 colonnes de taille égale */
+        grid-template-rows: repeat(2, auto);
+        gap: 3rem;
+    }
+}
+@media (min-width: 768px){
+    .card-article{
+        width: 500px;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        padding-bottom: 2rem;
     }
 }
