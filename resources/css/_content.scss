@@ -26,6 +26,14 @@
     background-color: var(--primary);
 }
 
+.section-services h2{
+    color: var(--light);
+    font-weight: 500;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 2.5rem;
+}
+
 .container img{
     width: 100%;
     height: auto;
@@ -180,13 +188,6 @@
     font-size: 2rem;
 }
 
-.section-services h2{
-    color: var(--bg-secondary-light);
-    text-align: center;
-    padding: 1.5rem;
-    font-size: 2rem;
-}
-
 /* FORM */
 .form-review{
     display: flex;
@@ -231,4 +232,106 @@ textarea{
 .btn-back{
     margin-block: 1rem;
     margin-left: 1rem;
+}
+
+/* Section des services */
+.container-services {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.div-services {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    text-align: center;
+    max-width: 600px;
+}
+
+.title-services{
+    font-size: 2.2em;
+    text-align: center;
+}
+
+.img-services {
+    position: relative;
+}
+
+.image-services {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.description-services {
+    margin-top: 15px;
+    padding: 0 15px;
+}
+
+.p-services {
+    color: #333;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+/* Styles paire */
+.container-services:nth-child(odd){
+    color: var(--secondary-dark);
+}
+
+/* impaire */
+.container-services:nth-child(even){
+    background-color: var(--primary);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.container-services:nth-child(even) .p-services{
+    color: var(--light);
+}
+
+
+/* Media query pour les écrans desktop */
+@media (min-width: 768px) {
+    .div-services {
+        flex-direction: row;
+        text-align: left;
+        max-width: 100%;
+    }
+
+    /* Section impaire : image à gauche, texte à droite */
+    .container-services:nth-child(odd) .img-services {
+        order: 1;
+        flex: 1;
+        padding-right: 20px;
+    }
+
+    .container-services:nth-child(odd) .description-services {
+        order: 2;
+        flex: 1;
+        padding-left: 20px;
+    }
+
+    /* Section paire : texte à gauche, image à droite */
+    .container-services:nth-child(even) .img-services {
+        order: 2;
+        flex: 1;
+        padding-left: 20px;
+    }
+
+    .container-services:nth-child(even) .description-services {
+        order: 1;
+        flex: 1;
+        padding-right: 20px;
+    }
+
+    .image-services {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
 }

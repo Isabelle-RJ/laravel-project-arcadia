@@ -14,14 +14,22 @@ as well as schedules and the possibility of leaving a review.
 
 ## Requirements :
 - [PHP](https://www.php.net/downloads.php) 8.2 or higher installed.
-- [Composer](https://getcomposer.org/download/) installed.
-- Laravel 11 -> telescope
-- MySQL
-- MongoDB
-- 
+- [Composer](https://getcomposer.org/download/) installed. (To manage PHP dependencies)
+- Laravel 11 -> telescope (install via Composer if needed)
+- Database MySQL
+- Database MongoDB
+- Node.js and npm (to manage JavaScript dependencies)
 
 ## Stack 
+1.Frontend :
+- HTML: the markup language used to structure content.
+- CSS: the styling language that determines the visual appearance.
+- JavaScript: used to make the application interactive.
 
+2.Backend :
+- Programming language PHP with Laravel
+- Database: for storing and managing data. SQL database (MySQL) and NoSQL database (MongoDB)
+- Server OVH
 ## Local installation :
 
 Clone the repository

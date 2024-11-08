@@ -12,9 +12,9 @@
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ services ~~~~~~~~~~~~~~~~~~~~~~~~ -->
     @foreach( $services as $service )
         <section class="container-services">
+            <h2 class="title-services">{{ $service->name }}</h2>
             <div class="div-services">
                 <div class="img-services">
-                    <h2 class="title-services">{{ $service->name }}</h2>
                     <img
                         alt="Photo {{ $service->name }}"
                         class="image-services"
