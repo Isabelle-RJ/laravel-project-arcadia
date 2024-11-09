@@ -26,8 +26,9 @@
                     <p>{{$animal->description}}</p>
                 </div>
             </div>
-            <div>
+            <div class="btns-animal-sheet">
                 <button class="btn-back"><a href="{{ route('animals') }}">Retour aux animaux</a></button>
+                <button class="btn-back"><a href="{{ route('habitats') }}">Retour aux habitats</a></button>
             </div>
         </div>
     </section>
