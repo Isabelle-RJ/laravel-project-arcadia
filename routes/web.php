@@ -15,6 +15,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HabitatsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LegalNoticesController;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\ServicesController;
 use Illuminate\Support\Facades\Route;
@@ -27,10 +28,10 @@ Route::get('/habitat/{name}', [HabitatsController::class, 'show'])->name('habita
 Route::get('/animals', [AnimalsController::class, 'index'])->name('animals');
 Route::get('/animal/{name}', [AnimalsController::class, 'show'])->name('animal');
 Route::get('/review', [ReviewsController::class, 'createForm'])->name('review');
+Route::get('/legal-notices', [LegalNoticesController::class, 'show'])->name('legal-notices');
 
 Route::get('/contact', function () {})->name('contact');
 Route::get('/ticketing', function () {})->name('ticketing');
-Route::get('/legal-notices', function () {})->name('legal-notices');
 Route::get('/cgv', function () {})->name('cgv');
 Route::get('/faq', function () {})->name('faq');
 

@@ -3,16 +3,33 @@
     <img
         alt="image de fond"
         class="bg-header"
-        src="/storage/asset/images/renard-hokkaido-japon.jpg"
+        src="/storage/asset/images/{{$animal->image}}"
     >
     <div class="text-header">
-        <h1>Fiche animal {{ $animal->name }}</h1>
+        <h1>Fiche informations de {{ $animal->name }} </h1>
     </div>
 @endsection
 @section('content')
     <section class="container">
-        <h2 class="title-sheet">Fiche de l'animal {{ $animal->name }}</h2>
-        <h3></h3>
+        <div class="animal-sheet-container">
+            <h2 class="title-sheet">Fiche animal</h2>
+            <div class="content-animal-sheet">
+                <div class="img-modal">
+                    <img src="/storage/asset/images/{{ $animal->image }}"
+                         alt="Photo de l'animal {{ $animal->name }}">
+                    <button class="btn-modal"><a href="">{{ $animal->name }}</a></button>
+                </div>
+                <div class="description-animal">
+                    <h4 class="sous-title">Race :</h4>
+                    <p>{{ $animal->breed }}</p>
+                    <h4 class="sous-title">Description :</h4>
+                    <p>{{$animal->description}}</p>
+                </div>
+            </div>
+            <div>
+                <button class="btn-back"><a href="{{ route('animals') }}">Retour aux animaux</a></button>
+            </div>
+        </div>
     </section>
 
 @endsection
