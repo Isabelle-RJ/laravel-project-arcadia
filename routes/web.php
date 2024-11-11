@@ -13,6 +13,7 @@ use App\Http\Controllers\AnimalsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\HabitatsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LegalNoticesController;
@@ -29,8 +30,10 @@ Route::get('/animals', [AnimalsController::class, 'index'])->name('animals');
 Route::get('/animal/{name}', [AnimalsController::class, 'show'])->name('animal');
 Route::get('/review', [ReviewsController::class, 'createForm'])->name('review');
 Route::get('/legal-notices', [LegalNoticesController::class, 'show'])->name('legal-notices');
+Route::get('/contact', [ContactUsController::class, 'show'])->name('contact');
+Route::post('/contact', [ContactUsController::class, 'send'])->name('contact.send');
 
-Route::get('/contact', function () {})->name('contact');
+// TODO : BONUS => faire le MVC de ces routes
 Route::get('/ticketing', function () {})->name('ticketing');
 Route::get('/cgv', function () {})->name('cgv');
 Route::get('/faq', function () {})->name('faq');
