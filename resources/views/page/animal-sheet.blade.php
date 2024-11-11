@@ -17,6 +17,7 @@
                 <div class="img-modal">
                     <img src="/storage/asset/images/{{ $animal->image }}"
                          alt="Photo de l'animal {{ $animal->name }}">
+                    <!-- TODO : Insérer le lien du rapport véto sur le nom de l'animal sur la fiche animal -->
                     <button class="btn-modal"><a href="">{{ $animal->name }}</a></button>
                 </div>
                 <div class="description-animal">

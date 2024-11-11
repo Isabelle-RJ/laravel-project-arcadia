@@ -90,6 +90,6 @@
         </form>
     </div>
     <div class="btn-back">
-        <a href="{{ route('veterinarian-reports') }}" class="btn-send">Page précédente</a>
+        <a href="{{ route('veterinarian-reports') }}" class="btn-send">Historique des rapports</a>
     </div>
 @endsection
