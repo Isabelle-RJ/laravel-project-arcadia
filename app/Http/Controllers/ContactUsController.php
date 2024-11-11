@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\TestArcadiaMail;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -24,15 +25,16 @@ class ContactUsController extends Controller
         ]);
 
         try {
-            Mail::to('jose@arcadia.mail')->send(new TestArcadiaMail(
-                $validatedData['name'],
-                $validatedData['email'],
-                $validatedData['message']
-            ));
+            Mail::to('jose@arcadia.mail')
+                ->send(new TestArcadiaMail(
+                    $validatedData['name'],
+                    $validatedData['email'],
+                    $validatedData['message']
+                ));
 
             return response()->json(['success' => 'Email envoyé avec succès !']);
-        } catch (\Exception $e) {
-            return response()->json(['error' => 'Erreur lors de l\'envoi de l\'email.'], 500);
+        } catch (Exception) {
+            return response()->json(['error' => "Erreur lors de l'envoi de l'email."], 500);
         }
     }
 }
