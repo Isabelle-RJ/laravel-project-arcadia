@@ -9,13 +9,12 @@
     <title>Test Mail</title>
 </head>
 <body>
-    <h2>Mon super mail</h2>
+    <h2>Vous avez reçu un email :</h2>
 
 <div class="mail-content">
-    <p>Nom : {{ $name }}</p>
-    <p>Email : {{ $email }}</p>
-    <p>Message :</p>
-    <p>{{ $messageContent }}</p>
+    <p> <strong>Nom :</strong> {{ $name }}</p>
+    <p><strong>Email :</strong> {{ $email }}</p>
+    <p><strong>Message :</strong> {{ $messageContent }}</p>
 </div>
 </body>
 </html>

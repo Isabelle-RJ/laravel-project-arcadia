@@ -31,7 +31,7 @@ Route::get('/animal/{name}', [AnimalsController::class, 'show'])->name('animal')
 Route::get('/review', [ReviewsController::class, 'createForm'])->name('review');
 Route::get('/legal-notices', [LegalNoticesController::class, 'show'])->name('legal-notices');
 Route::get('/contact', [ContactUsController::class, 'show'])->name('contact');
-Route::post('/contact', [ContactUsController::class, 'send'])->name('contact.send');
+Route::post('/api/contact', [ContactUsController::class, 'send'])->name('contact.send');
 
 // TODO : BONUS => faire le MVC de ces routes
 Route::get('/ticketing', function () {})->name('ticketing');

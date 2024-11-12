@@ -335,8 +335,8 @@ return [
             'id' => '4',
             'zoo_id' => '1',
             'day_open' => 'Jeudi',
-            'hour_open' => null,
-            'hour_close' => null,
+            'hour_open' => '14:00',
+            'hour_close' => '18:30',
         ],
         [
             'id' => '5',
