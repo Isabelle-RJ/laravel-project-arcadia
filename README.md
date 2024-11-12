@@ -74,7 +74,15 @@ composer require laravel/telescope
 php artisan telescope:install
 ```
 
-[Documentation Laravel](https://laravel.com/docs/11.x)
+Install MongoDB :
+```shell
+Get file Thread Safe (TS) 
+```
+[Download here](https://pecl.php.net/package/mongodb)
+
+- Open `php.ini` file and copy/paste "php_mongodb.dll" in `ext` document. And, add `extension=php_mongodb.dll` in your `php.ini` file.
+
+[Laravel Doc](https://laravel.com/docs/11.x)
 
 For sass :
 ```shell
