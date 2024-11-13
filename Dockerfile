@@ -10,7 +10,6 @@ RUN apt-get update && apt-get install -y \
     unzip \
     git \
     libssl-dev \
-    nginx \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd pdo pdo_mysql
 
@@ -37,4 +36,4 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 EXPOSE 9000 80
 
 # Commande pour lancer PHP-FPM et Nginx ensemble
-CMD service nginx start && p
+CMD service nginx start && php-fpm

@@ -12,23 +12,20 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
+        ports:
+            - "9000:9000"
         volumes:
             - .:/var/www/html
-        networks:
-            - app-network
 
     nginx:
         image: nginx:1.27.2-alpine3.20
         ports:
-            - "80:80" # Exposez le port 8080 pour accéder à Nginx
+            - "8080:80" # Exposez le port 8080 pour accéder à Nginx
         volumes:
             - .:/var/www/html
             - ./nginx.conf:/etc/nginx/conf.d/default.conf
         depends_on:
             - app
-        networks:
-            - app-network
-
     db:
         image: mysql:8
         environment:
@@ -38,8 +35,6 @@ services:
             MYSQL_PASSWORD: zoo_arcadia
         ports:
             - "3306:3306"
-        networks:
-            - app-network
     mongo:
         image: mongo:8
         restart: always
@@ -51,8 +46,5 @@ services:
             - ./api/database/init/init-zoo-arcadia.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
         ports:
             - "27027:27017"
-networks:
-    app-network:
-        driver: bridge
 volumes:
     mongo_data:
