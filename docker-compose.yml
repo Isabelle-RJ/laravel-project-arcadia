@@ -54,3 +54,5 @@ services:
 networks:
     app-network:
         driver: bridge
+volumes:
+    mongo_data:
