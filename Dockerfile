@@ -31,7 +31,7 @@ COPY . .
 RUN composer install --no-dev --optimize-autoloader
 
 # Donnez les bonnes permissions au dossier storage et bootstrap/cache
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache=
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Exposez le port 9000 pour PHP-FPM et le port 80 pour Nginx
 EXPOSE 9000 80
