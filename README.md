@@ -73,6 +73,8 @@ composer require laravel/telescope
 ```shell
 php artisan telescope:install
 ```
+Install Docker : <br>
+[Docker](https://docs.docker.com/desktop/setup/install/windows-install/)
 
 Install MongoDB :
 ```shell
