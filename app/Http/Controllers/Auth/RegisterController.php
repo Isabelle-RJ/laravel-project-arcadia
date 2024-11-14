@@ -29,7 +29,7 @@ class RegisterController extends Controller
 
         $user->save();
 
-        return redirect()->route('auth.login');
+        return redirect()->route('dashboard');
     }
 
     public function register(): View|RedirectResponse
