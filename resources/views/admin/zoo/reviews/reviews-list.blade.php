@@ -11,16 +11,25 @@
             </ul>
         </div>
     </div>
+    <h2 class="review-title">Organisation des avis</h2>
+    <section class="btn-header">
+        <div>
+            <a href="{{ route('dashboard') }}"
+               class="btn-send btn-pending"
+            >
+                Retour au tableau de bord
+            </a>
+        </div>
+        <div>
+            <a href="{{ route('reviews.pending') }}"
+               class="btn-send btn-pending"
+            >
+                Voir les avis en attente
+            </a>
+        </div>
+    </section>
     <div class="reviews-container">
-        <h2 class="review-title">Organisation des avis</h2>
         <div class="list-container">
-            <div class="send">
-                <a href="{{ route('reviews.pending') }}"
-                   class="btn-send btn-pending"
-                >
-                    Voir les avis en attente
-                </a>
-            </div>
             <table class="table-list">
                 <thead class="table-primary">
                 <tr>

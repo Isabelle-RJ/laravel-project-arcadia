@@ -10,7 +10,21 @@
             <li>Modifier un horaire</li>
         </ul>
     </div>
-    <h1>Horaires</h1>
+    <h1>Modifier les horaires de {{ $opening->day_open }}</h1>
+
+    <section class="btn-header">
+        <div>
+            <a href="{{ route('openings.create') }}"
+               class="btn-send">
+                Créer un horaire
+            </a>
+        </div>
+        <div>
+            <a href="{{ route('dashboard') }}"
+               class="btn-send">Retour au tableau de bord
+            </a>
+        </div>
+    </section>
 
     <div class="formulaires-admin">
         <form
@@ -58,7 +72,7 @@
             </div>
 
             <button type="submit"
-                    class="btn-primary"
+                    class="btn-send"
             >
                 Modifier
             </button>
@@ -68,7 +82,7 @@
             @csrf
             @method('DELETE')
             <button type="submit"
-                    class="btn-danger"
+                    class="btn-send"
             >
                 Supprimer
             </button>

@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('layouts.admin')
 
 @section('content')
     <div class="dashboard">
@@ -7,17 +7,23 @@
     <div>
         <ul>
             <li>Accueil ></li>
-            <li>Éditer un habitat</li>
+            <li>Éditer un service</li>
         </ul>
     </div>
-    <h1>Liste des habitats</h1>
-
-    <div class="add-habitat">
-        <a href="{{ route('habitats.create') }}"
-           class="btn-primary">
-            Retour créer un habitat
-        </a>
-    </div>
+    <h1>Modifier l'habitat : "{{ $habitat->name }}"</h1>
+    <section class="btn-header">
+        <div>
+            <a href="{{ route('habitats.create') }}"
+               class="btn-send">
+                Créer un habitat
+            </a>
+        </div>
+        <div>
+            <a href="{{ route('dashboard') }}"
+               class="btn-send">Retour au tableau de bord
+            </a>
+        </div>
+    </section>
 
     <div class="formulaires-admin">
         <form
@@ -67,16 +73,18 @@
                 @enderror
             </div>
             <button type="submit"
-                    class="btn-primary">Modifier
+                    class="btn-send">Modifier
             </button>
         </form>
         <form action="{{ route ('habitats.delete', ["name" => $habitat->name]) }}"
               method="post">
             @csrf
             @method('DELETE')
-            <button type="submit"
-                    class="btn-danger">Supprimer
-            </button>
+            <div>
+                <button type="submit"
+                        class="btn-send">Supprimer
+                </button>
+            </div>
         </form>
 
     </div>

@@ -42,9 +42,9 @@
             </div>
 
             <div class="form">
-                <div class="click-file">
                     <label for="image">Choisissez une image du service :</label>
                     <input
+                        class="input-file"
                         type="file"
                         name="image"
                         id="image"
@@ -53,11 +53,14 @@
                     @error('image')
                     {{ $message }}
                     @enderror
-                </div>
-
             </div>
-
-            <button type="submit" class="btn-create">Créer un service</button>
+            <button type="submit"
+                    class="btn-account">Créer un service
+            </button>
         </form>
+    </div>
+    <div class="btn-list">
+        <a href="{{ route('dashboard') }}"
+           class="btn-send">Retour tableau de bord</a>
     </div>
 @endsection

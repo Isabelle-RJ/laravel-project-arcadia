@@ -12,7 +12,8 @@
     </div>
 
     <div class="btn-back">
-        <a href="{{ route('dashboard') }}" class="btn-send">Retour tableau de bord</a>
+        <a href="{{ route('dashboard') }}"
+           class="btn-send">Retour tableau de bord</a>
     </div>
 
     <div class="container veto-report">
@@ -89,7 +90,18 @@
             </div>
         </form>
     </div>
-    <div class="btn-back">
-        <a href="{{ route('veterinarian-reports') }}" class="btn-send">Historique des rapports</a>
-    </div>
+    <section class="btn-header">
+        <div>
+            <a href="{{ route('admin.animals') }}"
+               class="btn-send">
+                Retour à l'état des animaux
+            </a>
+        </div>
+        <div>
+            <a href="{{ route('veterinarian-reports') }}"
+               class="btn-send">
+                Historique des rapports
+            </a>
+        </div>
+    </section>
 @endsection

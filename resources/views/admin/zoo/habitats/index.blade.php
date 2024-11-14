@@ -12,9 +12,18 @@
         </div>
     </div>
     <h1>Liste des habitats</h1>
-    <a href="{{ route('dashboard') }}"
-       class="btn-send"
-    >
-        Retour au tableau de bord
-    </a>
+
+    <section class="btn-header">
+        <div>
+            <a href="{{ route('habitats.create') }}"
+               class="btn-send">
+                Créer un habitat
+            </a>
+        </div>
+        <div>
+            <a href="{{ route('dashboard') }}"
+               class="btn-send">Retour au tableau de bord
+            </a>
+        </div>
+    </section>
 @endsection

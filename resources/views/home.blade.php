@@ -80,8 +80,8 @@
     </section>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ Section Schedules ~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <section class="container section-openings">
-        <h2>HORAIRES</h2>
-        <p>Ouvert tous les jours</p>
+        <h2>Horaires</h2>
+        <h3 class="title-openings">Ouvert tous les jours</h3>
         <div class="content-openings">
             @foreach( $openings as $opening)
                 <div class="openings-list">
@@ -95,7 +95,7 @@
                 </div>
             @endforeach
         </div>
-        <div>
+        <div class="openings-closed">
             <p>FERMETURE ANNUELLE</p>
             <p>DE NOVEMBRE À JANVIER INCLUS</p>
         </div>
@@ -103,7 +103,7 @@
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ Section Reviews ~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <section class="container section-reviews">
         <div class="reviews-container">
-            <h2>Les Avis</h2>
+            <h2>Partager votre avis</h2>
             <div class="review-content">
                 <div class="carousel">
                     <button class="btn-carousel btn-previous">
@@ -114,7 +114,7 @@
                     </button>
                     <div id="error-container"
                          class="carousel-content">
-                        <h3>author</h3>
+                        <h3 class="author-rating">author</h3>
                         <span><i>icônes étoiles pour l'avis</i></span>
                         <p>Text contenu dans l'avis</p>
                     </div>
@@ -126,7 +126,7 @@
                     </button>
                 </div>
                 <div class="btn-create send-review">
-                    <a href="{{ route('review') }}">Donnez-nous votre avis</a>
+                    <a href="{{ route('review') }}">Donnez-nous le vôtre</a>
                 </div>
             </div>
         </div>

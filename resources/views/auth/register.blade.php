@@ -1,63 +1,63 @@
-@extends('layouts.base')
+@extends('layouts.admin')
 
 @section('content')
 
-    <h1>S'enregistrer</h1>
+    <h2 class="title-admin">Créer un compte</h2>
 
-    <div class="card">
-        <div class="formulaires-admin">
+    <div class="admin-form">
+        <div>
             <form
                 action="{{ route('auth.registerPost') }}"
                 method="post">
                 @csrf
 
-                <div class="form">
+                <div class="form form-admin">
                     <label for="name">Nom</label>
-                    <input
-                        type="name"
-                        name="name"
-                        id="name"
-                        value="{{ old('name') }}"
+                    <input class="input-admin"
+                           type="name"
+                           name="name"
+                           id="name"
+                           value="{{ old('name') }}"
                     >
                     @error('name')
                     {{ $message }}
                     @enderror
                 </div>
 
-                <div class="form">
+                <div class="form form-admin">
                     <label for="email">Email</label>
-                    <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        value="{{ old('email') }}"
+                    <input class="input-admin"
+                           type="email"
+                           name="email"
+                           id="email"
+                           value="{{ old('email') }}"
                     >
                     @error('email')
                     {{ $message }}
                     @enderror
                 </div>
 
-                <div class="form">
+                <div class="form form-admin">
                     <label for="password">Mot de passe</label>
-                    <input
-                        type="password"
-                        name="password"
-                        id="password"
-                        value="{{ old('password') }}"
+                    <input class="input-admin"
+                           type="password"
+                           name="password"
+                           id="password"
+                           value="{{ old('password') }}"
                     >
                     @error('email')
                     {{ $message }}
                     @enderror
                 </div>
 
-                <div class="form">
+                <div class="form form-admin">
                     <label for="role">Rôle</label>
                     <select
                         name="role"
                         id="role"
                         value
                     >
-                        <option value="">--Choisir un rôle--</option>
+                        <option value="">-- Choisir un rôle --</option>
                         <option value="employee">Employé</option>
                         <option value="veterinarian">Vétérinaire</option>
                     </select>
@@ -66,10 +66,18 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="btn-primary-dark">S'enregistrer</button>
-
+                <button type="submit"
+                        class="btn-account">Enregistrer
+                </button>
             </form>
         </div>
-    </div>
 
+    </div>
+    <div class="btn-list">
+        <a href="{{ route('dashboard') }}"
+           class="btn-send">Retour tableau de bord</a>
+        <!-- TODO : Faire une page avec la liste des employés
+        <a href=""
+           class="btn-send">Voir la liste des employés</a>-->
+    </div>
 @endsection

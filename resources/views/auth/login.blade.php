@@ -73,11 +73,10 @@
                     @enderror
                 </div>
                 <div class="form">
+                    <!-- TODO : faire le lien de pour la page du mot de passe oublié. -->
                     <a href="">Mot de passe oublié ?</a>
-                </div>
-                <div class="form">
                     <button type="submit"
-                            class="btn-primary-dark">Se connecter
+                            class="btn-send">Se connecter
                     </button>
                 </div>
 

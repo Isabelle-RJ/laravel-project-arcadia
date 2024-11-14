@@ -55,7 +55,7 @@
         @endcan
 
         @can('view', App\Models\Habitat::class)
-            <a href="{{ route('admin.habitats') }}">
+            <a href="{{ route('habitats.create') }}">
                 <div class="cards-list">
                     <img
                         class="icon-dashboard"

@@ -51,7 +51,7 @@
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ NAV FOOTER ~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <section class="container-navfooter">
     <div class="navfooter-content">
-        <a href="#"><img alt="Le logo d'Arcadia"
+        <a href="{{ route('home')}}"><img alt="Le logo d'Arcadia"
                          class="logo-footer"
                          src="/asset/logos/logo-header.svg">
         </a>

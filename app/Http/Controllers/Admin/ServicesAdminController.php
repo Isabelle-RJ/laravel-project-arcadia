@@ -64,7 +64,7 @@ class ServicesAdminController extends Controller
         Storage::disk('public')->putFileAs("asset/images",$request->file('image'), $path);
 
         $service->save();
-        return redirect()->route('home');
+        return redirect()->route('dashboard');
     }
 
     public function edit(string $name): View|RedirectResponse
@@ -109,7 +109,7 @@ class ServicesAdminController extends Controller
         Storage::disk('public')->delete("asset/images/" . $service->image);
         $service->delete();
 
-        return redirect()->route('home');
+        return redirect()->route('dashboard');
     }
 
 }

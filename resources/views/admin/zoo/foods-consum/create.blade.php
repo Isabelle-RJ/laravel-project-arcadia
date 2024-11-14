@@ -12,6 +12,7 @@
 
     <div class="formulaires-admin">
         <h1>Consommation alimentaire pour l'animal</h1>
+
         <div class="admin-form">
             <form
                 action=""
@@ -91,5 +92,17 @@
             </form>
         </div>
     </div>
-
+    <section class="btn-header">
+        <div>
+            <a href="{{ route('admin.animals') }}"
+               class="btn-send">
+                Retour à l'état des animaux
+            </a>
+        </div>
+        <div>
+            <a href="{{ route('dashboard') }}"
+               class="btn-send">Retour au tableau de bord
+            </a>
+        </div>
+    </section>
 @endsection

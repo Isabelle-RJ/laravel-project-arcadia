@@ -11,11 +11,23 @@
             <li>Créer un habitat</li>
         </ul>
     </div>
+    <h1>Créer un habitat</h1>
+
+    <section class="btn-header">
+        <div>
+            <a href="{{ route('admin.habitats') }}"
+               class="btn-send">
+                Liste des habitats
+            </a>
+        </div>
+        <div>
+            <a href="{{ route('dashboard') }}"
+               class="btn-send">Retour au tableau de bord
+            </a>
+        </div>
+    </section>
 
     <div class="formulaires-admin">
-
-        <h1>Créer un habitat</h1>
-
         <form
             action="{{ route ('habitats.create') }}"
             method="post"
@@ -61,9 +73,12 @@
                 {{ $message }}
                 @enderror
             </div>
-            <button type="submit"
-                    class="btn-create">Créer
-            </button>
+            <div>
+                <button type="submit"
+                        class="btn-send">Enregistrer
+                </button>
+            </div>
+
         </form>
     </div>
 @endsection

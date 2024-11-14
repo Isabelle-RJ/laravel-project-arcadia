@@ -11,12 +11,19 @@
     </div>
     <h1>Liste des services</h1>
 
-    <div class="add-service">
-        <a href="{{ route('services.create') }}"
-           class="btn-primary">
-            Retour créer un service
-        </a>
-    </div>
+    <section class="btn-header">
+        <div>
+            <a href="{{ route('services.create') }}"
+               class="btn-send">
+                Créer un service
+            </a>
+        </div>
+        <div>
+            <a href="{{ route('dashboard') }}"
+               class="btn-send">Retour au tableau de bord
+            </a>
+        </div>
+    </section>
     <div class="formulaires-admin">
         <form
             action="{{ route('services.update', ['name' => $service->name]) }}"
@@ -25,7 +32,6 @@
         >
             @csrf
             @method('Patch')
-
             <div class="form">
                 <label for="name">Nom du service :</label>
                 <input
@@ -38,7 +44,6 @@
                 {{ $message }}
                 @enderror
             </div>
-
             <div class="form">
                 <label for="description">Description :</label>
                 <textarea
@@ -49,9 +54,7 @@
                 {{ $message }}
                 @enderror
             </div>
-
             <div class="form">
-
                 <label for="image">Choisissez une image :</label>
                 <input
                     type="file"
@@ -63,17 +66,22 @@
                 {{ $message }}
                 @enderror
             </div>
-
-            <button type="submit" class="btn-primary">Modifier</button>
+            <div>
+                <button type="submit"
+                        class="btn-send">Modifier le service
+                </button>
+            </div>
         </form>
         <form action="{{ route('services.delete', ["name" => $service->name]) }}"
               method="post"
         >
             @csrf
             @method('DELETE')
-            <button type="submit">Supprimer</button>
+            <div>
+                <button type="submit"
+                        class="btn-send">Supprimer le service
+                </button>
+            </div>
         </form>
     </div>
-
-
 @endsection
