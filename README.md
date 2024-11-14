@@ -90,6 +90,15 @@ For sass :
 ```shell
 npm install -D sass-embedded
 ```
+## Deployement :
+* TODO : description for deployment * 
+
+### Accounts for testing (Seeders) :
+```Admin : joseadmin@gmail.com -- 123456789aze```
+
+```Veterinarian : josetteveterinarian@gmail.com -- 123456789aze```
+
+```Employee : josephemployee@gmail.com -- 123456789aze```
 
 ### Author :
 

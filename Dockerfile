@@ -36,4 +36,4 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 EXPOSE 9000 80
 
 # Commande pour lancer PHP-FPM et Nginx ensemble
-CMD service nginx start && php-fpm
+CMD ["php-fpm"]
