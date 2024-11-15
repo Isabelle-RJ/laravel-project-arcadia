@@ -21,7 +21,7 @@ RUN pecl install mongodb \
 COPY --from=composer:2.5 /usr/bin/composer /usr/bin/composer
 
 # Configurez le dossier de l'application
-WORKDIR /var/www/html
+WORKDIR /var/www
 
 # Copiez les fichiers Laravel dans le conteneur
 COPY . .
