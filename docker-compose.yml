@@ -5,8 +5,8 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-        image: laravel-app
-        container_name: laravel-app
+        image: laravel-arcadia-project
+        container_name: laravel-arcadia-project
         volumes:
             - .:/var/www/html
         ports:
@@ -15,7 +15,7 @@ services:
             - laravel
 
     nginx:
-        image: nginx:latest
+        image: nginx:1.27.2-alpine3.20
         container_name: laravel-nginx
         volumes:
             - ./nginx:/etc/nginx/conf.d
