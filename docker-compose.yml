@@ -2,50 +2,47 @@ version: '3.8'
 
 services:
     app:
-        env_file:
-            -   .env
-        environment:
-            - DB_HOST=${DB_HOST}
-            - DB_USER=${DB_USER}
-            - DB_PASSWORD=${DB_PASSWORD}
-            - DB_NAME=${DB_NAME}
         build:
             context: .
             dockerfile: Dockerfile
+        image: laravel-app
+        container_name: laravel-app
+        volumes:
+            - .:/var/www/html
         ports:
             - "9000:9000"
-        volumes:
-            - .:/var/www
+        networks:
+            - laravel
 
-    nginx:
-        image: nginx:1.27.2-alpine3.20
-        ports:
-            - "443:443"
-            - "80:80"
-        volumes:
-            - .:/var/www
-            - ./nginx.conf:/etc/nginx/conf.d/default.conf
-        depends_on:
-            - app
-    db:
+    mysql:
         image: mysql:8.0
+        container_name: laravel-mysql
+        command: --default-authentication-plugin=mysql_native_password
         environment:
-            MYSQL_ROOT_PASSWORD: zoo_arcadia
-            MYSQL_DATABASE: zoo_arcadia
-            MYSQL_USER: isabelle
-            MYSQL_PASSWORD: zoo_arcadia
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: laravel
+            MYSQL_USER: laravel
+            MYSQL_PASSWORD: laravel
         ports:
             - "3306:3306"
-    mongo:
-        image: mongo:8
-        restart: always
-        environment:
-            MONGO_INITDB_ROOT_USERNAME: arcadia
-            MONGO_INITDB_ROOT_PASSWORD: arcadia
         volumes:
-            - mongo_data:/data/db
-            - ./api/database/init/init-zoo-arcadia.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+            - mysql-data:/var/lib/mysql
+        networks:
+            - laravel
+
+    nginx:
+        image: nginx:latest
+        container_name: laravel-nginx
+        volumes:
+            - ./nginx:/etc/nginx/conf.d
+            - .:/var/www/html
         ports:
-            - "27027:27017"
+            - "80:80"
+        networks:
+            - laravel
+
 volumes:
-    mongo_data:
+    mysql-data:
+
+networks:
+    laravel:

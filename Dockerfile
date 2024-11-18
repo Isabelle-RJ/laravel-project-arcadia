@@ -1,39 +1,33 @@
 # Utilisez une image PHP officielle avec les extensions requises pour Laravel
-FROM php:8.3-fpm
+FROM php:8.3-fpm-alpine
 
-# Installez les dépendances système
+# Installer les dépendances système
 RUN apt-get update && apt-get install -y \
-    libpng-dev \
-    libjpeg-dev \
-    libfreetype6-dev \
-    zip \
-    unzip \
     git \
-    libssl-dev \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd pdo pdo_mysql
+    unzip \
+    libpq-dev \
+    libonig-dev \
+    libzip-dev \
+    libpng-dev \
+    curl \
+    && docker-php-ext-install pdo_mysql mbstring zip gd
 
-# Installer l'extension MongoDB via PECL
-RUN pecl install mongodb \
-    && docker-php-ext-enable mongodb
+# Installer Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Installez Composer
-COPY --from=composer:2.5 /usr/bin/composer /usr/bin/composer
+# Définir le répertoire de travail
+WORKDIR /var/www/html
 
-# Configurez le dossier de l'application
-WORKDIR /var/www
-
-# Copiez les fichiers Laravel dans le conteneur
+# Copier les fichiers de l'application
 COPY . .
 
-# Installez les dépendances de Laravel
+# Installer les dépendances Laravel
 RUN composer install --no-dev --optimize-autoloader
 
-# Donnez les bonnes permissions au dossier storage et bootstrap/cache
+# Donner les permissions correctes
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Exposez le port 9000 pour PHP-FPM et le port 80 pour Nginx
-EXPOSE 9000 80
+# Exposer le port 9000 (utilisé par PHP-FPM)
+EXPOSE 9000
 
-# Commande pour lancer PHP-FPM et Nginx ensemble
 CMD ["php-fpm"]

@@ -37,6 +37,7 @@ Route::post('/api/contact', [ContactUsController::class, 'send'])->name('contact
 Route::get('/ticketing', function () {})->name('ticketing');
 Route::get('/cgv', function () {})->name('cgv');
 Route::get('/faq', function () {})->name('faq');
+// END TODO
 
 Route::get('/login', [LoginController::class, 'login' ])->name('login');
 Route::post('/login',[LoginController::class, 'authenticate' ])->name('auth.authenticate');
