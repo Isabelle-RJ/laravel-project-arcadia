@@ -1,15 +1,18 @@
-# Utilisez une image PHP officielle avec les extensions requises pour Laravel
+# Utiliser une image PHP basée sur Alpine
 FROM php:8.3-fpm-alpine
 
-# Installer les dépendances système
-RUN apt-get update && apt-get install -y \
+# Installer les dépendances système avec apk
+RUN apk add --no-cache \
     git \
-    unzip \
-    libpq-dev \
-    libonig-dev \
-    libzip-dev \
-    libpng-dev \
     curl \
+    unzip \
+    libpng-dev \
+    libjpeg-turbo-dev \
+    libwebp-dev \
+    freetype-dev \
+    libzip-dev \
+    oniguruma-dev \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
     && docker-php-ext-install pdo_mysql mbstring zip gd
 
 # Installer Composer
