@@ -28,15 +28,8 @@ logs:
 # Commandes pour Laravel
 init:
 	@echo "🎯 Initialisation du projet Laravel..."
-	make install
 	make keygen
 	make migrate
-
-install:
-	@echo "📦 Installation des dépendances Composer..."
-	$(COMPOSER) install
-	$(NPM) install
-	$(NPM) run build
 
 keygen:
 	@echo "🔑 Génération de la clé d'application Laravel..."
@@ -71,7 +64,7 @@ help:
 	@echo "  make restart    -> Redémarre les conteneurs Docker"
 	@echo "  make logs       -> Affiche les logs du conteneur Nginx"
 	@echo "  make init       -> Configure Laravel (install, keygen, migrate)"
-	@echo "  make install    -> Installe les dépendances Composer"
+#	@echo "  make install    -> Installe les dépendances Composer"
 	@echo "  make keygen     -> Génère la clé d'application Laravel"
 	@echo "  make migrate    -> Exécute les migrations Laravel"
 	@echo "  make link    	 -> Créé un lien symbolique pour le local storage"
