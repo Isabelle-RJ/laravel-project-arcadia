@@ -1,4 +1,10 @@
 services:
+    web:
+        build: .
+        restart: unless-stopped
+        ports:
+            - "8080:80"
+            - "443:443"
     app:
 #        build: OLD VERSION
 #            context: .
@@ -7,13 +13,14 @@ services:
         container_name: app
         volumes:
             - .:/var/www/html
+            - .:/home/debian/laravel-project-arcadia
         ports:
             - "9000:9000"
         networks:
             - laravel
         command: /bin/bash -c "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && apt-get update && apt-get install -y git curl unzip libjpeg-dev libpng-dev libwebp-dev libzip-dev libfreetype6-dev libonig-dev zip nodejs npm && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp && docker-php-ext-install pdo_mysql mbstring zip gd && composer install && npm install && npm run build && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public/build && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public/build && php-fpm"
     nginx:
-        image: nginx:1.27.2 #-alpine3.20
+        image: nginx:1.27.2-alpine3.20
         container_name: laravel-nginx
         restart: always
         volumes:
