@@ -11,7 +11,7 @@ let reviews = []
 
 async function getReviews() {
     try {
-        const response = await fetch("http://127.0.0.1:8000/api/admin/zoo/reviews")
+        const response = await fetch("/api/admin/zoo/reviews")
         reviews = await response.json()
         makeCarousel(reviews, currentIndex)
     } catch (e) {

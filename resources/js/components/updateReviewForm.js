@@ -6,7 +6,7 @@ const divReview = document.querySelector('.card-content-review')
 
 async function updateReview(event, status){
     event.preventDefault()
-    const response = await fetch(`http://127.0.0.1:8000/api/admin/zoo/reviews/edit/${divReview.dataset.id}`, {
+    const response = await fetch(`/api/admin/zoo/reviews/edit/${divReview.dataset.id}`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",

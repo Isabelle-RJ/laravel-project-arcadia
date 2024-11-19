@@ -4,7 +4,7 @@ async function handleSubmit(event){
     event.preventDefault()
     const reviewData = Object.fromEntries(new FormData(form))
 
-    const response = await fetch("http://127.0.0.1:8000/api/admin/zoo/reviews/create", {
+    const response = await fetch("/api/admin/zoo/reviews/create", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
