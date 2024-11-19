@@ -11,7 +11,7 @@ services:
             - "9000:9000"
         networks:
             - laravel
-        command: /bin/bash -c "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && apt-get update && apt-get install -y git curl unzip libjpeg-dev libpng-dev libwebp-dev libzip-dev libfreetype6-dev libonig-dev zip nodejs npm && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp && docker-php-ext-install pdo_mysql mbstring zip gd && chown -R www-data:www-data /var/www/html/public/build /var/www/html/storage /var/www/html/bootstrap/cache && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public/build && php-fpm"
+        command: /bin/bash -c "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && apt-get update && apt-get install -y git curl unzip libjpeg-dev libpng-dev libwebp-dev libzip-dev libfreetype6-dev libonig-dev zip nodejs npm && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp && docker-php-ext-install pdo_mysql mbstring zip gd && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public/build && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public/build && php-fpm"
     nginx:
         image: nginx:1.27.2 #-alpine3.20
         container_name: laravel-nginx
