@@ -61,7 +61,7 @@ CREATE TABLE `reviews`
     `id`         INT PRIMARY KEY AUTO_INCREMENT,
     `zoo_id`     INT  NOT NULL,
     `content`    TEXT NOT NULL,
-    `status`     ENUM ('active', 'inactive', 'pending') DEFAULT 'pending',
+    `status`     ENUM ('validated', 'rejected', 'pending') DEFAULT 'pending',
     `author`     VARCHAR(255),
     `rating`     INT CHECK (`rating` BETWEEN 1 AND 5),
     `created_at` DATETIME                               DEFAULT CURRENT_TIMESTAMP,
@@ -223,6 +223,19 @@ VALUES (1, 1, 'Lundi', '14:00', '18:00'),
        (6, 1, 'Samedi', '11:00', '19:00'),
        (7, 1, 'Dimanche', '10:00', '17:00');
 
-
-
-
+INSERT INTO reviews (id, zoo_id, content, status, author, rating)
+VALUES (1, 1,
+        'Le zoo Arcadia est un véritable bijou caché en Bretagne. La proximité de la forêt de Brocéliande ajoute un charme magique à l\'endroit. Les animaux sont bien soignés, et le personnel est très accueillant. J\'ai particulièrement apprécié l\'enclos des loups, c\'était fascinant de les observer dans un environnement aussi naturel. Un lieu parfait pour une sortie en famille.',
+        'pending', 'Alfred Lecoq', 5),
+       (2, 1,
+        'J\'ai adoré ma visite au zoo Arcadia ! Le parc est bien aménagé et spacieux, ce qui permet aux animaux de vivre dans des habitats qui ressemblent à leur milieu naturel. Les informations fournies sur chaque espèce étaient complètes, et j\'ai appris beaucoup de choses. Petit plus : les sentiers bordés d\'arbres rappellent la forêt de Brocéliande toute proche, c\'est vraiment dépaysant !',
+        'pending', 'Brume Sauvage', 4),
+       (3, 1,
+        'Un peu déçu par ma visite au zoo Arcadia. Les animaux semblaient parfois un peu apathiques, et certains enclos manquaient d\'entretien. Par contre, j\'ai beaucoup aimé la proximité avec la nature environnante, surtout avec la légendaire forêt de Brocéliande. Peut-être que le zoo pourrait bénéficier de quelques rénovations et améliorations.',
+        'rejected', 'Toto Zero', 3),
+       (4, 1,
+        'Un endroit incroyable pour les amoureux de la nature et des animaux ! Le zoo Arcadia met l\'accent sur la conservation et le bien-être animal, ce qui est vraiment appréciable. Les activités pédagogiques pour les enfants sont top, et la proximité avec Brocéliande apporte une touche mystique à la visite. Je recommande à 100 % pour une journée de détente et de découverte.',
+        'validated', 'Jane Doe', 4),
+       (5, 1,
+        'Le zoo est charmant et assez bien entretenu, mais ce qui m\'a le plus marqué, c\'est l\'atmosphère magique des environs. La forêt de Brocéliande toute proche rend la visite encore plus spéciale, presque féerique. Le zoo propose aussi des animations autour de la légende arthurienne, ce qui a beaucoup plu à mes enfants. Une belle expérience à renouveler !',
+        'validated', 'Jade Choupi', 5);
