@@ -90,8 +90,11 @@ For sass :
 ```shell
 npm install -D sass-embedded
 ```
-## Deployement :
-* TODO : description for deployment * 
+
+## Create admin account :
+Get this command and follow instructions
+
+``` php artisan register:admin ```
 
 ### Accounts for testing (Seeders) :
 ```Admin : joseadmin@gmail.com -- 123456789aze```
