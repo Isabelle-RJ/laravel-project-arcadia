@@ -69,7 +69,7 @@
         @endcan
 
         @can('view', App\Models\Animal::class)
-            <a href="{{ route('admin.animals') }}">
+            <a href="{{ route('animals.create') }}">
                 <div class="cards-list">
                     <img
                         class="icon-dashboard"

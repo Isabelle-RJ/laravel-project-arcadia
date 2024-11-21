@@ -94,7 +94,7 @@
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ FOOTER ~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <section class="container-footer">
     <h4>&copy; Zooparc Arcadia : Zoo en Ille et vilaine (35) en Bretagne</h4>
-    <span class="txt-hidden">Isabelle Jurain Radermecker</span>
+    <span>Application en Laravel réalisée par Isabelle Radermecker Jurain - ECF École Studi</span>
 </section>
 
 </body>
