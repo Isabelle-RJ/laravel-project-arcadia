@@ -34,17 +34,21 @@ as well as schedules and the possibility of leaving a review.
 
 Clone the repository
 ```shell
-git clone https://github.com/Isabelle-RJ/arcadia-project.git
+git clone https://github.com/Isabelle-RJ/laravel-project-arcadia.git
 ```
 Go to the directory project
 ```shell
-cd arcadia-project
+cd laravel-project-arcadia
 ```
 Install all package composer.json:
 ```shell
 composer install
 ```
 Copy .env.example -> create `.env` -> paste content `.env.example` and change lines 22-26.
+```shell
+cp .env-example .env
+```
+Change if you need SESSION_DRIVER in `.env`
 
 Start Laravel server in your IDE terminal :
 ```shell
