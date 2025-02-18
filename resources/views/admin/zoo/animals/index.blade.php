@@ -18,7 +18,7 @@
             </div>
             @can('view', App\Models\FoodConsum::class)
             <div class="btn-next">
-                <a href="{{ route('dashboard') }}"
+                <a href=""
                    class="btn-send">Voir l'historique des repas</a>
             </div>
             @endcan

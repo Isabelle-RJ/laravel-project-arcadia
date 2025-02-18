@@ -1,14 +1,14 @@
-@import "fonts-admin";
-@import "reset";
-@import "variables";
+@use "fonts-admin";
+@use "reset";
+@use "variables";
 
-@import "base";
-@import "main";
-@import "header";
-@import "reviews-table";
-@import "reviews-card";
-@import "animals-list";
-@import "veterinarian-reports-cards";
-@import "foods-consum";
-@import "footer";
+@use "base";
+@use "main";
+@use "header";
+@use "reviews-table";
+@use "reviews-card";
+@use "animals-list";
+@use "veterinarian-reports-cards";
+@use "foods-consum";
+@use "footer";
 

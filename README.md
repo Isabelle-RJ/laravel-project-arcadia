@@ -30,6 +30,8 @@ as well as schedules and the possibility of leaving a review.
 - Programming language PHP with Laravel
 - Database: for storing and managing data. SQL database (MySQL) and NoSQL database (MongoDB)
 - Server OVH
+
+
 ## Local installation :
 
 Clone the repository

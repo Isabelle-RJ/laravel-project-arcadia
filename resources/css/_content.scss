@@ -411,6 +411,37 @@ h4{
     margin-top: -60px;
 }
 
+.description-habitat-marais{
+    text-align: center;
+    padding: 1rem 2rem 1rem 2rem;
+    margin: 1rem 2rem 1rem 2rem;
+    background-color: var(--bg-primary-light);
+    border-radius: 0.4rem;
+}
+
+.description-habitat-jungle{
+    text-align: center;
+    padding: 1rem 2rem 1rem 2rem;
+    margin: 1rem 2rem 1rem 2rem;
+    background-color: var(--primary-light);
+    border-radius: 0.4rem;
+}
+
+.description-habitat-savane{
+    text-align: center;
+    padding: 1rem 2rem 1rem 2rem;
+    margin: 1rem 2rem 1rem 2rem;
+    background-color: var(--secondary-light);
+    border-radius: 0.4rem;
+}
+
+.description-animal{
+    display: flex;
+}
+div.description-animal{
+    justify-content: center;
+    text-align: center;
+}
 /* Section animal-sheet image and button */
 .img-modal {
     position: relative;
@@ -586,6 +617,12 @@ input, textarea{
         width: 100%;
         height: auto;
         border-radius: 8px;
+    }
+    .card-animals-habitat{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 colonnes de taille égale */
+        grid-template-rows: repeat(2, auto);
+        gap: 3rem;
     }
 
     .animals-container {

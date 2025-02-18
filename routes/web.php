@@ -63,6 +63,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('admin/zoo/animals/edit/{name}', [AnimalsAdminController::class, 'update'])->name('animals.update');
     Route::delete('admin/zoo/animals/edit/{name}', [AnimalsAdminController::class, 'delete'])->name('animals.delete');
 
+    // TODO : Faire la page index des services
     Route::get('admin/zoo/services/create', [ServicesAdminController::class, 'createForm'])->name('services.createForm');
     Route::post('admin/zoo/services/create', [ServicesAdminController::class, 'create'])->name('services.create');
     Route::get('admin/zoo/services/edit/{name}', [ServicesAdminController::class, 'edit'])->name('services.edit');

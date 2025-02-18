@@ -10,8 +10,19 @@
     </div>
 @endsection
 @section('content')
+    <section>
+        @forelse( $habitat->animals as $animal )
+            <a href="{{ route('habitat', [$habitat->name]) }}">{{ $habitat->name }}</a>
+        @empty
+            <p>Aucun chemin</p>
+        @endforelse
+
+    </section>
     <section class="container section-habitat {{ strtolower($habitat->name) }}">
     <h2>{{ $habitat->name }}</h2>
+        <section class="description-habitat-{{ strtolower($habitat->name) }}">
+            <p>{{ $habitat->description }}</p>
+        </section>
 
     @forelse( $habitat->animals as $animal )
         <div class="card-container">

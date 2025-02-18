@@ -1,11 +1,11 @@
-@import "reset";
-@import "variables";
-@import "fonts/fonts";
-@import "media-queries";
+@use "reset";
+@use "variables";
+@use "/public/fonts/fonts";
+@use "media-queries";
 
-@import "bg-header";
-@import "navigation";
-@import "base";
-@import "content";
-@import "carousel-reviews";
-@import "footer";
+@use "bg-header";
+@use "navigation";
+@use "base";
+@use "content";
+@use "carousel-reviews";
+@use "footer";
